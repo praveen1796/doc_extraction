@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ContractRatesExtraction",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "document_type",
+    "contract_title", "contract_type", "reference_number",
+    "operator_name", "operator_address",
+    "contractor_name", "contractor_address",
+    "effective_date", "commencement_date",
+    "rig_designation", "crew_size",
+    "governing_law", "venue",
+    "contract_term", "currency",
+    "line_items",
+    "signatures",
+    "confidence"
+  ],
+  "properties": {
+    "document_type": { "type": "string" },
+    "contract_title": { "type": ["string", "null"] },
+    "contract_type": { "type": ["string", "null"] },
+    "reference_number": { "type": ["string", "null"] },
+    "operator_name": { "type": ["string", "null"] },
+    "operator_address": { "type": ["string", "null"] },
+    "contractor_name": { "type": ["string", "null"] },
+    "contractor_address": { "type": ["string", "null"] },
+    "effective_date": { "type": ["string", "null"] },
+    "commencement_date": { "type": ["string", "null"] },
+    "rig_designation": { "type": ["string", "null"] },
+    "crew_size": { "anyOf": [{ "type": "integer" }, { "type": "null" }] },
+    "governing_law": { "type": ["string", "null"] },
+    "venue": { "type": ["string", "null"] },
+    "contract_term": { "type": ["string", "null"] },
+    "currency": { "type": ["string", "null"] },
+
+    "line_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["section", "description", "amount", "unit", "notes", "page_ref"],
+        "properties": {
+          "section":     { "type": ["string", "null"] },
+          "description": { "type": ["string", "null"] },
+          "amount":      { "anyOf": [{ "type": "number" }, { "type": "string" }, { "type": "null" }] },
+          "unit":        { "type": ["string", "null"] },
+          "notes":       { "type": ["string", "null"] },
+          "page_ref":    { "anyOf": [{ "type": "integer" }, { "type": "null" }] }
+        }
+      }
+    },
+
+    "signatures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["party_role", "party_name", "signer_name", "signer_title", "signature_date", "signed"],
+        "properties": {
+          "party_role":     { "type": ["string", "null"] },
+          "party_name":     { "type": ["string", "null"] },
+          "signer_name":    { "type": ["string", "null"] },
+          "signer_title":   { "type": ["string", "null"] },
+          "signature_date": { "type": ["string", "null"] },
+          "signed":         { "type": ["boolean", "null"] }
+        }
+      }
+    },
+
+    "confidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contract_title", "operator_name", "contractor_name", "line_items"],
+      "properties": {
+        "contract_title":  { "type": "number" },
+        "operator_name":   { "type": "number" },
+        "contractor_name": { "type": "number" },
+        "line_items":      { "type": "number" }
+      }
+    }
+  }
+}

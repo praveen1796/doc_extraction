@@ -1,0 +1,145 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "InvoiceExtractionOutput",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "document_type", "language", "vendor_name", "vendor_address",
+    "vendor_tax_id", "vendor_phone", "vendor_email",
+    "invoice_number", "invoice_date", "due_date", "po_number",
+    "payment_terms", "bill_to_name", "bill_to_address",
+    "ship_to_name", "ship_to_address", "currency",
+    "subtotal", "tax_amount", "tax_rate", "discount", "total_amount",
+    "line_items", "purchase_order_reference",
+    "rig_number", "job_number", "well_name", "afe_number",
+    "contract_number", "account_number", "remit_to", "notes",
+    "so_confirmation_number", "confidence"
+  ],
+  "properties": {
+    "document_type": { "type": "string" },
+    "language": { "type": "string" },
+    "vendor_name": { "type": "string" },
+    "vendor_address": { "type": "string" },
+    "vendor_tax_id": { "type": "string" },
+    "vendor_phone": { "type": "string" },
+    "vendor_email": { "type": "string" },
+    "invoice_number": { "type": "string" },
+    "invoice_date": { "type": "string", "description": "YYYY-MM-DD" },
+    "due_date": { "type": "string", "description": "YYYY-MM-DD" },
+    "po_number": { "type": "string" },
+    "payment_terms": { "type": "string" },
+    "bill_to_name": { "type": "string" },
+    "bill_to_address": { "type": "string" },
+    "ship_to_name": { "type": "string" },
+    "ship_to_address": { "type": "string" },
+    "currency": { "type": "string" },
+    "subtotal": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+    "tax_amount": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+    "tax_rate": { "type": "string" },
+    "discount": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+    "total_amount": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+    "line_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "line_number", "description", "quantity", "unit",
+          "unit_price", "amount", "part_number", "tax",
+          "po_line_number", "po_quantity", "ship_quantity", "received_quantity",
+          "sales_order_number", "packing_slip_number",
+          "delivery_number", "ship_date", "tracking_number"
+        ],
+        "properties": {
+          "line_number": { "anyOf": [{ "type": "integer" }, { "type": "null" }] },
+          "description": { "type": "string" },
+          "quantity": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+          "unit": { "type": "string" },
+          "unit_price": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+          "amount": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+          "part_number": { "type": "string" },
+          "tax": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+          "po_line_number": { "anyOf": [{ "type": "integer" }, { "type": "null" }] },
+          "po_quantity": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+          "ship_quantity": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+          "received_quantity": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+          "sales_order_number": { "type": "string" },
+          "packing_slip_number": { "type": "string" },
+          "delivery_number": { "type": "string" },
+          "ship_date": { "type": "string" },
+          "tracking_number": { "type": "string" }
+        }
+      }
+    },
+    "purchase_order_reference": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "po_number", "po_date", "po_total", "po_currency",
+            "buyer_name", "buyer_email", "freight_terms", "incoterms",
+            "payment_terms", "final_destination", "shipping_method", "po_lines"
+          ],
+          "properties": {
+            "po_number": { "type": "string" },
+            "po_date": { "type": "string" },
+            "po_total": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+            "po_currency": { "type": "string" },
+            "buyer_name": { "type": "string" },
+            "buyer_email": { "type": "string" },
+            "freight_terms": { "type": "string" },
+            "incoterms": { "type": "string" },
+            "payment_terms": { "type": "string" },
+            "final_destination": { "type": "string" },
+            "shipping_method": { "type": "string" },
+            "po_lines": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "line_number", "part_number", "description",
+                  "quantity", "unit", "unit_price", "amount",
+                  "promised_date", "account_code"
+                ],
+                "properties": {
+                  "line_number": { "anyOf": [{ "type": "integer" }, { "type": "null" }] },
+                  "part_number": { "type": "string" },
+                  "description": { "type": "string" },
+                  "quantity": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+                  "unit": { "type": "string" },
+                  "unit_price": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+                  "amount": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+                  "promised_date": { "type": "string" },
+                  "account_code": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        { "type": "null" }
+      ]
+    },
+    "rig_number": { "type": "string" },
+    "job_number": { "type": "string" },
+    "well_name": { "type": "string" },
+    "afe_number": { "type": "string" },
+    "contract_number": { "type": "string" },
+    "account_number": { "type": "string" },
+    "remit_to": { "type": "string" },
+    "notes": { "type": "string" },
+    "so_confirmation_number": { "type": "string" },
+    "confidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["vendor_name", "invoice_number", "invoice_date", "total_amount"],
+      "properties": {
+        "vendor_name": { "type": "number" },
+        "invoice_number": { "type": "number" },
+        "invoice_date": { "type": "number" },
+        "total_amount": { "type": "number" }
+      }
+    }
+  }
+}

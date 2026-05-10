@@ -1,0 +1,90 @@
+Extract all timesheet data from the attached document images.
+
+FILE: {{FILE_NAME}} | PAGES: {{PAGE_COUNT}} | SCANNED: {{IS_SCANNED}} | METHOD: {{EXTRACTION_METHOD}}
+
+══════════════════════════════════════════════════════════
+STEP 1 — IDENTIFY KEY HEADER FIELDS
+══════════════════════════════════════════════════════════
+
+Look for:
+1. SERVICE COMPANY → Logo or name at top, header, OR footer of the page
+2. WEEK ENDING DATE → "Week Ending:", "Period End:", "Date:" → YYYY-MM-DD
+3. RIG NUMBER → "Rig No:", "Rig #", "Rig:" (e.g., B10, M47, LR222)
+4. TOTAL → Bottom of the timesheet, "Total", "Grand Total", "Total Charges"
+
+══════════════════════════════════════════════════════════
+STEP 2 — EXTRACT ALL FIELDS
+══════════════════════════════════════════════════════════
+
+Header fields:
+- document_type: "Timesheet"
+- vendor_name: Service company (NOT the customer/Nabors entity)
+- customer_name: "Customer:", "Bill To:" — usually a Nabors entity
+- week_ending_date: YYYY-MM-DD
+- week_start_date: YYYY-MM-DD if shown
+- rig_number: Actual rig identifier (B10, M47, LR222)
+- well_name: "Well Name:", "Well:"
+- location: "Location:", "Field:"
+- job_number: "Job No:", "Job #", "Job ID"
+- po_number: "PO #", "Customer PO", "P.O. No:"
+- invoice_number: "Invoice No:", "Invoice #" — if timesheet is also an invoice
+- total_amount: Numeric only (no $ or commas)
+- currency: "USD" if $ amounts shown
+- notes: Any special notes, signatures, approval info
+
+Employee entries (one object per row):
+- employee_name: Full name or initials
+- employee_title: "Title:", "Position:", "Classification:"
+- date: YYYY-MM-DD (date worked)
+- hours: Number of hours worked
+- charge_type: "ST", "OT", "DT", "SB", "Per Diem", "Mob", "Demob"
+- rate: Hourly rate or daily rate (numeric)
+- per_diem: Per-diem amount if shown separately (numeric)
+- amount: Total for this row (hours × rate + per_diem)
+
+══════════════════════════════════════════════════════════
+STEP 3 — SELF-CHECK BEFORE OUTPUT
+══════════════════════════════════════════════════════════
+
+□ vendor_name is NOT empty (check footer for service company name)
+□ week_ending_date is YYYY-MM-DD
+□ rig_number is an actual rig (B10, M47) — NOT an entity name
+□ total_amount is numeric
+
+Return a single JSON object:
+{
+  "document_type": "Timesheet",
+  "vendor_name": "",
+  "customer_name": "",
+  "week_ending_date": "",
+  "week_start_date": "",
+  "rig_number": "",
+  "well_name": "",
+  "location": "",
+  "job_number": "",
+  "po_number": "",
+  "invoice_number": "",
+  "currency": "",
+  "subtotal": null,
+  "tax_amount": null,
+  "total_amount": null,
+  "notes": "",
+  "entries": [
+    {
+      "employee_name": "",
+      "employee_title": "",
+      "date": "",
+      "hours": null,
+      "charge_type": "",
+      "rate": null,
+      "per_diem": null,
+      "amount": null
+    }
+  ],
+  "confidence": {
+    "vendor_name": 0.0,
+    "week_ending_date": 0.0,
+    "rig_number": 0.0,
+    "total_amount": 0.0
+  }
+}

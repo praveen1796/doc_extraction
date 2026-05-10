@@ -1,0 +1,84 @@
+{
+  "id": "purchase_order",
+  "displayName": "Purchase Order",
+  "description": "Extract structured data from Purchase Order documents. Supports Nabors iProcurement POs, vendor acknowledgements, and standard PO formats.",
+  "version": "1.0",
+  "enabled": true,
+  "acceptedFileTypes": ["pdf", "png", "jpg", "jpeg"],
+  "maxFileSizeMb": 30,
+  "maxPages": 20,
+  "iconName": "clipboard-list",
+  "category": "Procurement",
+
+  "extraction": {
+    "model": "gpt-4o",
+    "reasoningEffort": "medium",
+    "temperature": 0,
+    "maxTokens": 6000,
+    "dualPassEnabled": true,
+    "dualPassStrategy": "text_search",
+    "imageResolutionDpi": 180,
+    "imageMaxWidthPx": 1800,
+    "imagesBeforeText": true
+  },
+
+  "output": {
+    "format": "json",
+    "excelExportEnabled": true,
+    "excelSheetName": "PurchaseOrders"
+  },
+
+  "validation": {
+    "minConfidenceScore": 0.5,
+    "confidencePenaltyPerError": 0.05,
+    "rules": [
+      {
+        "field": "po_number",
+        "type": "required",
+        "severity": "Error",
+        "message": "PO number is required"
+      },
+      {
+        "field": "po_date",
+        "type": "required",
+        "severity": "Error",
+        "message": "PO date is required"
+      },
+      {
+        "field": "po_date",
+        "type": "date",
+        "severity": "Error",
+        "message": "PO date must be in YYYY-MM-DD format"
+      },
+      {
+        "field": "vendor_name",
+        "type": "required",
+        "severity": "Error",
+        "message": "Vendor name is required"
+      },
+      {
+        "field": "total_amount",
+        "type": "required",
+        "severity": "Warning",
+        "message": "Total amount is recommended"
+      },
+      {
+        "field": "buyer_name",
+        "type": "required",
+        "severity": "Warning",
+        "message": "Buyer/requester name recommended"
+      }
+    ]
+  },
+
+  "rateLimiting": {
+    "requestsPerMinute": 30,
+    "requestsPerDay": 500,
+    "burstSize": 5
+  },
+
+  "metadata": {
+    "owner": "Procurement Team",
+    "tags": ["procurement", "purchase-order", "supply-chain"]
+  }
+}

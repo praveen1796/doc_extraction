@@ -1,0 +1,36 @@
+# Build outputs
+**/bin/
+**/obj/
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# Logs
+*.log
+**/logs/
+
+# IDE
+.vs/
+.vscode/
+*.user
+*.suo
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Test output
+test-results/
+playwright-report/
+
+# NuGet
+*.nupkg
+packages/

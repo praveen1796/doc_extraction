@@ -1,0 +1,150 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TourSheet",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "document_type", "rig_number", "well_name", "well_number",
+    "field", "location", "operator_name",
+    "tour_date", "tour_type", "tour_start_time", "tour_end_time",
+    "driller_name", "tool_pusher_name", "rig_manager_name",
+    "depth_unit", "depth_start", "depth_end", "footage_drilled",
+    "afe_number", "well_phase",
+    "drilling_parameters", "mud_properties", "bit_info",
+    "time_breakdown", "npt_events", "bha", "comments", "confidence"
+  ],
+  "properties": {
+    "document_type": { "type": "string" },
+    "rig_number": { "type": "string" },
+    "well_name": { "type": "string" },
+    "well_number": { "type": "string" },
+    "field": { "type": "string" },
+    "location": { "type": "string" },
+    "operator_name": { "type": "string" },
+    "tour_date": { "type": "string", "description": "YYYY-MM-DD" },
+    "tour_type": { "type": "string", "description": "Day, Night, 12hr Day, 12hr Night, 24hr" },
+    "tour_start_time": { "type": "string", "description": "HH:MM 24-hour" },
+    "tour_end_time": { "type": "string", "description": "HH:MM 24-hour" },
+    "driller_name": { "type": "string" },
+    "tool_pusher_name": { "type": "string" },
+    "rig_manager_name": { "type": "string" },
+    "depth_unit": { "type": "string", "description": "ft or m" },
+    "depth_start": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+    "depth_end": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+    "footage_drilled": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+    "afe_number": { "type": "string" },
+    "well_phase": { "type": "string" },
+    "drilling_parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "avg_wob", "avg_rpm", "avg_rop",
+        "avg_pump_pressure_psi", "avg_flow_rate_gpm", "max_torque"
+      ],
+      "properties": {
+        "avg_wob": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+        "avg_rpm": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+        "avg_rop": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+        "avg_pump_pressure_psi": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+        "avg_flow_rate_gpm": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+        "max_torque": { "anyOf": [{ "type": "number" }, { "type": "null" }] }
+      }
+    },
+    "mud_properties": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mud_type", "mud_weight_in", "mud_weight_out",
+        "plastic_viscosity", "yield_point", "fluid_loss",
+        "ph_value", "chlorides", "solids_percent", "oil_water_ratio"
+      ],
+      "properties": {
+        "mud_type": { "type": "string" },
+        "mud_weight_in": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+        "mud_weight_out": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+        "plastic_viscosity": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+        "yield_point": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+        "fluid_loss": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+        "ph_value": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+        "chlorides": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+        "solids_percent": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+        "oil_water_ratio": { "type": "string" }
+      }
+    },
+    "bit_info": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "bit_number", "bit_size", "bit_type", "bit_iadc_code",
+        "bit_manufacturer", "depth_in", "depth_out",
+        "hours_on_bit", "dull_grade_in", "dull_grade_out"
+      ],
+      "properties": {
+        "bit_number": { "anyOf": [{ "type": "integer" }, { "type": "null" }] },
+        "bit_size": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+        "bit_type": { "type": "string" },
+        "bit_iadc_code": { "type": "string" },
+        "bit_manufacturer": { "type": "string" },
+        "depth_in": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+        "depth_out": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+        "hours_on_bit": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+        "dull_grade_in": { "type": "string" },
+        "dull_grade_out": { "type": "string" }
+      }
+    },
+    "time_breakdown": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["activity", "hours", "npt"],
+        "properties": {
+          "activity": { "type": "string" },
+          "hours": { "type": "number" },
+          "npt": { "type": "boolean" }
+        }
+      }
+    },
+    "npt_events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["code", "description", "hours", "depth"],
+        "properties": {
+          "code": { "type": "string" },
+          "description": { "type": "string" },
+          "hours": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+          "depth": { "anyOf": [{ "type": "number" }, { "type": "null" }] }
+        }
+      }
+    },
+    "bha": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["position", "type", "od", "length", "description"],
+        "properties": {
+          "position": { "anyOf": [{ "type": "integer" }, { "type": "null" }] },
+          "type": { "type": "string" },
+          "od": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+          "length": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "comments": { "type": "string" },
+    "confidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rig_number", "tour_date", "depth_end", "tour_type"],
+      "properties": {
+        "rig_number": { "type": "number" },
+        "tour_date": { "type": "number" },
+        "depth_end": { "type": "number" },
+        "tour_type": { "type": "number" }
+      }
+    }
+  }
+}

@@ -1,0 +1,449 @@
+{
+  "request_id": "20260410144917_2773d1d7",
+  "document_type": "well_plan",
+  "status": "Success",
+  "metadata": {
+    "source_file": "EN-MADISYN-LE-154-94-0705 Pre-Spud Meeting.pdf",
+    "file_size_bytes": 1818097,
+    "page_count": 7,
+    "extraction_method": "hybrid",
+    "model_used": "azure-openai-gpt",
+    "reasoning_effort": "medium",
+    "dual_pass_triggered": false,
+    "extracted_at": "2026-04-10T14:51:02.5951718Z",
+    "processing_time_ms": 104750,
+    "total_tokens_used": 14897,
+    "pages_sent_to_model": 7
+  },
+  "data": {
+    "document_type": "Spud Meeting",
+    "language": "en",
+    "document_format": "pre_spud_meeting",
+    "rig_name": "Nabors X10",
+    "operator": "Hess",
+    "pad_name": "EN-MADISYN-LE-154-94-0705",
+    "location": "Sec 7, T154N, R94W, Mountrail County, ND",
+    "report_status": "",
+    "report_date": "2023-08-04",
+    "depth_unit": "ft",
+    "approvals": [
+      {
+        "name": "Jim Stover",
+        "action": "Drilling Superintendent (Organization Approval)",
+        "datetime": ""
+      },
+      {
+        "name": "Isabel Leon",
+        "action": "Drilling Engineer (Organization Approval)",
+        "datetime": ""
+      }
+    ],
+    "wells": [
+      {
+        "well_name": "EN-MADISYN-LE-154-94-0705H-7",
+        "well_type": "horizontal",
+        "api_number": "33-061-05677",
+        "afe_number": null,
+        "operator_well_id": null,
+        "permit_id": null,
+        "total_depth_md": 21246.0,
+        "total_depth_tvd": 10740.0,
+        "lateral_length": "11,063 ft MD to 21,246 ft MD",
+        "target_formation": "Middle Bakken",
+        "design": "3.8° tangent; 12.5° build; 7° drop",
+        "surface_coordinates": "Latitude: 48° 10' 49.055\"; Longitude: -102° 45' 25\"",
+        "coordinate_system": "",
+        "ground_level": 2138.0,
+        "rkb": 2201.0,
+        "skid_order": 1,
+        "casing_program": [
+          {
+            "section_name": "Surface",
+            "hole_size": 16.0,
+            "casing_od": 13.375,
+            "casing_id": null,
+            "drift": null,
+            "grade": "",
+            "weight_per_length": null,
+            "connection": "",
+            "start_md": 0.0,
+            "end_md": 1885.0,
+            "cement_type": null,
+            "cement_details": null
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 8.75,
+            "casing_od": 9.625,
+            "casing_id": null,
+            "drift": null,
+            "grade": "",
+            "weight_per_length": null,
+            "connection": "",
+            "start_md": 0.0,
+            "end_md": 10772.0,
+            "cement_type": null,
+            "cement_details": null
+          },
+          {
+            "section_name": "Production",
+            "hole_size": 6.0,
+            "casing_od": 7.0,
+            "casing_id": null,
+            "drift": null,
+            "grade": "",
+            "weight_per_length": null,
+            "connection": "",
+            "start_md": 0.0,
+            "end_md": 21246.0,
+            "cement_type": null,
+            "cement_details": null
+          }
+        ],
+        "formation_tops": [
+          {
+            "formation_name": "Pierre",
+            "md": null,
+            "tvd": 188.0
+          },
+          {
+            "formation_name": "Greenhorn",
+            "md": null,
+            "tvd": 4288.0
+          },
+          {
+            "formation_name": "Mowry",
+            "md": null,
+            "tvd": 4449.0
+          },
+          {
+            "formation_name": "Newcastle",
+            "md": null,
+            "tvd": 5460.0
+          },
+          {
+            "formation_name": "Sage",
+            "md": null,
+            "tvd": 5508.0
+          },
+          {
+            "formation_name": "Piper",
+            "md": null,
+            "tvd": 6190.0
+          },
+          {
+            "formation_name": "Top.Shan. Salt",
+            "md": null,
+            "tvd": 6424.0
+          },
+          {
+            "formation_name": "Pop. Springs",
+            "md": null,
+            "tvd": 6427.0
+          },
+          {
+            "formation_name": "Top. Print. Salt",
+            "md": null,
+            "tvd": 6767.0
+          },
+          {
+            "formation_name": "Top.Opeche. Salt",
+            "md": null,
+            "tvd": 7300.0
+          },
+          {
+            "formation_name": "Amson",
+            "md": null,
+            "tvd": 7377.0
+          },
+          {
+            "formation_name": "Tyler",
+            "md": null,
+            "tvd": 7744.0
+          },
+          {
+            "formation_name": "Kibbey Lime",
+            "md": null,
+            "tvd": 8145.0
+          },
+          {
+            "formation_name": "Charles",
+            "md": null,
+            "tvd": 8318.0
+          },
+          {
+            "formation_name": "Ratcliffe",
+            "md": null,
+            "tvd": 8938.0
+          },
+          {
+            "formation_name": "Top. Last. Salt",
+            "md": null,
+            "tvd": 9017.0
+          },
+          {
+            "formation_name": "Blue.Carb. Trail",
+            "md": null,
+            "tvd": 9120.0
+          },
+          {
+            "formation_name": "Lodgepole",
+            "md": null,
+            "tvd": 9587.0
+          },
+          {
+            "formation_name": "Bakken",
+            "md": null,
+            "tvd": 10603.0
+          },
+          {
+            "formation_name": "Middle Bakken",
+            "md": null,
+            "tvd": 10679.0
+          },
+          {
+            "formation_name": "Base.MB. Bakken",
+            "md": null,
+            "tvd": 10687.0
+          },
+          {
+            "formation_name": "Three Forks",
+            "md": null,
+            "tvd": 10743.0
+          }
+        ],
+        "drilling_sections": [
+          {
+            "section_name": "Surface",
+            "hole_size": 16.0,
+            "depth_from": 0.0,
+            "depth_to": 800.0,
+            "interval": "",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "",
+            "primary_bit": "",
+            "backup_bit": "",
+            "comments": ""
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 8.75,
+            "depth_from": 800.0,
+            "depth_to": 11063.0,
+            "interval": "",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "",
+            "primary_bit": "",
+            "backup_bit": "",
+            "comments": ""
+          },
+          {
+            "section_name": "Production/Lateral",
+            "hole_size": 6.0,
+            "depth_from": 11063.0,
+            "depth_to": 21246.0,
+            "interval": "Middle Bakken",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "",
+            "primary_bit": "",
+            "backup_bit": "",
+            "comments": ""
+          }
+        ],
+        "drilling_fluids": [],
+        "risks_and_hazards": [
+          {
+            "section": "Offsets",
+            "risk": "No operational issues on offset wells",
+            "comments": ""
+          },
+          {
+            "section": "SWD",
+            "risk": "5 wells identified",
+            "comments": ""
+          },
+          {
+            "section": "AC concerns",
+            "risk": "None",
+            "comments": ""
+          },
+          {
+            "section": "SIMOPS & AC Concerns",
+            "risk": "Do not cross section line buffer; keep communication with RTC to plan for any needed extra footage",
+            "comments": "Offset well EN-Madisyn H-1"
+          }
+        ],
+        "notes": "Drilling order shown in spud meeting: H-7 → H-8 → H-9 → H-10 → H-11 → H-12. Drilling outline page appears specific to H-7 (header EN-MADISYN-LE-154-94-0705H-7)."
+      },
+      {
+        "well_name": "EN-MADISYN-LE-154-94-0705H-8",
+        "well_type": "horizontal",
+        "api_number": null,
+        "afe_number": null,
+        "operator_well_id": null,
+        "permit_id": null,
+        "total_depth_md": null,
+        "total_depth_tvd": null,
+        "lateral_length": null,
+        "target_formation": "Middle Bakken",
+        "design": "",
+        "surface_coordinates": "",
+        "coordinate_system": "",
+        "ground_level": null,
+        "rkb": null,
+        "skid_order": 2,
+        "casing_program": [],
+        "formation_tops": [],
+        "drilling_sections": [],
+        "drilling_fluids": [],
+        "risks_and_hazards": [],
+        "notes": ""
+      },
+      {
+        "well_name": "EN-MADISYN-LE-154-94-0705H-9",
+        "well_type": "horizontal",
+        "api_number": null,
+        "afe_number": null,
+        "operator_well_id": null,
+        "permit_id": null,
+        "total_depth_md": null,
+        "total_depth_tvd": null,
+        "lateral_length": null,
+        "target_formation": "Middle Bakken",
+        "design": "",
+        "surface_coordinates": "",
+        "coordinate_system": "",
+        "ground_level": null,
+        "rkb": null,
+        "skid_order": 3,
+        "casing_program": [],
+        "formation_tops": [],
+        "drilling_sections": [],
+        "drilling_fluids": [],
+        "risks_and_hazards": [],
+        "notes": ""
+      },
+      {
+        "well_name": "EN-MADISYN-LE-154-94-0705H-10",
+        "well_type": "horizontal",
+        "api_number": null,
+        "afe_number": null,
+        "operator_well_id": null,
+        "permit_id": null,
+        "total_depth_md": null,
+        "total_depth_tvd": null,
+        "lateral_length": null,
+        "target_formation": "Middle Bakken",
+        "design": "",
+        "surface_coordinates": "",
+        "coordinate_system": "",
+        "ground_level": null,
+        "rkb": null,
+        "skid_order": 4,
+        "casing_program": [],
+        "formation_tops": [],
+        "drilling_sections": [],
+        "drilling_fluids": [],
+        "risks_and_hazards": [],
+        "notes": ""
+      },
+      {
+        "well_name": "EN-MADISYN-LE-154-94-0705H-11",
+        "well_type": "horizontal",
+        "api_number": null,
+        "afe_number": null,
+        "operator_well_id": null,
+        "permit_id": null,
+        "total_depth_md": null,
+        "total_depth_tvd": null,
+        "lateral_length": null,
+        "target_formation": "Middle Bakken",
+        "design": "",
+        "surface_coordinates": "",
+        "coordinate_system": "",
+        "ground_level": null,
+        "rkb": null,
+        "skid_order": 5,
+        "casing_program": [],
+        "formation_tops": [],
+        "drilling_sections": [],
+        "drilling_fluids": [],
+        "risks_and_hazards": [],
+        "notes": ""
+      },
+      {
+        "well_name": "EN-MADISYN-LE-154-94-0706H-12",
+        "well_type": "horizontal",
+        "api_number": null,
+        "afe_number": null,
+        "operator_well_id": null,
+        "permit_id": null,
+        "total_depth_md": null,
+        "total_depth_tvd": null,
+        "lateral_length": null,
+        "target_formation": "Middle Bakken",
+        "design": "",
+        "surface_coordinates": "",
+        "coordinate_system": "",
+        "ground_level": null,
+        "rkb": null,
+        "skid_order": 6,
+        "casing_program": [],
+        "formation_tops": [],
+        "drilling_sections": [],
+        "drilling_fluids": [],
+        "risks_and_hazards": [],
+        "notes": ""
+      }
+    ],
+    "confidence": {
+      "rig_name": 0.85,
+      "wells": 0.9,
+      "casing_program": 0.55,
+      "formation_tops": 0.6
+    }
+  },
+  "validation": {
+    "is_valid": true,
+    "confidence_score": 1.0,
+    "warnings": [],
+    "errors": [],
+    "warning_count": 0,
+    "error_count": 0,
+    "messages": []
+  },
+  "field_confidences": {
+    "rig_name": {
+      "score": 0.85,
+      "source_pass": "primary",
+      "tier": "high"
+    },
+    "wells": {
+      "score": 0.9,
+      "source_pass": "primary",
+      "tier": "high"
+    },
+    "casing_program": {
+      "score": 0.55,
+      "source_pass": "primary",
+      "tier": "low"
+    },
+    "formation_tops": {
+      "score": 0.6,
+      "source_pass": "primary",
+      "tier": "medium"
+    }
+  }
+}

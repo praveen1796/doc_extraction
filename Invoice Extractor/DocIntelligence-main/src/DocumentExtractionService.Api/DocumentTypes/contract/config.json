@@ -1,0 +1,65 @@
+{
+  "id": "contract",
+  "displayName": "Contract / Agreement",
+  "description": "Extract commercial terms, rates, fees, and pricing from oil & gas contracts, drilling proposals, service orders, and technology exhibits. Uses chunked extraction for documents over 15 pages to ensure complete coverage of exhibits and pricing tables.",
+  "version": "2.1",
+  "enabled": true,
+  "acceptedFileTypes": ["pdf", "png", "jpg", "jpeg", "tiff"],
+  "maxFileSizeMb": 100,
+  "maxPages": 160,
+  "iconName": "file-signature",
+  "category": "Legal",
+
+  "extraction": {
+    "model": "gpt-5.2",
+    "reasoning_effort": "high",
+    "temperature": 0,
+    "max_tokens": 32000,
+    "max_pages_for_vision": 12,
+    "image_dpi": 200,
+    "image_max_width_px": 2000,
+    "max_text_chars": 180000,
+    "text_truncation": "head_and_tail"
+  },
+
+  "chunking": {
+    "enabled": true,
+    "chunk_plan": "by_page",
+    "chunk_size_pages": 12,
+    "page_threshold": 15,
+    "max_concurrent_chunks": 2,
+    "merge_strategy": "concatenate",
+    "chunk_extraction_prompt_file": "chunk_extraction_prompt.txt"
+  },
+
+  "dual_pass": {
+    "enabled": true,
+    "strategy": "text_search",
+    "critical_fields": ["contract_title", "operator_name", "contractor_name"],
+    "confidence_threshold": 0.7,
+    "confidence_path": "confidence"
+  },
+
+  "output": {
+    "format": "json",
+    "excelExportEnabled": true,
+    "excelSheetName": "Contract Rates"
+  },
+
+  "validation": {
+    "minConfidenceScore": 0.5,
+    "confidencePenaltyPerError": 0.04,
+    "rules": [
+      { "field": "contract_title", "type": "required", "severity": "Error", "message": "Contract title is required" },
+      { "field": "operator_name", "type": "required", "severity": "Error", "message": "Operator name is required" },
+      { "field": "contractor_name", "type": "required", "severity": "Error", "message": "Contractor name is required" }
+    ]
+  },
+
+  "rateLimiting": { "requestsPerMinute": 15, "requestsPerDay": 200, "burstSize": 3 },
+
+  "metadata": {
+    "owner": "Contracts & Legal Team",
+    "tags": ["contract", "drilling", "legal", "IADC", "daywork", "rates", "pricing"]
+  }
+}

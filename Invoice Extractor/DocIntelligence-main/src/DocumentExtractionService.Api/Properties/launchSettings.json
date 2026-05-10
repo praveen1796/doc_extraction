@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "DocumentExtractionService.Api": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "https://localhost:61181;http://localhost:61182"
+      },
+      "applicationUrl": "https://localhost:61181;http://localhost:61182"
+    }
+  }
+}

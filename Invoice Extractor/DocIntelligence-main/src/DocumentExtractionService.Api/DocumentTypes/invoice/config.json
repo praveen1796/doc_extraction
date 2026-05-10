@@ -1,0 +1,99 @@
+{
+  "id": "invoice",
+  "displayName": "AP Invoice",
+  "description": "Accounts Payable invoice extraction for vendor invoices. Supports US, Latin American (Colombian, Mexican), Oracle, AWS, Canrig, CPC, EY, and government tax statement formats.",
+  "version": "6.0",
+  "enabled": true,
+  "acceptedFileTypes": ["pdf", "png", "jpg", "jpeg", "tiff"],
+  "maxFileSizeMb": 50,
+  "maxPages": 30,
+  "iconName": "receipt",
+  "category": "Finance",
+
+  "extraction": {
+    "model": "gpt-4o",
+    "reasoningEffort": "medium",
+    "temperature": 0,
+    "maxTokens": 8000,
+    "dualPassEnabled": true,
+    "dualPassStrategy": "text_search",
+    "imageResolutionDpi": 200,
+    "imageMaxWidthPx": 2000,
+    "imagesBeforeText": true
+  },
+
+  "output": {
+    "format": "json",
+    "excelExportEnabled": true,
+    "excelSheetName": "Invoices"
+  },
+
+  "validation": {
+    "minConfidenceScore": 0.5,
+    "confidencePenaltyPerError": 0.05,
+    "rules": [
+      {
+        "field": "vendor_name",
+        "type": "required",
+        "severity": "Error",
+        "message": "Vendor name is required"
+      },
+      {
+        "field": "invoice_number",
+        "type": "required",
+        "severity": "Error",
+        "message": "Invoice number is required"
+      },
+      {
+        "field": "invoice_date",
+        "type": "required",
+        "severity": "Error",
+        "message": "Invoice date is required"
+      },
+      {
+        "field": "invoice_date",
+        "type": "date",
+        "severity": "Error",
+        "message": "Invoice date must be in YYYY-MM-DD format"
+      },
+      {
+        "field": "due_date",
+        "type": "date",
+        "severity": "Warning",
+        "message": "Due date must be in YYYY-MM-DD format"
+      },
+      {
+        "field": "total_amount",
+        "type": "required",
+        "severity": "Error",
+        "message": "Total amount is required"
+      },
+      {
+        "field": "total_amount",
+        "type": "range",
+        "min": 0.01,
+        "max": 999999999,
+        "severity": "Warning",
+        "message": "Total amount seems unusually large or zero"
+      },
+      {
+        "field": "currency",
+        "type": "required",
+        "severity": "Warning",
+        "message": "Currency code is recommended"
+      }
+    ]
+  },
+
+  "rateLimiting": {
+    "requestsPerMinute": 30,
+    "requestsPerDay": 500,
+    "burstSize": 5
+  },
+
+  "metadata": {
+    "owner": "AP Automation Team",
+    "tags": ["accounts-payable", "invoice", "finance"],
+    "sampleFiles": ["sample_us_invoice.pdf", "sample_canrig_invoice.pdf"]
+  }
+}

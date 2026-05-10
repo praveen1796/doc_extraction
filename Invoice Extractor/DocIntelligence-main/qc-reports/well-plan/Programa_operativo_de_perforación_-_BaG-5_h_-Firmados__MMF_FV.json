@@ -1,0 +1,294 @@
+{
+  "request_id": "20260410151407_b263f17c",
+  "document_type": "well_plan",
+  "status": "Success",
+  "metadata": {
+    "source_file": "Programa operativo de perforación - BaG-5(h) -Firmados_ MMF_FV.pdf",
+    "file_size_bytes": 9559243,
+    "page_count": 153,
+    "extraction_method": "hybrid",
+    "model_used": "azure-openai-gpt",
+    "reasoning_effort": "medium",
+    "dual_pass_triggered": false,
+    "extracted_at": "2026-04-10T15:16:06.1217248Z",
+    "processing_time_ms": 118179,
+    "total_tokens_used": 58938,
+    "pages_sent_to_model": 10
+  },
+  "data": {
+    "document_type": "Programa Operativo de Perforación",
+    "language": "es",
+    "document_format": "single_well_program",
+    "rig_name": "NBRS-F35",
+    "operator": "YPF",
+    "pad_name": "LOC BAG14 (PAD BAG14)",
+    "location": "Área de Reserva/Bloque: La Angostura Sur I (Neuquén, Argentina)",
+    "report_status": "Privada",
+    "report_date": "2025-08-22",
+    "depth_unit": "m",
+    "approvals": [],
+    "wells": [
+      {
+        "well_name": "YPF.Nq.BaG-5(h)",
+        "well_type": "horizontal",
+        "api_number": null,
+        "afe_number": "RO366-25Y1.53.P0003",
+        "operator_well_id": "UWI: AR0300040089",
+        "permit_id": null,
+        "total_depth_md": 5950,
+        "total_depth_tvd": null,
+        "lateral_length": "3080 m",
+        "target_formation": "Fm Vaca Muerta (nivel Cocina C4)",
+        "design": "Slim (PAD de 3 pozos slim). Diámetro fase aislación 6 3/4\". Entubación 5\" (Serie Wedge 461 y Wedge 463). MPD en aislación.",
+        "surface_coordinates": "X=5710628,93 m; Y=2542284,89 m; Altitud/Cota=358,61 msnm",
+        "coordinate_system": "Gauss Kruger (Origen del Sist. Gauss Kruger p/R.A.)",
+        "ground_level": 358.61,
+        "rkb": null,
+        "skid_order": null,
+        "casing_program": [
+          {
+            "section_name": "Surface",
+            "hole_size": 12.25,
+            "casing_od": 9.625,
+            "casing_id": 8.921,
+            "drift": 8.765,
+            "grade": "K-55",
+            "weight_per_length": 36,
+            "connection": "TXP (BTC-XP)",
+            "start_md": 0,
+            "end_md": 549,
+            "cement_type": "Clase A",
+            "cement_details": "Cementación primaria 1 etapa. Altura de cemento 550 m; TOC 0 m. Lechada densidad 1740 g/l; Vol. fluido 80 bbl; Cant. cemento 269 bls; Agua necesaria 233 bbl; Resistencia 24h 1259 psi; Presión final 706 psi; Presión máx fondo 1366 psi. Desplazar con OBM."
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 8.75,
+            "casing_od": 7.625,
+            "casing_id": 7.025,
+            "drift": 6.9,
+            "grade": "P-110 ICY",
+            "weight_per_length": 24,
+            "connection": "WEDGE-461MS",
+            "start_md": 6.5,
+            "end_md": 1929.5,
+            "cement_type": "Clase G",
+            "cement_details": "Cementación primaria con overlap 150 m con zapato guía. TOC/Tope (m): 400. Dos lechadas: 400-1381 densidad 1540 g/l (Vol 69 bbl); 1381-1888 densidad 1740 g/l (Vol 31 bbl). Altura de cemento reportada 1530 m."
+          },
+          {
+            "section_name": "Production",
+            "hole_size": 6.75,
+            "casing_od": 5,
+            "casing_id": 4.126,
+            "drift": 4.001,
+            "grade": "P-110",
+            "weight_per_length": 21.4,
+            "connection": "WEDGE 463MS / WEDGE 461MS / WEDGE-563MS",
+            "start_md": 2.5,
+            "end_md": 5943,
+            "cement_type": "Clase G",
+            "cement_details": "Cementación primaria 1 etapa (contingencia 2 etapas). Tope (m): 1490 (TOC en WI +150 m y overlap 400-600 m con zapato intermedia). Altura de cemento 4460 m. Densidad lechada 1895 g/l. Intervalos reportados: 1490-3117 (lead) y 3117-5910 (tail)."
+          }
+        ],
+        "formation_tops": [
+          {
+            "formation_name": "NEUQUEN",
+            "md": null,
+            "tvd": 0
+          },
+          {
+            "formation_name": "NEUQUEN - FM. CANDELEROS",
+            "md": null,
+            "tvd": 236
+          },
+          {
+            "formation_name": "RAYOSO",
+            "md": null,
+            "tvd": 770
+          },
+          {
+            "formation_name": "CENTENARIO",
+            "md": null,
+            "tvd": 989
+          },
+          {
+            "formation_name": "MULICHINCO",
+            "md": null,
+            "tvd": 1766
+          },
+          {
+            "formation_name": "QUINTUCO",
+            "md": null,
+            "tvd": 1846
+          },
+          {
+            "formation_name": "VACA MUERTA",
+            "md": null,
+            "tvd": 2505
+          }
+        ],
+        "drilling_sections": [
+          {
+            "section_name": "Surface",
+            "hole_size": 12.25,
+            "depth_from": 0,
+            "depth_to": 550,
+            "interval": "",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "ROP mínimo c/CWD: 30 m/h; objetivo 35 m/h (nota operaciones: ROP on bottom objetivo >49 m/h)",
+            "diffp_max": null,
+            "bha_type": "BHA DD con trépano 13,5\" (CWD)",
+            "primary_bit": "D806X (BAKER HUGHES) PDC, 12.25\"",
+            "backup_bit": "",
+            "comments": "Objetivo: aislar acuíferos de agua dulce. Zapato mínimo 550 m TVD. Cementación 1 etapa; perfilar CBL/VDL offline."
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 8.75,
+            "depth_from": 0,
+            "depth_to": 1930,
+            "interval": "Hasta ingresar 40 m TVD en Quintuco",
+            "wob": "Mulichinco (30 m previos a pase): 10 - 12 ton; Quintuco (5 m previos a pase): NO CONTROLA",
+            "rpm": "Mulichinco/Quintuco: 40 - 45 (nota: 150 - 200 rpm totales con 550 gpm)",
+            "flow_rate": "550 gpm",
+            "rop": "ROP general planificada: 55 m/h; estándar mínimo: 55 m/h",
+            "diffp_max": null,
+            "bha_type": "Direccional MWD + MDF + LWD GR (primer intermedia con GR average)",
+            "primary_bit": "RPS516 (ULTERRA) PDC, 8.75\"",
+            "backup_bit": "",
+            "comments": "FIT calculado: 273 psi (DEq 1400 g/l con fluido 1050 g/l). Prueba BOP: Anular alta 3500 psi; Rams alta 4000 psi. Prueba hermeticidad guía: 470 psi (EMW fondo 1650 g/l)."
+          },
+          {
+            "section_name": "Production",
+            "hole_size": 6.75,
+            "depth_from": 0,
+            "depth_to": 5950,
+            "interval": "Rama horizontal geonavegando nivel Cocina C4 en Fm Vaca Muerta",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "Plan: 21 m/h vertical/tangente; 10 m/h curva con MDF; 40 m/h horizontal con RSS",
+            "diffp_max": null,
+            "bha_type": "2 carreras: (1) MDF + MWD GR AVG (vertical/tangente/curva) (2) RSS motorizado + MWD GR AZ (lateral)",
+            "primary_bit": "DD405W (BAKER HUGHES) PDC 6.75\" (1900-2727 m); GTi54HEs (HALLIBURTON) PDC 6.75\" (2727-6641 m)",
+            "backup_bit": "",
+            "comments": "MPD/UBD: perforación con sistema MPD (Servicio MPD Cía Nabors). FIT sobre zapato intermedio objetivo DEq 2000 g/l con lodo 1580 g/l."
+          }
+        ],
+        "drilling_fluids": [
+          {
+            "section": "Surface (0-550 m)",
+            "fluid_type": "AGUA CON ClK (WBM)",
+            "design_mw": 1.05,
+            "min_mw": null,
+            "max_mw": null,
+            "min_fit": null,
+            "mudloggers": null,
+            "comments": "CWD con lodo base agua densidad 1050 g/l. Mantener fluido de ahogue inhibido 1100 g/l (>=20 m3). Volumen sistema 50 m3."
+          },
+          {
+            "section": "Intermediate (550-1888 m)",
+            "fluid_type": "EMULSION INVER (OBM)",
+            "design_mw": null,
+            "min_mw": 0.94,
+            "max_mw": 1.1,
+            "min_fit": null,
+            "mudloggers": null,
+            "comments": "Referirse a programa de fluidos. Volumen sistema 80 m3."
+          },
+          {
+            "section": "Production/Aislación (1888-5910 m)",
+            "fluid_type": "EMULSION INVER (OBM) + MPD",
+            "design_mw": 1.58,
+            "min_mw": 1.58,
+            "max_mw": null,
+            "min_fit": null,
+            "mudloggers": null,
+            "comments": "Iniciar perforación con densidad 1580 g/l. Volumen sistema 150,30 m3. Preparar Kill Mud 2300 g/l (para pruebas/ahogue según programa)."
+          }
+        ],
+        "risks_and_hazards": [
+          {
+            "section": "Surface (0-550 m)",
+            "risk": "Empaquetamiento anular / pega diferencial",
+            "comments": "Perforar con caudal acorde a ROP; bache viscoso alta cedencia; priorizar circular a zaranda limpia antes de conexiones extendidas."
+          },
+          {
+            "section": "Surface (0-550 m)",
+            "risk": "Baja performance / rotura de trépano y/o cañería",
+            "comments": "Usar trépano probado; mapa de parámetros; baches de limpieza/surfactantes; detener si cae SPP."
+          },
+          {
+            "section": "Intermediate (550-1926 m)",
+            "risk": "Pérdidas/admisiones de fluido",
+            "comments": "Baches con material obturante; asegurar reología/caudal; stock suficiente; T&A para maniobras."
+          },
+          {
+            "section": "Intermediate (550-1926 m)",
+            "risk": "Pega de tubería / casing set up",
+            "comments": "Uso de lodo OBM; ajuste densidades perforación/maniobra; relevamiento actividad cercana."
+          },
+          {
+            "section": "Production/Aislación (1926-5950 m)",
+            "risk": "Aprisionamiento de herramienta (tracciones)",
+            "comments": "No traccionar >30% pick up ni asentar >30% slack off; incluir UBD/MPD en planificación; ajuste densidades."
+          },
+          {
+            "section": "Production/Aislación (1926-5950 m)",
+            "risk": "Admisiones/pérdidas e inestabilidad de pozo",
+            "comments": "Baches obturantes; control ECD; stock en locación; uso preventivo de Star Shield."
+          },
+          {
+            "section": "Production/Aislación (1926-5950 m)",
+            "risk": "Influjos de fondo (Quintuco y Vaca Muerta)",
+            "comments": "Monitorear niveles; lodo de ahogue disponible; kill mud 1,5x volumen pozo; MPD."
+          },
+          {
+            "section": "Production/Aislación (1926-5950 m)",
+            "risk": "Limpieza de pozo deficiente",
+            "comments": "Reología/caudales apropiados; baches de limpieza; monitoreo Torque&Arrastre por Sala de Optimización."
+          }
+        ],
+        "notes": "Locación: LOC BAG14. Distancia entre bocas de pozo: 9 m. Objetivo: pozo horizontal para producción de petróleo, rama lateral 3080 m en nivel Cocina C4 (Fm Vaca Muerta). Coordenadas fondo: LP X=5.710.738,93 Y=2.542.415,00 TVD=2689 m; EP X=5.713.818,00 Y=2.542.415,00 TVD=2784 m. BOP: Sección Intermedia y Aislación stack Anular + Doble Ram + Drilling Spool + Ram Simple + Drilling Spool; 2 kill lines y 2 choke lines; BOP alta: 4000 psi (intermedia) y 8000 psi (aislación). Presiones de pruebas: Intermedia (sobre guía) CSG 470 psi; FIT 1093 psi (DEq 1400 g/l). Aislación (sobre intermedia) Presión fondo 3146 psi; FIT 5246 psi (DEq 2000 g/l)."
+      }
+    ],
+    "confidence": {
+      "rig_name": 0.98,
+      "wells": 0.92,
+      "casing_program": 0.88,
+      "formation_tops": 0.85
+    }
+  },
+  "validation": {
+    "is_valid": true,
+    "confidence_score": 1.0,
+    "warnings": [],
+    "errors": [],
+    "warning_count": 0,
+    "error_count": 0,
+    "messages": []
+  },
+  "field_confidences": {
+    "rig_name": {
+      "score": 0.98,
+      "source_pass": "primary",
+      "tier": "high"
+    },
+    "wells": {
+      "score": 0.92,
+      "source_pass": "primary",
+      "tier": "high"
+    },
+    "casing_program": {
+      "score": 0.88,
+      "source_pass": "primary",
+      "tier": "high"
+    },
+    "formation_tops": {
+      "score": 0.85,
+      "source_pass": "primary",
+      "tier": "high"
+    }
+  }
+}

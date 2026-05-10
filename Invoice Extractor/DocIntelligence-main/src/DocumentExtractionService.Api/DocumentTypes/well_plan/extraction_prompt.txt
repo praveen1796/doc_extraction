@@ -1,0 +1,129 @@
+Extract all well plan data from the attached document.
+
+FILE: {{FILE_NAME}} | PAGES: {{PAGE_COUNT}} | SCANNED: {{IS_SCANNED}} | METHOD: {{EXTRACTION_METHOD}}
+
+══════════════════════════════════════════════════════════════
+STEP 0 — IDENTIFY DOCUMENT FORMAT AND LANGUAGE
+══════════════════════════════════════════════════════════════
+Before extracting any data, determine:
+
+1. LANGUAGE: Is this document in English or Spanish (or another language)?
+   - English: XTO, ConocoPhillips, Hess, Saudi Aramco documents
+   - Spanish: YPF Argentina documents ("Programa de Perforación", "Programa Operativo")
+   - Set the "language" field accordingly ("en", "es", etc.)
+
+2. DOCUMENT FORMAT: What type of document is this?
+   - "batch_drilling_program" → Multiple wells with pad summary + per-well technical pages
+   - "single_well_program" → One well with full drilling program (100+ pages typical)
+   - "drilling_outline" → 1-2 page condensed drilling outline/supplement
+   - "pre_spud_meeting" → Presentation/slides format
+   - "drilling_procedure" → Multi-well with tabular well info pages
+
+3. DEPTH UNIT: Does this document use feet (ft) or meters (m)?
+   - US wells → "ft"
+   - Latin American wells → "m"
+   - Saudi Aramco → "ft"
+
+══════════════════════════════════════════════════════════════
+STEP 1 — IDENTIFY THE PAD/PROGRAM AND RIG
+══════════════════════════════════════════════════════════════
+Look for the cover page or pad summary:
+- Rig name or rig number (e.g., "RIG: Nabors X12", "Equipo: NBRS-F35", "NBR-263S")
+- Operator name/logo (e.g., XTO Energy, ConocoPhillips, YPF, Saudi Aramco)
+- Pad name from well names or explicit pad designation
+- Location: state/country, county, field name
+- Approval signatures and report status
+
+For BATCH/MULTI-WELL programs:
+- Find the well table: list of wells with identifiers (API, AFE, etc.)
+- Note the number of wells and their names
+
+For SINGLE WELL programs:
+- Well name, UWI, charge number, cost information on cover page
+- Target reservoir from program objectives
+
+══════════════════════════════════════════════════════════════
+STEP 2 — EXTRACT EACH WELL'S TECHNICAL DATA
+══════════════════════════════════════════════════════════════
+
+FOR MULTI-WELL PADS (batch_drilling_program, drilling_procedure):
+Find each well's Technical Summary or Well Info page:
+- Well name, coordinates, total depth (MD & TVD)
+- Ground Level (GL) and Kelly Bushing (RKB/KB)
+- Identifiers: API#, AFE, operator well IDs, permit numbers
+
+From montage diagrams or well schematics:
+- Formation tops: formation NAME + MD + TVD for each formation
+- Casing program: section name, hole size, OD, ID, grade, weight, connection, depth range
+- Cement details: type, density, volume details
+- Drilling fluid: type, weight range
+- FIT/LOT pressures
+
+IMPORTANT FOR TABULAR FORMATS (like ConocoPhillips Drilling Procedures):
+- Well data is in WIDE TABLES with 4-5 wells as COLUMNS
+- Read COLUMN by COLUMN, not row by row
+- Each column is one well — do not mix data between columns
+- Data may span multiple pages — wells 1-4 on one page, wells 5-9 on next
+
+FOR SINGLE-PAGE DRILLING OUTLINES:
+- ALL data is on one dense page — use the PAGE IMAGE as primary source
+- Formation tops may be in a small column/table on the left
+- Casing is shown alongside the wellpath diagram
+- Mud properties and BHA are in notes sections
+- Risks may be bullet points in a corner
+
+FOR SINGLE WELL PROGRAMS (Saudi Aramco, YPF):
+- Well schematic on a dedicated page ("Esquema de pozo", "Diagrama de pozo")
+- Formation column ("Columna litológica", "Pases formacionales")
+- Casing design may be a separate section
+- Drilling parameters per section in dedicated tables
+- Spanish sections: "Sección Guía" → Surface, "Intermedia" → Intermediate
+
+FOR PRE-SPUD MEETINGS (presentations):
+- Extract available data from slides (well names, drilling order, basic well info)
+- Set empty arrays [] for casing_program, formation_tops, drilling_sections, drilling_fluids
+- Set confidence scores LOW (0.2-0.4)
+
+══════════════════════════════════════════════════════════════
+STEP 3 — EXTRACT WELL-SPECIFIC NOTES AND PARAMETERS
+══════════════════════════════════════════════════════════════
+For each well, if present:
+- BHA configurations for each drilling section
+- Bit selections (Primary + Backup) with vendor, model, TFA
+- Drilling fluids table: design MW, min/max MW, min FIT, mudlogger assignments
+- Risks & Hazards table
+- Directional notes and drilling windows
+
+If mudlogger information is not in the document, set "mudloggers" to null.
+If cement details are not broken out per casing section, set "cement_type"/"cement_details" to null.
+
+══════════════════════════════════════════════════════════════
+STEP 4 — EXTRACT DRILLING PARAMETERS
+══════════════════════════════════════════════════════════════
+For each well's drilling parameters page/section:
+- Section name and hole size
+- Depth range (from/to)
+- Interval (formation name)
+- WOB, RPM, Flow Rate, ROP ranges — preserve as STRINGS with ranges (e.g., "25 - 55")
+- DiffP Max
+- Comments
+
+For Spanish documents: "Parámetros de perforación" section
+
+══════════════════════════════════════════════════════════════
+STEP 5 — ASSIGN CONFIDENCE SCORES
+══════════════════════════════════════════════════════════════
+Rate your confidence (0.0 to 1.0) for:
+- rig_name: How confident are you in the rig identification?
+- wells: How confident are you that you found ALL wells and their data is complete?
+- casing_program: How confident in casing specifications accuracy?
+- formation_tops: How confident in formation top depths?
+
+CONFIDENCE GUIDELINES:
+- 0.9-1.0: Data clearly visible, extracted from structured tables
+- 0.7-0.9: Data present but required interpretation (e.g., from diagrams)
+- 0.5-0.7: Partial data, some fields inferred or missing
+- 0.2-0.5: Very limited data (e.g., pre-spud presentations, poor scan quality)
+- 0.0-0.2: Data not present in document
+
+Return the complete extraction as valid JSON matching the provided schema.

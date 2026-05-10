@@ -1,0 +1,71 @@
+{
+  "id": "toursheet",
+  "displayName": "Drilling Tour Sheet",
+  "description": "Extract structured data from drilling tour sheets (shift reports). Captures rig operations data: depth drilled, bit information, mud properties, BHA, and non-productive time events per tour/shift.",
+  "version": "1.0",
+  "enabled": true,
+  "acceptedFileTypes": ["pdf", "png", "jpg", "jpeg"],
+  "maxFileSizeMb": 20,
+  "maxPages": 5,
+  "iconName": "hard-hat",
+  "category": "Operations",
+
+  "extraction": {
+    "model": "gpt-4o",
+    "reasoningEffort": "medium",
+    "temperature": 0,
+    "maxTokens": 6000,
+    "dualPassEnabled": false,
+    "imageResolutionDpi": 200,
+    "imageMaxWidthPx": 2000,
+    "imagesBeforeText": true
+  },
+
+  "output": {
+    "format": "json",
+    "excelExportEnabled": true,
+    "excelSheetName": "TourSheets"
+  },
+
+  "validation": {
+    "minConfidenceScore": 0.4,
+    "confidencePenaltyPerError": 0.05,
+    "rules": [
+      {
+        "field": "rig_number",
+        "type": "required",
+        "severity": "Error",
+        "message": "Rig number is required"
+      },
+      {
+        "field": "tour_date",
+        "type": "required",
+        "severity": "Error",
+        "message": "Tour date is required"
+      },
+      {
+        "field": "tour_date",
+        "type": "date",
+        "severity": "Error",
+        "message": "Tour date must be in YYYY-MM-DD format"
+      },
+      {
+        "field": "depth_end",
+        "type": "required",
+        "severity": "Warning",
+        "message": "End depth is recommended"
+      }
+    ]
+  },
+
+  "rateLimiting": {
+    "requestsPerMinute": 20,
+    "requestsPerDay": 300,
+    "burstSize": 3
+  },
+
+  "metadata": {
+    "owner": "Drilling Engineering Team",
+    "tags": ["drilling", "tour-sheet", "rig-operations", "witsml"]
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "id": "timesheet",
+  "displayName": "Field Service Timesheet",
+  "description": "Extract structured data from field service timesheets. Covers oilfield service company timesheets with daily employee hours, rates, per-diem, and rig assignments.",
+  "version": "1.0",
+  "enabled": true,
+  "acceptedFileTypes": ["pdf", "png", "jpg", "jpeg"],
+  "maxFileSizeMb": 20,
+  "maxPages": 10,
+  "iconName": "clock",
+  "category": "Operations",
+
+  "extraction": {
+    "model": "gpt-4o",
+    "reasoningEffort": "medium",
+    "temperature": 0,
+    "maxTokens": 5000,
+    "dualPassEnabled": true,
+    "dualPassStrategy": "text_search",
+    "imageResolutionDpi": 200,
+    "imageMaxWidthPx": 2000,
+    "imagesBeforeText": true
+  },
+
+  "output": {
+    "format": "json",
+    "excelExportEnabled": true,
+    "excelSheetName": "Timesheets"
+  },
+
+  "validation": {
+    "minConfidenceScore": 0.5,
+    "confidencePenaltyPerError": 0.05,
+    "rules": [
+      {
+        "field": "vendor_name",
+        "type": "required",
+        "severity": "Error",
+        "message": "Service company name is required"
+      },
+      {
+        "field": "week_ending_date",
+        "type": "required",
+        "severity": "Error",
+        "message": "Week ending date is required"
+      },
+      {
+        "field": "week_ending_date",
+        "type": "date",
+        "severity": "Error",
+        "message": "Week ending date must be in YYYY-MM-DD format"
+      },
+      {
+        "field": "rig_number",
+        "type": "required",
+        "severity": "Warning",
+        "message": "Rig number is recommended"
+      },
+      {
+        "field": "total_amount",
+        "type": "required",
+        "severity": "Warning",
+        "message": "Total amount is recommended"
+      }
+    ]
+  },
+
+  "rateLimiting": {
+    "requestsPerMinute": 30,
+    "requestsPerDay": 500,
+    "burstSize": 5
+  },
+
+  "metadata": {
+    "owner": "Field Operations Team",
+    "tags": ["timesheet", "field-service", "oilfield", "payroll"]
+  }
+}

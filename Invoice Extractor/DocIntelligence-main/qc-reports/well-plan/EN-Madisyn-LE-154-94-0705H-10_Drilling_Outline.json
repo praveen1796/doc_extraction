@@ -1,0 +1,419 @@
+{
+  "request_id": "20260410144712_db5b3bc1",
+  "document_type": "well_plan",
+  "status": "Success",
+  "metadata": {
+    "source_file": "EN-Madisyn-LE-154-94-0705H-10 Drilling Outline.pdf",
+    "file_size_bytes": 465100,
+    "page_count": 1,
+    "extraction_method": "hybrid",
+    "model_used": "azure-openai-gpt",
+    "reasoning_effort": "medium",
+    "dual_pass_triggered": false,
+    "extracted_at": "2026-04-10T14:49:17.3327883Z",
+    "processing_time_ms": 124652,
+    "total_tokens_used": 10551,
+    "pages_sent_to_model": 1
+  },
+  "data": {
+    "document_type": "Supplement / Drilling Outline",
+    "language": "en",
+    "document_format": "drilling_outline",
+    "rig_name": "NaborsX10",
+    "operator": "Hess",
+    "pad_name": "",
+    "location": "Mountrail County, ND",
+    "report_status": "Supplement / Drilling Outline",
+    "report_date": "",
+    "depth_unit": "ft",
+    "approvals": [
+      {
+        "name": "Tom Richardson",
+        "action": "Drilling Team Lead",
+        "datetime": ""
+      },
+      {
+        "name": "Jim Stover",
+        "action": "Drilling Superintendent",
+        "datetime": ""
+      },
+      {
+        "name": "Isabel Leon",
+        "action": "Drilling Engineer",
+        "datetime": ""
+      }
+    ],
+    "wells": [
+      {
+        "well_name": "EN-MADISYN-LE-154-94-0705H-10",
+        "well_type": "horizontal",
+        "api_number": null,
+        "afe_number": null,
+        "operator_well_id": "WBS / Network # 39894",
+        "permit_id": "Permit/WF#: 105-05030.04.01 5016166",
+        "total_depth_md": 21279,
+        "total_depth_tvd": 10579,
+        "lateral_length": null,
+        "target_formation": "Middle Bakken",
+        "design": "Middle Bakken Lateral; TD well at least 160 ft from North Section Line",
+        "surface_coordinates": "160 ft FNL & 590 ft FWL, SECTION 05, T154N, R94W; Latitude 48° 10' 15.55\"; Longitude -102° 49' 3.91\"",
+        "coordinate_system": "",
+        "ground_level": 2198,
+        "rkb": 32,
+        "skid_order": null,
+        "casing_program": [
+          {
+            "section_name": "Surface",
+            "hole_size": 16,
+            "casing_od": 9.625,
+            "casing_id": null,
+            "drift": null,
+            "grade": "J-55",
+            "weight_per_length": 36,
+            "connection": "STC",
+            "start_md": 0,
+            "end_md": 2029,
+            "cement_type": "Lead",
+            "cement_details": "Preset at 2,029 ft ref GL. Note: Got back 68 bbl of cement returns to surface."
+          },
+          {
+            "section_name": "Production",
+            "hole_size": null,
+            "casing_od": 7,
+            "casing_id": null,
+            "drift": null,
+            "grade": "P-110RY",
+            "weight_per_length": 32,
+            "connection": "BTC",
+            "start_md": 0,
+            "end_md": 6300,
+            "cement_type": null,
+            "cement_details": null
+          },
+          {
+            "section_name": "Production",
+            "hole_size": null,
+            "casing_od": 7,
+            "casing_id": null,
+            "drift": null,
+            "grade": "P-110EC",
+            "weight_per_length": 32,
+            "connection": "BTC",
+            "start_md": 6300,
+            "end_md": 21279,
+            "cement_type": null,
+            "cement_details": null
+          },
+          {
+            "section_name": "Liner",
+            "hole_size": null,
+            "casing_od": 4.5,
+            "casing_id": null,
+            "drift": null,
+            "grade": "P110",
+            "weight_per_length": 13.5,
+            "connection": "DWCC",
+            "start_md": null,
+            "end_md": null,
+            "cement_type": null,
+            "cement_details": "Curve"
+          },
+          {
+            "section_name": "Liner",
+            "hole_size": null,
+            "casing_od": 4.5,
+            "casing_id": null,
+            "drift": null,
+            "grade": "P110",
+            "weight_per_length": 11.6,
+            "connection": "BT&C",
+            "start_md": null,
+            "end_md": null,
+            "cement_type": null,
+            "cement_details": "Lateral"
+          },
+          {
+            "section_name": "Frac string",
+            "hole_size": null,
+            "casing_od": 4.5,
+            "casing_id": null,
+            "drift": null,
+            "grade": "",
+            "weight_per_length": null,
+            "connection": "BTC",
+            "start_md": null,
+            "end_md": null,
+            "cement_type": null,
+            "cement_details": null
+          }
+        ],
+        "formation_tops": [
+          {
+            "formation_name": "Pierre",
+            "md": 1835,
+            "tvd": null
+          },
+          {
+            "formation_name": "Greenhorn",
+            "md": 4263,
+            "tvd": null
+          },
+          {
+            "formation_name": "Mowry",
+            "md": 4641,
+            "tvd": null
+          },
+          {
+            "formation_name": "Swift",
+            "md": 5435,
+            "tvd": null
+          },
+          {
+            "formation_name": "Rierdon",
+            "md": 5862,
+            "tvd": null
+          },
+          {
+            "formation_name": "Piper_Lime",
+            "md": 6159,
+            "tvd": null
+          },
+          {
+            "formation_name": "Top_Dunham_Salt",
+            "md": 6399,
+            "tvd": null
+          },
+          {
+            "formation_name": "Spearfish",
+            "md": 6446,
+            "tvd": null
+          },
+          {
+            "formation_name": "Top_Pine_Salt",
+            "md": 6744,
+            "tvd": null
+          },
+          {
+            "formation_name": "Top_Opeche_Salt",
+            "md": 6976,
+            "tvd": null
+          },
+          {
+            "formation_name": "Amsden",
+            "md": 7353,
+            "tvd": null
+          },
+          {
+            "formation_name": "Tyler",
+            "md": 7536,
+            "tvd": null
+          },
+          {
+            "formation_name": "Kibbey_Lime",
+            "md": 8120,
+            "tvd": null
+          },
+          {
+            "formation_name": "Charles",
+            "md": 8290,
+            "tvd": null
+          },
+          {
+            "formation_name": "Top_Last_Salt",
+            "md": 8908,
+            "tvd": null
+          },
+          {
+            "formation_name": "Base_Last_Salt",
+            "md": 8992,
+            "tvd": null
+          },
+          {
+            "formation_name": "Ratcliffe",
+            "md": 8941,
+            "tvd": null
+          },
+          {
+            "formation_name": "Rival",
+            "md": 9178,
+            "tvd": null
+          },
+          {
+            "formation_name": "Lodgepole",
+            "md": 9832,
+            "tvd": null
+          },
+          {
+            "formation_name": "Bakken",
+            "md": 10578,
+            "tvd": null
+          },
+          {
+            "formation_name": "Middle_Bakken",
+            "md": 10600,
+            "tvd": null
+          },
+          {
+            "formation_name": "Base_Mid_Bakken",
+            "md": 10662,
+            "tvd": null
+          },
+          {
+            "formation_name": "Three_Forks",
+            "md": 10718,
+            "tvd": null
+          }
+        ],
+        "drilling_sections": [
+          {
+            "section_name": "Surface",
+            "hole_size": 16,
+            "depth_from": 0,
+            "depth_to": 80,
+            "interval": "",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "",
+            "primary_bit": "",
+            "backup_bit": "",
+            "comments": "16 in. Surf to 80 ft MD/TVD"
+          },
+          {
+            "section_name": "Surface",
+            "hole_size": 13.5,
+            "depth_from": 0,
+            "depth_to": 2029,
+            "interval": "",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "",
+            "primary_bit": "",
+            "backup_bit": "",
+            "comments": "13-1/2 in. Surf to 2,029 ft MD"
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 8.75,
+            "depth_from": 1885,
+            "depth_to": 10968,
+            "interval": "",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "8-3/4\" Vertical BHA (1st BHA)",
+            "primary_bit": "8-3/4\" TKC66 TKCBQ3",
+            "backup_bit": "8-3/4\" NOV TKC66 BC2 bit",
+            "comments": "Intermediate hole: 1,885 ft MD/TVD to 10,968 ft MD (10,634 ft TVD). Shoe to KOP: 9.5-9.8 ppg; TD KOP w/ 9.5-9.8 ppg; Enter UBS w/ 10.0-10.2 ppg; Land Curve w/ 10.2 ppg. HTHP Filtrate <4 ml; OWR 60/40; Tau 0: 3-6. Utilize centrifuge as needed to keep LGS below 7.5%."
+          },
+          {
+            "section_name": "Curve",
+            "hole_size": 8.75,
+            "depth_from": null,
+            "depth_to": null,
+            "interval": "",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": 1290,
+            "bha_type": "8-3/4\" Curve BHA",
+            "primary_bit": "8-3/4\" ULTERRA CF516 Single row bit",
+            "backup_bit": "",
+            "comments": "6-3/4\" ERT NOV 2.38°, 0.47 RPG, 4/5, 7.0 Stg; 1,290 psi max Differential P. NMDC/MWD Gordon; Filter Sub; 5\" NC50 HWDP (21 jts); 5\" NC50 DP."
+          },
+          {
+            "section_name": "Lateral",
+            "hole_size": 6,
+            "depth_from": 10968,
+            "depth_to": 21279,
+            "interval": "Middle Bakken Lateral",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "6\" Lateral BHA",
+            "primary_bit": "6\" BAKER D405W or NOV TKC63 bit",
+            "backup_bit": "",
+            "comments": "6 in. 10,968 ft MD to 21,279 ft MD (10,579 ft TVD). BHA: 5.125\" Baker Duramax RS 1.6° MM, or 5.25\" NOV 1.5°, 0.60 rpg, 6/7, 7.8 Stg MM; NMDC/MWD Gordon; X/O Filter Sub; 4\" DP (+/- 120 jts); 5\" Agitator/XRV. Planned wellpath: TOL MD 10,095; KOP MD 10,195; build 12.5 deg/100 ft; 7.6 deg tangent; 22 deg azimuth to land 7 in; 22 deg lateral drilling azimuth; formation dip ± 90.55 S to N."
+          }
+        ],
+        "drilling_fluids": [
+          {
+            "section": "Intermediate (8-3/4 in.)",
+            "fluid_type": "Halliburton Integrade Bara-Xcel OBM",
+            "design_mw": null,
+            "min_mw": 9.5,
+            "max_mw": 9.8,
+            "min_fit": null,
+            "mudloggers": null,
+            "comments": "Shoe to KOP and TD KOP: 9.5-9.8 ppg. Enter UBS: 10.0-10.2 ppg. Land curve: 10.2 ppg. HTHP Filtrate <4 ml; OWR 60/40; Tau 0: 3-6; keep LGS below 7.5%."
+          },
+          {
+            "section": "Lateral (6 in.)",
+            "fluid_type": "Salt Water",
+            "design_mw": null,
+            "min_mw": 9,
+            "max_mw": 10,
+            "min_fit": null,
+            "mudloggers": null,
+            "comments": "LGS <5%; pH 8-9. Pump sweeps as needed using Drillchem HE Lube."
+          }
+        ],
+        "risks_and_hazards": [
+          {
+            "section": "Offset hazards and risks",
+            "risk": "SWD offset wells nearby",
+            "comments": "Active SWD 1.3 miles away (EN-MOUNTRAIL 53-102 SWD1, Hess); active SWD 2.5 miles away (NELSON 14-33H, Tallgrass Water North Dakota); new SWD 2.5 miles away (NELSON SWD 2, Tallgrass Water North Dakota); active SWD 4.4 miles away (Hofflund 3, Rim Operating); active SWD 5.4 miles away (KRENZ SWD #1, PRAIRIE DISPOSAL)."
+          }
+        ],
+        "notes": "Objective: MB Lowstand. KB height: 32.0 ft. BH location: 150'FNL/100'FSL. GL elevation: 2,198 ft (graded, above MSL)."
+      }
+    ],
+    "confidence": {
+      "rig_name": 0.95,
+      "wells": 0.85,
+      "casing_program": 0.65,
+      "formation_tops": 0.7
+    }
+  },
+  "validation": {
+    "is_valid": true,
+    "confidence_score": 1.0,
+    "warnings": [],
+    "errors": [],
+    "warning_count": 0,
+    "error_count": 0,
+    "messages": []
+  },
+  "field_confidences": {
+    "rig_name": {
+      "score": 0.95,
+      "source_pass": "primary",
+      "tier": "high"
+    },
+    "wells": {
+      "score": 0.85,
+      "source_pass": "primary",
+      "tier": "high"
+    },
+    "casing_program": {
+      "score": 0.65,
+      "source_pass": "primary",
+      "tier": "medium"
+    },
+    "formation_tops": {
+      "score": 0.7,
+      "source_pass": "primary",
+      "tier": "medium"
+    }
+  }
+}

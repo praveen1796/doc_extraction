@@ -1,0 +1,49 @@
+version: '3.9'
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#  Generic Document Extraction Service — Docker Compose (local development)
+#  Usage:
+#    docker compose up -d
+#    docker compose logs -f
+#    docker compose down
+# ═══════════════════════════════════════════════════════════════════════════════
+
+services:
+  doc-extractor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: doc-extraction-service:latest
+    container_name: doc-extraction-service
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      # Azure OpenAI (override with real values or use .env file)
+      - DOCEXTRACT_AzureOpenAI__Endpoint=https://your-resource.openai.azure.com/
+      - DOCEXTRACT_AzureOpenAI__ApiKey=${AZURE_OPENAI_KEY}
+      - DOCEXTRACT_AzureOpenAI__DeploymentName=gpt-4o
+      # Auth (disabled for local dev)
+      - DOCEXTRACT_Auth__Enabled=false
+      # Rate Limiting
+      - DOCEXTRACT_RateLimiting__DefaultWindowSeconds=60
+      - DOCEXTRACT_RateLimiting__DefaultRequestsPerWindow=60
+    volumes:
+      # Mount document types folder for hot-reload without rebuild
+      - ./src/DocumentExtractionService.Api/DocumentTypes:/app/DocumentTypes
+      # Persist logs
+      - ./logs:/app/logs
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health/live"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    networks:
+      - doc-extractor-net
+
+networks:
+  doc-extractor-net:
+    driver: bridge

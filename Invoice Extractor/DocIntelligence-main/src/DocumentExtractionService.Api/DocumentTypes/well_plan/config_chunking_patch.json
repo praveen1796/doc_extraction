@@ -1,0 +1,17 @@
+{
+  "_instructions": "ADD this 'chunking' block to your existing well_plan/config.json",
+
+  "chunking": {
+    "enabled": true,
+    "chunk_size_pages": 12,
+    "page_threshold": 15,
+    "max_concurrent_chunks": 2,
+    "merge_strategy": "two_phase",
+    "merge_array_field": "wells",
+    "merge_key_field": "well_name",
+    "map_prompt_file": "map_prompt.txt",
+    "map_schema_file": null,
+    "per_item_prompt_file": "per_well_prompt.txt",
+    "per_item_schema_file": null
+  }
+}

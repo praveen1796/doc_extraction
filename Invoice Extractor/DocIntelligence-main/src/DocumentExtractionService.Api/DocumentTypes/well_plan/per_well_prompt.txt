@@ -1,0 +1,109 @@
+Extract ALL technical data for well "{{WELL_NAME}}" from the attached pages.
+
+FILE: {{FILE_NAME}} | TOTAL DOCUMENT PAGES: {{PAGE_COUNT}}
+TARGET WELL: {{WELL_NAME}}
+PAGES PROVIDED: {{WELL_PAGES}}
+
+══════════════════════════════════════════════════════════════
+  TARGETED WELL EXTRACTION
+══════════════════════════════════════════════════════════════
+
+You are seeing ONLY the pages that contain data for this specific well.
+These pages were selected by a document mapping phase.
+
+Extract EVERYTHING visible for well "{{WELL_NAME}}":
+
+══════════════════════════════════════════════════════════════
+  WELL IDENTITY
+══════════════════════════════════════════════════════════════
+
+- well_name: MUST be exactly "{{WELL_NAME}}"
+- well_type: "vertical", "horizontal", "directional", "deviated"
+- api_number, afe_number, operator_well_id, permit_id
+- total_depth_md, total_depth_tvd, lateral_length
+- target_formation
+- design: "vertical", "S-curve", "tangent", "build_and_hold", etc.
+- surface_coordinates, coordinate_system
+- ground_level (GL), rkb (KB/RKB)
+- skid_order (if multi-well pad)
+
+══════════════════════════════════════════════════════════════
+  CASING PROGRAM
+══════════════════════════════════════════════════════════════
+
+For each casing section (conductor, surface, intermediate, production, liner):
+- section_name, hole_size, casing_od, casing_id, drift
+- grade, weight_per_length, connection
+- start_md, end_md
+- cement_type, cement_details
+
+LOOK FOR: casing tables, wellbore schematics, montage diagrams.
+Casing OD/ID may be labeled on the schematic as "13-3/8" or "9-5/8".
+Grade appears as "L-80", "P-110", "N-80", etc.
+
+══════════════════════════════════════════════════════════════
+  FORMATION TOPS
+══════════════════════════════════════════════════════════════
+
+For each formation:
+- formation_name, md, tvd
+
+LOOK FOR: formation column alongside the wellbore schematic,
+"Formation Tops" tables, "Pases Formacionales" (Spanish).
+Formations listed top to bottom by depth.
+
+══════════════════════════════════════════════════════════════
+  DRILLING SECTIONS
+══════════════════════════════════════════════════════════════
+
+For each drilling section (corresponding to casing sections):
+- section_name, hole_size
+- depth_from, depth_to, interval
+- wob (weight on bit), rpm, flow_rate, rop
+- diffp_max (differential pressure limit)
+- bha_type ("rotary", "motor", "RSS")
+- primary_bit, backup_bit
+- comments
+
+LOOK FOR: "Drilling Parameters" tables, per-section summary pages.
+
+══════════════════════════════════════════════════════════════
+  DRILLING FLUIDS
+══════════════════════════════════════════════════════════════
+
+For each section:
+- section, fluid_type ("WBM", "OBM", "SOBM", "KCl")
+- design_mw (mud weight), min_mw, max_mw
+- min_fit (formation integrity test pressure)
+- mudloggers (required? yes/no)
+- comments
+
+══════════════════════════════════════════════════════════════
+  RISKS AND HAZARDS
+══════════════════════════════════════════════════════════════
+
+For each identified risk:
+- section (which drilling section the risk applies to)
+- risk (description)
+- comments (mitigation)
+
+══════════════════════════════════════════════════════════════
+  NOTES
+══════════════════════════════════════════════════════════════
+
+Capture any additional notes visible on these pages for this well.
+
+══════════════════════════════════════════════════════════════
+  CRITICAL RULES
+══════════════════════════════════════════════════════════════
+
+1. well_name MUST be exactly "{{WELL_NAME}}" — do not modify
+2. Extract ONLY data for this well — ignore other wells if visible
+3. Use null for fields not present on these pages
+4. Use the actual page numbers from the original document
+5. Depths: extract as numbers without units (unit is set at document level)
+6. Casing sizes: use string format "13.375" or "9.625" (decimal inches)
+7. For wide multi-well tables: read ONLY the column for this well
+8. For Spanish: "Sección Guía"=Surface, "Intermedia"=Intermediate, "Producción"=Production
+
+Output a JSON object with a "wells" array containing ONE well object.

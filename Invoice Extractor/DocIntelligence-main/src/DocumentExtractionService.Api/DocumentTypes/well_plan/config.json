@@ -1,0 +1,68 @@
+{
+  "id": "well_plan",
+  "displayName": "Well Plan / Drilling Program",
+  "description": "Extracts structured data from well plans, batch drilling orders, and drilling programs. Supports English and Spanish documents, multi-well pads, vertical and horizontal wells, and operators worldwide.",
+  "version": "1.3",
+  "enabled": true,
+  "acceptedFileTypes": ["pdf", "png", "jpg", "jpeg", "tiff"],
+  "maxFileSizeMb": 50,
+  "maxPages": 160,
+  "iconName": "drill",
+  "category": "Field Operations",
+
+  "extraction": {
+    "model": "gpt-4o",
+    "reasoningEffort": "medium",
+    "temperature": 0,
+    "maxTokens": 65536,
+    "maxPagesForVision": 10,
+    "dualPassEnabled": false,
+    "imageResolutionDpi": 150,
+    "imageMaxWidthPx": 1500,
+    "imagesBeforeText": true
+  },
+
+  "output": {
+    "format": "json",
+    "excelExportEnabled": true,
+    "excelSheetName": "WellPlan"
+  },
+
+  "dualPass": {
+    "enabled": false,
+    "criticalFields": ["rig_name", "wells"],
+    "confidenceThreshold": 0.75,
+    "confidencePath": "confidence"
+  },
+
+  "validation": {
+    "minConfidenceScore": 0.5,
+    "confidencePenaltyPerError": 0.05,
+    "rules": [
+      {
+        "field": "rig_name",
+        "type": "required",
+        "severity": "Error",
+        "message": "Rig name is required"
+      },
+      {
+        "field": "wells",
+        "type": "required",
+        "severity": "Error",
+        "message": "At least one well must be extracted"
+      }
+    ]
+  },
+
+  "rateLimiting": {
+    "requestsPerMinute": 15,
+    "requestsPerDay": 200,
+    "burstSize": 3
+  },
+
+  "metadata": {
+    "owner": "Drilling Engineering",
+    "tags": ["well-plan", "drilling-program", "field-operations", "rig", "multilingual"],
+    "sampleFiles": ["sample_well_plan.pdf"]
+  }
+}

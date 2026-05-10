@@ -1,0 +1,110 @@
+Extract all commercial terms, rates, fees, and pricing from this contract document.
+
+FILE: {{FILE_NAME}} | PAGES: {{PAGE_COUNT}} | SCANNED: {{IS_SCANNED}} | METHOD: {{EXTRACTION_METHOD}}
+
+══════════════════════════════════════════════════════════════
+STEP 1 — IDENTIFY THE CONTRACT
+══════════════════════════════════════════════════════════════
+
+From the cover/header page, extract:
+- contract_title (full title from header)
+- contract_type (daywork, turnkey, footage, service_order, master_agreement, amendment)
+- operator_name and operator_address
+- contractor_name and contractor_address
+- reference_number (Contractor's Reference No.)
+- effective_date (from signature page or "made and entered into" clause)
+- commencement_date (from §2)
+- rig_designation (from Exhibit A §4.1)
+- docusign_envelope_id (from page headers if present)
+- governing_law (state/jurisdiction from §18)
+- venue (county and state from §19 or §27.x)
+
+══════════════════════════════════════════════════════════════
+STEP 2 — EXTRACT EVERY RATE AS A LINE ITEM
+══════════════════════════════════════════════════════════════
+
+Scan ALL pages. For every rate, fee, price, cost, limit, or penalty:
+Create a line item with: section, description, amount, unit, notes, page_ref.
+
+MAIN CONTRACT — look for these in order:
+- Mobilization rate and conditions (§4.1)
+- Mobilization lump sum for trucks/cranes/permits
+- Demobilization rate and conditions (§4.2)
+- Moving rate and conditions (§4.3)
+- Operating day rate WITHOUT drill pipe (§4.4)
+- Operating day rate WITH drill pipe (§4.4)
+- Operating day rate using Operator's drill pipe (§4.4)
+- Crew size
+- Drill pipe rates per 24-hour day (if depth-interval table filled)
+- Repair time provisions — max hours, monthly cap, rate after threshold (§4.5)
+- Standby time rate (§4.6)
+- Drilling fluid per-person rate (§4.7a)
+- Drilling fluid additional operating rate (§4.7b)
+- Force majeure rate (§4.8)
+- Reimbursable handling fee % (§4.9)
+- Rate revision threshold % (§4.10)
+- Payment terms — days to pay (§5.1)
+- Disputed invoice window — days (§5.2)
+- Late payment interest rate (§5.2)
+- Contract term type and well count (§6.1)
+- Extension notice period — days (§6.2)
+- Early termination lump sum per well (§6.4 / §27.19)
+
+INSURANCE LIMITS (Exhibit A §3):
+- Workers' Compensation limit
+- General Liability limit
+- Auto Liability limit
+- Excess/Umbrella limit
+
+SPECIAL PROVISIONS (§27.x or §32.x):
+Scan each numbered sub-paragraph. If it contains a dollar amount, rate, or fee:
+- Extract the provision number, a short description, the amount, and the unit.
+- Common items: additional floorhand rate, personnel hourly rates table,
+  forklift rental, man-lift rental, lighting system, night rig manager,
+  quarterly maintenance hours, rig upgrade daily rate, early termination penalties.
+
+PERSONNEL RATE TABLE (often in §27.x):
+If there is a position/rate-per-hour table, extract EACH position as a separate line item.
+
+EXHIBIT D / EXHIBIT E — TECHNOLOGY PACKAGES:
+Scan the entire exhibit. Extract EVERY product/service + price + unit:
+- Standard rig technology package (base rate)
+- Individual sensors and add-ons (each is a line item)
+- WITSML service tiers
+- SmartDRILL onboarding, maintenance, DAS specialist
+- ROCKit installation, training
+- RigCLOUD optional services
+
+EXHIBIT E / EXHIBIT F — MANAGED PRESSURE DRILLING:
+Scan the entire exhibit. Extract EVERY product/service:
+- Remote control chokes + technician
+- RCD service tiers (low/medium/high pressure)
+- Companion valves, bowl test plugs, adapters
+- RCD technician, kit, consumables
+- Maintenance charges (bearing assemblies — each level)
+- MPD-Ready EXPRESS rates (operating, standby)
+- Coriolis meter, personnel, choke manifold, software, engineering
+- Surface piping installation
+- Other charges: carbide gate/seat, subsistence, commuting, transportation
+
+AUTOMATION / PERFORMANCE PACKAGES (if present):
+- Basic Package rate
+- RSS Curve Lateral Package rate
+- Motor Package rate
+- Trial/free offerings
+- Volume pricing tiers (e.g., 5-rig pricing)
+
+══════════════════════════════════════════════════════════════
+STEP 3 — SIGNATURES
+══════════════════════════════════════════════════════════════
+
+From the signature page:
+- Each party: role, name, signer, title, date, signed (true/false)
+
+══════════════════════════════════════════════════════════════
+STEP 4 — OUTPUT JSON MATCHING THE SCHEMA
+══════════════════════════════════════════════════════════════
+
+Return ONLY valid JSON. No prose. No markdown.
+Every rate/fee/price is a separate object in the line_items array.
+Use null for fields not found. Do not guess.

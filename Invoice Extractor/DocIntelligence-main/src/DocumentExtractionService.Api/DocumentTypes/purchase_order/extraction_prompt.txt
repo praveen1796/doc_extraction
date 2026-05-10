@@ -1,0 +1,95 @@
+Extract all purchase order data from the attached document images.
+
+FILE: {{FILE_NAME}} | PAGES: {{PAGE_COUNT}} | SCANNED: {{IS_SCANNED}} | METHOD: {{EXTRACTION_METHOD}}
+
+══════════════════════════════════════════════════════════
+STEP 1 — IDENTIFY THE PO HEADER FIELDS
+══════════════════════════════════════════════════════════
+
+Scan the document visually. Locate:
+1. PO NUMBER → "Purchase Order No.", "PO No.", "PO #" — usually in header/title area
+2. PO DATE → "Order Date", "PO Date" → normalize to YYYY-MM-DD
+3. BUYER → Company issuing this PO — name in header/logo/letterhead
+4. VENDOR → Company receiving this PO — "Supplier:", "Vendor:", "Sell To:"
+
+══════════════════════════════════════════════════════════
+STEP 2 — EXTRACT ALL FIELDS
+══════════════════════════════════════════════════════════
+
+Header fields:
+- po_number, po_date, need_by_date (YYYY-MM-DD)
+- buyer_name, buyer_address
+- vendor_name, vendor_address
+- ship_to_name, ship_to_address
+- bill_to_name, bill_to_address
+- payment_terms, currency
+- total_amount (numeric, no $ or commas)
+- rig_number (actual rig ID like M47, LR222 — NOT entity names)
+- job_number, afe_number, contract_number
+- requisition_number, requester_name, approver_name
+- notes (delivery instructions, special terms)
+
+Line items (each row in the line items table):
+- line_number, part_number, description
+- quantity, unit, unit_price, amount
+- account_code, need_by_date, promised_date
+
+══════════════════════════════════════════════════════════
+STEP 3 — SELF-CHECK BEFORE OUTPUT
+══════════════════════════════════════════════════════════
+
+□ po_number is NOT empty
+□ po_date is YYYY-MM-DD
+□ vendor_name is NOT empty (supplier receiving the PO)
+□ buyer_name is NOT empty (company issuing the PO)
+□ total_amount is numeric (no currency symbols)
+□ All dates normalized to YYYY-MM-DD
+
+Return a single JSON object:
+{
+  "document_type": "Purchase Order",
+  "po_number": "",
+  "po_date": "",
+  "need_by_date": "",
+  "buyer_name": "",
+  "buyer_address": "",
+  "vendor_name": "",
+  "vendor_address": "",
+  "ship_to_name": "",
+  "ship_to_address": "",
+  "bill_to_name": "",
+  "bill_to_address": "",
+  "payment_terms": "",
+  "currency": "",
+  "subtotal": null,
+  "tax_amount": null,
+  "total_amount": null,
+  "rig_number": "",
+  "job_number": "",
+  "afe_number": "",
+  "contract_number": "",
+  "requisition_number": "",
+  "requester_name": "",
+  "approver_name": "",
+  "notes": "",
+  "line_items": [
+    {
+      "line_number": 1,
+      "part_number": "",
+      "description": "",
+      "quantity": null,
+      "unit": "",
+      "unit_price": null,
+      "amount": null,
+      "account_code": "",
+      "need_by_date": "",
+      "promised_date": ""
+    }
+  ],
+  "confidence": {
+    "po_number": 0.0,
+    "po_date": 0.0,
+    "vendor_name": 0.0,
+    "total_amount": 0.0
+  }
+}

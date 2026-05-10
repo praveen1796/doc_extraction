@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>DocumentExtractionService.Core</RootNamespace>
+    <AssemblyName>DocumentExtractionService.Core</AssemblyName>
+    <Version>1.0.0</Version>
+    <Authors>Nabors Industries</Authors>
+    <Description>Core library for Generic Document Extraction Service</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Azure OpenAI SDK -->
+    <PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+    <PackageReference Include="OpenAI" Version="2.1.0" />
+
+    <!-- PDF Processing -->
+    <PackageReference Include="Docnet.Core" Version="2.6.0" />
+    <PackageReference Include="PdfPig" Version="0.1.14" />
+
+    <!-- Image Processing (requires libgdiplus on Linux) -->
+    <PackageReference Include="System.Drawing.Common" Version="8.0.11" />
+
+    <!--
+      Microsoft.Extensions.* pinned to 8.0.x to match target framework.
+      These explicit pins prevent NuGet from floating to 9.x/10.x when
+      building with a newer SDK (the build machine has SDK 10).
+    -->
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="8.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.Abstractions" Version="8.0.1" />
+    <PackageReference Include="Tesseract" Version="5.2.0" />
+    <PackageReference Include="Tesseract.Drawing" Version="5.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="tessdata\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Pack>true</Pack>
+    </None>
+  </ItemGroup>
+
+</Project>

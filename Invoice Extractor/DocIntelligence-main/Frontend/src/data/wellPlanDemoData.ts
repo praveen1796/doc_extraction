@@ -1,0 +1,320 @@
+// ═══════════════════════════════════════════════════════════════
+//  Real Poker Lake X12 Well Plan Data — FULL EXTRACTION
+//  Source: Well_Plan_Example.pdf — PLU 27 BD Pad E
+//  4 wells: 509H, 510H, 511H, 512H
+//  Includes: BHAs, bits, cement, wellhead, directional, AC
+// ═══════════════════════════════════════════════════════════════
+
+export const WELL_PLAN_DEMO_DATA = {
+  document_type: "well_plan",
+  rig_name: "Nabors X12",
+  operator: "ExxonMobil / XTO Energy",
+  pad_name: "PLU 27 BD Pad E",
+  location: "New Mexico, Eddy County, Jal",
+  report_status: "Approved",
+  report_date: "28-May-2025",
+  approvals: [
+    { name: "James METCALF", action: "Completed", datetime: "11:24, May 28, 2025" },
+    { name: "Kyle SPACEK", action: "Reviewed", datetime: "13:55, May 28, 2025" },
+    { name: "NATHAN LUPOLD", action: "Approved", datetime: "16:03, May 28, 2025" },
+  ],
+  wells: [
+    // ═══ Well 1: 509H ═══
+    {
+      well_name: "Poker Lake Unit 27 BD 509H",
+      api_number: "30-015-56506", afe_number: "DD.2024.13950",
+      operator_well_id: "2283331001", permit_id: "2839999",
+      total_depth_md: 25149.49, total_depth_tvd: 9627,
+      lateral_length: "3-Mile", target_formation: "2nd Bone Spring Sand",
+      design: "2nd BS SS / 3STSH",
+      surface_coordinates: "32°05′58.4198″N, 103°52′31.2953″W",
+      coordinate_system: "NAD27 NM State Plane, Eastern Zone, US Feet",
+      ground_level: 3263, rkb: 33, skid_order: 4,
+      // Casing
+      casing_program: [
+        { section_name: "9.625\" Surface", hole_size: 12.25, casing_od: 9.625, casing_id: 8.835, drift: 8.75, grade: "J55", weight_per_length: 40, connection: "BTC", start_md: 3, end_md: 1322, cement_type: "Primary", cement_details: "CIT: 8.5 lbm/gal — 1500 psi" },
+        { section_name: "7.625\" Intermediate (P110-ICY)", hole_size: 8.75, casing_od: 7.625, casing_id: 6.875, drift: 6.75, grade: "P110-ICY", weight_per_length: 29.7, connection: "Wedge 511", start_md: 3, end_md: 4000, cement_type: "Two Stage — Lead", cement_details: "Squeeze 14.8 lbm/gal | 191.23 bbl | 740.47 sack | 100% excess | 1.45 ft³/sack | Top: 33 ft" },
+        { section_name: "7.625\" Intermediate (L80-IC)", hole_size: 8.75, casing_od: 7.625, casing_id: 6.875, drift: 6.75, grade: "L80-IC", weight_per_length: 29.7, connection: "Wedge 511", start_md: 4000, end_md: 9171, cement_type: "Two Stage — Tail", cement_details: "Primary 15.6 lbm/gal | 88.03 bbl | 401.82 sack | 50% excess | 1.23 ft³/sack | Top: 5969 ft" },
+        { section_name: "5.5\" Production", hole_size: 6.75, casing_od: 5.5, casing_id: 4.778, drift: 4.653, grade: "P-110 ICY", weight_per_length: 20, connection: "Wedge 441 (Full String)", start_md: 3, end_md: 25149, cement_type: "Single Stage", cement_details: "13.2 lbm/gal | 297.1 bbl | 1174.71 sack | 25% excess | 1.42 ft³/sack | Top: 8671 ft" },
+      ],
+      // Formations
+      formation_tops: [
+        { formation_name: "RUSTLER", md: 1040, tvd: 1040 },
+        { formation_name: "SALADO", md: 1332, tvd: 1332 },
+        { formation_name: "BASE SALT", md: 3682.23, tvd: 3670 },
+        { formation_name: "DELAWARE", md: 3875.5, tvd: 3862 },
+        { formation_name: "CHERRY CANYON", md: 4819.69, tvd: 4800 },
+        { formation_name: "BRUSHY CANYON", md: 5968.17, tvd: 5942 },
+        { formation_name: "Basal Brushy Canyon", md: 7420.18, tvd: 7394 },
+        { formation_name: "BONE SPRING CARBONATE", md: 7684.18, tvd: 7658 },
+        { formation_name: "AVALON SHALE UPPER", md: 7828.18, tvd: 7802 },
+        { formation_name: "AVALON SHALE LOWER", md: 8282.18, tvd: 8256 },
+        { formation_name: "1ST BONE SPRING CARBONATE", md: 8414.18, tvd: 8388 },
+        { formation_name: "1ST BONE SPRING SAND", md: 8633.18, tvd: 8607 },
+        { formation_name: "2ND BONE SPRING SHALE", md: 8903.85, tvd: 8877 },
+        { formation_name: "2ND BONE SPRING CARBONATE", md: 9120.77, tvd: 9087 },
+        { formation_name: "2ND BONE SPRING SAND (TARGET)", md: 9581.61, tvd: 9467 },
+      ],
+      // Drilling Sections with full BHA + bit data
+      drilling_sections: [
+        {
+          section_name: "Intermediate", hole_size: 8.75,
+          depth_from: 1322, depth_to: 9171,
+          interval: "RUSTLER → 2ND BS CARBONATE",
+          wob: "25 – 55", rpm: "40 – 80", flow_rate: "550 – 700", rop: "100 – 600", diffp_max: 800,
+          bha_type: "Motor — Slick BHA (no DC)",
+          primary_bit: "Reed TKF66-CT2", primary_bit_tfa: 1.18,
+          backup_bit: "Ulterra XP616 (Maverick)", backup_bit_tfa: 1.18,
+          bha_details: "INTREPID 7\" 7/8 6.9 (.23 rpg) @ 1.83° TS. Modified intermediate BHA — remove DC, utilize slick BHA. XOM DSC Pod + Motive for slides. AutoDAS for parameter control. No stabilizer above motor. Jars: same connection as HWDP.",
+          comments: "INCREASE GPM AFTER DRILL COLLARS EXIT SCP",
+        },
+        {
+          section_name: "Curve", hole_size: 6.75,
+          depth_from: 9171, depth_to: 10070,
+          interval: "2ND BS CARBONATE → KOP2",
+          wob: "25 – 45", rpm: "30 – 60", flow_rate: "275 – 325", rop: "20 – 200", diffp_max: 800,
+          bha_type: "RSS — SLB Orbit G2 w/ NC44 CC + Modified Bias Unit",
+          primary_bit: "Reed TKC63-AD12", primary_bit_tfa: 0.37,
+          backup_bit: "HDBS HD64MKS (Machete)", backup_bit_tfa: 0.37,
+          int_curve_bit: "Baker 306WSX", int_curve_tfa: 1.18,
+          bha_details: "6-3/4\" curve assembly. 8° DLS build. RSS into lateral. NOV 5.5\" or 5.25 6/7 7.8 (0.61 rpg) @ 0.00° w/ 6.5\" NBS. Tomax AST. Eccentric Reamer (6-7/8\") ~1000' back. MWD below motor.",
+          comments: "Diff Pressure SP Limit 75% of max. Kick off ASAP out of shoe.",
+        },
+        {
+          section_name: "Lateral", hole_size: 6.75,
+          depth_from: 10070, depth_to: 25149,
+          interval: "2ND BONE SPRING SAND",
+          wob: "30 – 45", rpm: "60 – 110", flow_rate: "275 – 325", rop: "50 – 300", diffp_max: 800,
+          bha_type: "RSS — SLB Orbit G2, Non-Vortex",
+          primary_bit: "Reed TKF63-AD4", primary_bit_tfa: 0.37,
+          backup_bit: "Baker P406VTH (Crycut)", backup_bit_tfa: 0.37,
+          bha_details: "SLB Orbit G2 RSS. Stab on bearing housing. Tomax AST. Reamer 500' back. AutoDAS for parameter control. NOV 5.5\" or 5.25 6/7 7.8 (0.61 rpg) @ 0.00° w/ 6.5\" NBS.",
+          comments: "Diff Pressure SP Limit 75% of max.",
+        },
+      ],
+      // Fluids
+      drilling_fluids: [
+        { section: "Intermediate", fluid_type: "Direct Emulsion Water Based Mud", design_mw: 8.4, min_mw: 8.3, max_mw: 8.7, min_fit: 11.5, mudloggers: "Yes", comments: "DO w/ BDE (~8.4 ppg)" },
+        { section: "Production", fluid_type: "Oil Based Mud", design_mw: 9.2, min_mw: 9.0, max_mw: 9.5, min_fit: 11.5, mudloggers: "Yes", comments: "OBM. Monitor OWR. Utilize MPD prior to MW for BG, Conn Gas" },
+      ],
+      // Risks
+      risks_and_hazards: [
+        { section: "Intermediate", risk: "Losses — Salt & Brushy", comments: "Risk of losses in Salt and Brushy Canyon. Will drillout with BDE from the beginning." },
+        { section: "Intermediate", risk: "Water Flow", comments: "Risk of waterflows. Manage with MW and MPD during trips." },
+        { section: "Production", risk: "Waterflows", comments: "Monitor OWR, especially during trips to identify potential waterflows." },
+        { section: "Production", risk: "Connection Gas", comments: "BG, Conn Gas may be observed, utilize MPD, stripping and caps to manage pressure." },
+      ],
+      // Wellhead
+      wellhead: { a_section: "11\" Fast-Lock", b_section: "11\" 10M", top: "TA Cap", packoff_slips: "7-5/8\" / 5-1/2\"" },
+      // Cement
+      cement_program: [
+        { casing: "Surface", type: "Primary", weight: 8.5, pressure: "1500 psi" },
+        { casing: "Intermediate — Lead", type: "Squeeze", weight: 14.8, volume_bbl: 191.23, sacks: 740, excess_pct: 100, top_md: 33 },
+        { casing: "Intermediate — Tail", type: "Primary", weight: 15.6, volume_bbl: 88.03, sacks: 402, excess_pct: 50, top_md: 5969 },
+        { casing: "Production", type: "Single Stage", weight: 13.2, volume_bbl: 297.1, sacks: 1175, excess_pct: 25, top_md: 8671 },
+      ],
+      // FIT
+      fit_data: [
+        { section: "Intermediate", fit_emw: 12, surface_psi: 247.23, fluid_wt: 8.4 },
+        { section: "Production", fit_emw: 12, surface_psi: 1043.91, fluid_wt: 9.8 },
+      ],
+      // Directional
+      directional: {
+        notes: "Full String of W441 on production string. Minimum ICP setting depth = 50' into 2nd BS Lime/Carb.",
+        marker_joints: { half_surface_to_kop: true, kop: 8728, half_lateral: 17609, spacing: "1000' from wells on pad" },
+        curve_dls: "8 deg/100 build",
+      },
+      // Anti-collision
+      anti_collision: [
+        { ref_well: "510H (Same Pad)", ref_md: 1600, sf: 2.915, ctc: 32.73, ete: 21.5, section: "INT", sf_req: 0.8 },
+        { ref_well: "510H (Same Pad)", ref_md: 4000, sf: 4.593, ctc: 130.55, ete: 102.12, section: "INT", sf_req: 0.8 },
+        { ref_well: "121H (High Producer)", ref_md: 8800, sf: 4.217, ctc: 262.65, ete: 200.36, section: "INT", sf_req: 2.0 },
+        { ref_well: "714H (High Producer)", ref_md: 25149, sf: 1.837, ctc: 264.51, ete: 120.55, section: "LAT", sf_req: 1.2 },
+        { ref_well: "735H (High Producer)", ref_md: 25149, sf: 1.197, ctc: 164.18, ete: 27.07, section: "LAT", sf_req: 1.2 },
+      ],
+      notes: "4-well pad, 2nd BS and 3rd BS (2 of each). Surfaces set by spudder.",
+    },
+    // ═══ Well 2: 510H ═══
+    {
+      well_name: "Poker Lake Unit 27 BD 510H",
+      api_number: "30-015-56507", afe_number: "DD.2024.13951",
+      operator_well_id: "2283341001", permit_id: "2840005",
+      total_depth_md: 25927.52, total_depth_tvd: 10381.99,
+      lateral_length: "3-Mile", target_formation: "3rd Bone Spring Shale",
+      design: "3rd BS SH / 3STSH",
+      surface_coordinates: "32°05′58.4215″N, 103°52′30.9466″W",
+      coordinate_system: "NAD27 NM State Plane, Eastern Zone, US Feet",
+      ground_level: 3264, rkb: 33, skid_order: 3,
+      casing_program: [
+        { section_name: "9.625\" Surface", hole_size: 12.25, casing_od: 9.625, casing_id: 8.835, drift: 8.75, grade: "J55", weight_per_length: 40, connection: "BTC", start_md: 3, end_md: 1322, cement_type: "Primary", cement_details: "CIT: 8.5 lbm/gal — 1500 psi" },
+        { section_name: "7.625\" Intermediate", hole_size: 8.75, casing_od: 7.625, casing_id: 6.875, drift: 6.75, grade: "P110-ICY / L80-IC", weight_per_length: 29.7, connection: "Wedge 511", start_md: 3, end_md: 9589, cement_type: "Two Stage", cement_details: "Lead: Squeeze 14.8 | 193 bbl | Tail: Primary 15.6 | 97.87 bbl" },
+        { section_name: "5.5\" Production", hole_size: 6.75, casing_od: 5.5, casing_id: 4.778, drift: 4.653, grade: "P-110 ICY", weight_per_length: 20, connection: "Wedge 441 (Full String)", start_md: 3, end_md: 25928, cement_type: "Single Stage", cement_details: "13.2 lbm/gal | 303.8 bbl | 1201.2 sack" },
+      ],
+      formation_tops: [
+        { formation_name: "RUSTLER", md: 1011, tvd: 1011 }, { formation_name: "SALADO", md: 1303, tvd: 1303 },
+        { formation_name: "BASE SALT", md: 3678, tvd: 3666 }, { formation_name: "DELAWARE", md: 3884, tvd: 3870 },
+        { formation_name: "CHERRY CANYON", md: 4852, tvd: 4833 }, { formation_name: "BRUSHY CANYON", md: 6019, tvd: 5996 },
+        { formation_name: "Basal Brushy Canyon", md: 7444, tvd: 7421 }, { formation_name: "BONE SPRING CARBONATE", md: 7696, tvd: 7673 },
+        { formation_name: "AVALON SHALE UPPER", md: 7844, tvd: 7821 }, { formation_name: "AVALON SHALE LOWER", md: 8225, tvd: 8202 },
+        { formation_name: "1ST BONE SPRING CARBONATE", md: 8428, tvd: 8405 }, { formation_name: "1ST BONE SPRING SAND", md: 8658, tvd: 8635 },
+        { formation_name: "2ND BONE SPRING SHALE", md: 8928, tvd: 8905 }, { formation_name: "2ND BONE SPRING CARBONATE", md: 9141, tvd: 9118 },
+        { formation_name: "2ND BONE SPRING SAND", md: 9522, tvd: 9499 },
+        { formation_name: "3RD BONE SPRING CARBONATE", md: 9843, tvd: 9819 },
+        { formation_name: "Harkey", md: 10234, tvd: 10160 },
+        { formation_name: "3RD BONE SPRING SHALE (TARGET)", md: 10294, tvd: 10201 },
+      ],
+      drilling_sections: [
+        { section_name: "Intermediate", hole_size: 8.75, depth_from: 1322, depth_to: 9589, interval: "SALADO → 2ND BS SAND", wob: "25 – 55", rpm: "40 – 80", flow_rate: "550 – 700", rop: "100 – 600", diffp_max: 800, bha_type: "Motor — Slick BHA", primary_bit: "Reed TKF66-CT2", primary_bit_tfa: 1.18, backup_bit: "Ulterra XP616", backup_bit_tfa: 1.18, bha_details: "Modified intermediate BHA. XOM DSC Pod + Motive. AutoDAS.", comments: "INCREASE GPM AFTER DC EXIT SCP" },
+        { section_name: "Curve", hole_size: 6.75, depth_from: 9589, depth_to: 10814, interval: "2ND BS SAND → Harkey", wob: "25 – 45", rpm: "30 – 60", flow_rate: "275 – 325", rop: "20 – 200", diffp_max: 800, bha_type: "RSS — Orbit G2", primary_bit: "Reed TKC63-AD12", primary_bit_tfa: 0.37, backup_bit: "HDBS HD64MKS", backup_bit_tfa: 0.37, bha_details: "8° DLS. Eccentric Reamer ~1000' back.", comments: "Kick off ASAP out of shoe" },
+        { section_name: "Lateral", hole_size: 6.75, depth_from: 10814, depth_to: 25928, interval: "3RD BONE SPRING SHALE", wob: "30 – 45", rpm: "60 – 110", flow_rate: "275 – 325", rop: "50 – 300", diffp_max: 800, bha_type: "RSS — Orbit G2, Non-Vortex", primary_bit: "Reed TKF63-AD4", primary_bit_tfa: 0.37, backup_bit: "Baker P406VTH", backup_bit_tfa: 0.37, bha_details: "AutoDAS. Reamer 500' back.", comments: "Diff Pressure SP Limit 75%" },
+      ],
+      drilling_fluids: [
+        { section: "Intermediate", fluid_type: "Direct Emulsion WBM", design_mw: 8.4, min_mw: 8.3, max_mw: 8.7, min_fit: 11.5, mudloggers: "Yes", comments: "DO w/ BDE (~8.4 ppg)" },
+        { section: "Production", fluid_type: "Oil Based Mud", design_mw: 9.7, min_mw: 9.4, max_mw: 10.2, min_fit: 11.5, mudloggers: "Yes", comments: "OBM. Utilize MPD prior to MW for BG, Conn Gas" },
+      ],
+      risks_and_hazards: [
+        { section: "Intermediate", risk: "Losses — Salt & Brushy", comments: "Will drillout with BDE from the beginning." },
+        { section: "Intermediate", risk: "Water Flow", comments: "Manage with MW and MPD during trips." },
+        { section: "Production", risk: "Poor Yields", comments: "Low yield in curve, kick off early to mitigate within Harkey." },
+        { section: "Production", risk: "Gas", comments: "BG, Conn Gas — utilize MPD, stripping and caps." },
+      ],
+      wellhead: { a_section: "11\" Fast-Lock", b_section: "11\" 10M", top: "TA Cap", packoff_slips: "7-5/8\" / 5-1/2\"" },
+      cement_program: [
+        { casing: "Surface", type: "Primary", weight: 8.5, pressure: "1500 psi" },
+        { casing: "Intermediate — Lead", type: "Squeeze", weight: 14.8, volume_bbl: 193.06, sacks: 748, excess_pct: 100, top_md: 33 },
+        { casing: "Intermediate — Tail", type: "Primary", weight: 15.6, volume_bbl: 97.87, sacks: 447, excess_pct: 50, top_md: 6020 },
+        { casing: "Production", type: "Single Stage", weight: 13.2, volume_bbl: 303.8, sacks: 1201, excess_pct: 25, top_md: 9089 },
+      ],
+      fit_data: [
+        { section: "Intermediate", fit_emw: 12, surface_psi: 247.23, fluid_wt: 8.4 },
+        { section: "Production", fit_emw: 12, surface_psi: 1093.23, fluid_wt: 9.8 },
+      ],
+      directional: { notes: "Full String of W441. Setting ICP in 2nd BS Sand, setting on depth acceptable.", marker_joints: { kop: 9689, half_lateral: 18370, spacing: "1000' from wells on pad" }, curve_dls: "8 deg/100 build" },
+      anti_collision: [
+        { ref_well: "509H (Same Pad)", ref_md: 1600, sf: 2.913, ctc: 32.71, ete: 21.48, section: "INT", sf_req: 0.8 },
+        { ref_well: "511H (Same Pad)", ref_md: 1500, sf: 2.809, ctc: 29.55, ete: 19.03, section: "INT", sf_req: 0.8 },
+        { ref_well: "102H (High Producer)", ref_md: 9689, sf: 4.454, ctc: 302.78, ete: 234.8, section: "INT", sf_req: 2.0 },
+        { ref_well: "714H (High Producer)", ref_md: 25928, sf: 1.214, ctc: 115.29, ete: 20.34, section: "LAT", sf_req: 1.2 },
+      ],
+      notes: "4-well pad, 2nd BS and 3rd BS (2 of each). Surfaces set by spudder.",
+    },
+    // ═══ Well 3: 511H ═══
+    {
+      well_name: "Poker Lake Unit 27 BD 511H",
+      api_number: "30-015-56491", afe_number: "DD.2024.13952",
+      operator_well_id: "2283351001", permit_id: "2840007",
+      total_depth_md: 25480.86, total_depth_tvd: 9630,
+      lateral_length: "3-Mile", target_formation: "2nd Bone Spring Sand",
+      design: "2nd BS SS / 3STSH",
+      surface_coordinates: "32°05′58.4232″N, 103°52′30.5978″W",
+      coordinate_system: "NAD27 NM State Plane, Eastern Zone, US Feet",
+      ground_level: 3264, rkb: 33, skid_order: 2,
+      casing_program: [
+        { section_name: "9.625\" Surface", hole_size: 12.25, casing_od: 9.625, casing_id: 8.835, drift: 8.75, grade: "J55", weight_per_length: 40, connection: "BTC", start_md: 3, end_md: 1322, cement_type: "Primary", cement_details: "CIT: 8.5 lbm/gal — 1500 psi" },
+        { section_name: "7.625\" Intermediate", hole_size: 8.75, casing_od: 7.625, casing_id: 6.875, drift: 6.75, grade: "P110-ICY / L80-IC", weight_per_length: 29.7, connection: "Wedge 511", start_md: 3, end_md: 9294, cement_type: "Two Stage", cement_details: "Lead: 14.8 | 194.51 bbl | Tail: 15.6 | 88.87 bbl" },
+        { section_name: "5.5\" Production", hole_size: 6.75, casing_od: 5.5, casing_id: 4.778, drift: 4.653, grade: "P-110 ICY", weight_per_length: 20, connection: "Wedge 441 (Full String)", start_md: 3, end_md: 25481, cement_type: "Single Stage", cement_details: "13.2 lbm/gal | 300.98 bbl | 1190 sack" },
+      ],
+      formation_tops: [
+        { formation_name: "RUSTLER", md: 1041, tvd: 1041 }, { formation_name: "SALADO", md: 1332, tvd: 1332 },
+        { formation_name: "BASE SALT", md: 3715, tvd: 3672 }, { formation_name: "DELAWARE", md: 3913, tvd: 3864 },
+        { formation_name: "CHERRY CANYON", md: 4883, tvd: 4805 }, { formation_name: "BRUSHY CANYON", md: 6060, tvd: 5946 },
+        { formation_name: "Basal Brushy Canyon", md: 7548, tvd: 7397 }, { formation_name: "BONE SPRING CARBONATE", md: 7812, tvd: 7661 },
+        { formation_name: "AVALON SHALE UPPER", md: 7956, tvd: 7805 }, { formation_name: "AVALON SHALE LOWER", md: 8377, tvd: 8226 },
+        { formation_name: "1ST BONE SPRING CARBONATE", md: 8542, tvd: 8391 }, { formation_name: "1ST BONE SPRING SAND", md: 8761, tvd: 8610 },
+        { formation_name: "2ND BONE SPRING SHALE", md: 9032, tvd: 8880 }, { formation_name: "2ND BONE SPRING CARBONATE", md: 9250, tvd: 9090 },
+        { formation_name: "2ND BONE SPRING SAND (TARGET)", md: 9713, tvd: 9470 },
+      ],
+      drilling_sections: [
+        { section_name: "Intermediate", hole_size: 8.75, depth_from: 1322, depth_to: 9294, interval: "RUSTLER → 2ND BS CARB", wob: "25 – 55", rpm: "40 – 80", flow_rate: "550 – 700", rop: "100 – 600", diffp_max: 800, bha_type: "Motor — Slick BHA", primary_bit: "Reed TKF66-CT2", primary_bit_tfa: 1.18, backup_bit: "Ulterra XP616", backup_bit_tfa: 1.18, bha_details: "Same as 509H config.", comments: "INCREASE GPM AFTER DC EXIT SCP" },
+        { section_name: "Curve", hole_size: 6.75, depth_from: 9294, depth_to: 10204, interval: "2ND BS CARBONATE", wob: "25 – 45", rpm: "30 – 60", flow_rate: "275 – 325", rop: "20 – 200", diffp_max: 800, bha_type: "RSS — Orbit G2", primary_bit: "Reed TKC63-AD12", primary_bit_tfa: 0.37, backup_bit: "HDBS HD64MKS", backup_bit_tfa: 0.37, bha_details: "8° DLS. Reamer ~1000' back.", comments: "Kick off ASAP" },
+        { section_name: "Lateral", hole_size: 6.75, depth_from: 10204, depth_to: 25481, interval: "2ND BONE SPRING SAND", wob: "30 – 45", rpm: "60 – 110", flow_rate: "275 – 325", rop: "50 – 300", diffp_max: 800, bha_type: "RSS — Orbit G2", primary_bit: "Reed TKF63-AD4", primary_bit_tfa: 0.37, backup_bit: "Baker P406VTH", backup_bit_tfa: 0.37, bha_details: "AutoDAS. Reamer 500' back.", comments: "" },
+      ],
+      drilling_fluids: [
+        { section: "Intermediate", fluid_type: "Direct Emulsion WBM", design_mw: 8.4, min_mw: 8.3, max_mw: 8.7, min_fit: 11.5, mudloggers: "Yes", comments: "DO w/ BDE" },
+        { section: "Production", fluid_type: "Oil Based Mud", design_mw: 9.2, min_mw: 9.0, max_mw: 9.5, min_fit: 11.5, mudloggers: "Yes", comments: "Monitor OWR. MPD prior to MW." },
+      ],
+      risks_and_hazards: [
+        { section: "Intermediate", risk: "Losses — Salt & Brushy", comments: "Drillout with BDE." },
+        { section: "Intermediate", risk: "Water Flow", comments: "MW and MPD during trips." },
+        { section: "Production", risk: "Waterflows", comments: "Monitor OWR during trips." },
+        { section: "Production", risk: "Gas", comments: "MPD, stripping and caps." },
+      ],
+      wellhead: { a_section: "11\" Fast-Lock", b_section: "11\" 10M", top: "TA Cap", packoff_slips: "7-5/8\" / 5-1/2\"" },
+      cement_program: [
+        { casing: "Surface", type: "Primary", weight: 8.5, pressure: "1500 psi" },
+        { casing: "Intermediate", type: "Two Stage", weight: 15.6, volume_bbl: 88.87, sacks: 406, excess_pct: 50, top_md: 6060 },
+        { casing: "Production", type: "Single Stage", weight: 13.2, volume_bbl: 301, sacks: 1190, excess_pct: 25, top_md: 8794 },
+      ],
+      fit_data: [{ section: "Intermediate", fit_emw: 12, surface_psi: 247.23, fluid_wt: 8.4 }, { section: "Production", fit_emw: 12, surface_psi: 1043.57, fluid_wt: 9.8 }],
+      directional: { notes: "Min ICP 50' into 2nd BS Lime/Carb. Full String W441.", marker_joints: { kop: 8840, half_lateral: 17841 }, curve_dls: "8 deg/100 build" },
+      anti_collision: [
+        { ref_well: "510H (Same Pad)", ref_md: 1567, sf: 2.661, ctc: 29.27, ete: 18.27, section: "INT", sf_req: 0.8 },
+        { ref_well: "512H (Same Pad)", ref_md: 1797, sf: 2.055, ctc: 25.98, ete: 13.34, section: "INT", sf_req: 0.8 },
+        { ref_well: "103H (High Producer)", ref_md: 8847, sf: 3.053, ctc: 192.3, ete: 129.31, section: "INT", sf_req: 2.0 },
+        { ref_well: "731H (High Producer)", ref_md: 25481, sf: 1.306, ctc: 180.83, ete: 42.4, section: "LAT", sf_req: 1.2 },
+      ],
+      notes: "Surfaces set by spudder.",
+    },
+    // ═══ Well 4: 512H ═══
+    {
+      well_name: "Poker Lake Unit 27 BD 512H",
+      api_number: "30-015-56497", afe_number: "DD.2024.13953",
+      operator_well_id: "2283361001", permit_id: "2840009",
+      total_depth_md: 26376.89, total_depth_tvd: 10390.01,
+      lateral_length: "3-Mile", target_formation: "3rd Bone Spring Shale",
+      design: "3rd BS SH / 3STSH",
+      surface_coordinates: "32°05′58.4219″N, 103°52′30.249″W",
+      coordinate_system: "NAD27 NM State Plane, Eastern Zone, US Feet",
+      ground_level: 3265, rkb: 33, skid_order: 1,
+      casing_program: [
+        { section_name: "9.625\" Surface", hole_size: 12.25, casing_od: 9.625, casing_id: 8.835, drift: 8.75, grade: "J55", weight_per_length: 40, connection: "BTC", start_md: 3, end_md: 1320, cement_type: "Primary", cement_details: "CIT: 8.5 lbm/gal — 1500 psi" },
+        { section_name: "7.625\" Intermediate", hole_size: 8.75, casing_od: 7.625, casing_id: 6.875, drift: 6.75, grade: "P110-ICY / L80-IC", weight_per_length: 29.7, connection: "Wedge 511", start_md: 3, end_md: 9821, cement_type: "Two Stage", cement_details: "Lead: 14.8 | 199.5 bbl | Tail: 15.6 | 99.29 bbl" },
+        { section_name: "5.5\" Production", hole_size: 6.75, casing_od: 5.5, casing_id: 4.778, drift: 4.653, grade: "P-110 ICY", weight_per_length: 20, connection: "Wedge 441 (Full String)", start_md: 3, end_md: 26377, cement_type: "Single Stage", cement_details: "13.2 lbm/gal | 307.84 bbl | 1217 sack" },
+      ],
+      formation_tops: [
+        { formation_name: "RUSTLER", md: 1012, tvd: 1012 }, { formation_name: "SALADO", md: 1304, tvd: 1304 },
+        { formation_name: "BASE SALT", md: 3730, tvd: 3666 }, { formation_name: "DELAWARE", md: 3948, tvd: 3873 },
+        { formation_name: "CHERRY CANYON", md: 4961, tvd: 4833 }, { formation_name: "BRUSHY CANYON", md: 6198, tvd: 6005 },
+        { formation_name: "Basal Brushy Canyon", md: 7674, tvd: 7427 }, { formation_name: "BONE SPRING CARBONATE", md: 7925, tvd: 7678 },
+        { formation_name: "AVALON SHALE UPPER", md: 8072, tvd: 7825 }, { formation_name: "AVALON SHALE LOWER", md: 8448, tvd: 8201 },
+        { formation_name: "1ST BONE SPRING CARBONATE", md: 8656, tvd: 8409 }, { formation_name: "1ST BONE SPRING SAND", md: 8888, tvd: 8641 },
+        { formation_name: "2ND BONE SPRING SHALE", md: 9157, tvd: 8910 }, { formation_name: "2ND BONE SPRING CARBONATE", md: 9371, tvd: 9124 },
+        { formation_name: "2ND BONE SPRING SAND", md: 9752, tvd: 9505 },
+        { formation_name: "3RD BONE SPRING CARBONATE", md: 10073, tvd: 9825 },
+        { formation_name: "Harkey", md: 10468, tvd: 10169 },
+        { formation_name: "3RD BONE SPRING SHALE (TARGET)", md: 10527, tvd: 10210 },
+      ],
+      drilling_sections: [
+        { section_name: "Intermediate", hole_size: 8.75, depth_from: 1320, depth_to: 9821, interval: "SALADO → 2ND BS SAND", wob: "25 – 55", rpm: "40 – 80", flow_rate: "550 – 700", rop: "100 – 600", diffp_max: 800, bha_type: "Motor — Slick BHA", primary_bit: "Reed TKF66-CT2", primary_bit_tfa: 1.18, backup_bit: "Ulterra XP616", backup_bit_tfa: 1.18, bha_details: "Same config. AutoDAS.", comments: "INCREASE GPM AFTER DC EXIT SCP" },
+        { section_name: "Curve", hole_size: 6.75, depth_from: 9821, depth_to: 11046, interval: "2ND BS SAND → Harkey", wob: "25 – 45", rpm: "30 – 60", flow_rate: "275 – 325", rop: "20 – 200", diffp_max: 800, bha_type: "RSS — Orbit G2", primary_bit: "Reed TKC63-AD12", primary_bit_tfa: 0.37, backup_bit: "HDBS HD64MKS", backup_bit_tfa: 0.37, bha_details: "8° DLS. Reamer ~1000' back.", comments: "Kick off ASAP" },
+        { section_name: "Lateral", hole_size: 6.75, depth_from: 11046, depth_to: 26377, interval: "3RD BONE SPRING SHALE", wob: "30 – 45", rpm: "60 – 110", flow_rate: "275 – 325", rop: "50 – 300", diffp_max: 800, bha_type: "RSS — Orbit G2, Non-Vortex", primary_bit: "Reed TKF63-AD4", primary_bit_tfa: 0.37, backup_bit: "Baker P406VTH", backup_bit_tfa: 0.37, bha_details: "AutoDAS. Reamer 500' back.", comments: "Diff Pressure SP Limit 75%" },
+      ],
+      drilling_fluids: [
+        { section: "Intermediate", fluid_type: "Direct Emulsion WBM", design_mw: 8.4, min_mw: 8.3, max_mw: 8.7, min_fit: 11.5, mudloggers: "Yes", comments: "DO w/ BDE" },
+        { section: "Production", fluid_type: "Oil Based Mud", design_mw: 9.7, min_mw: 9.4, max_mw: 10.2, min_fit: 11.5, mudloggers: "Yes", comments: "OBM. MPD prior to MW for BG, Conn Gas" },
+      ],
+      risks_and_hazards: [
+        { section: "Intermediate", risk: "Losses — Salt & Brushy", comments: "Drillout with BDE." },
+        { section: "Intermediate", risk: "Water Flow", comments: "MW and MPD during trips." },
+        { section: "Production", risk: "Poor Yields", comments: "Kick off early to mitigate in Harkey." },
+        { section: "Production", risk: "Gas", comments: "MPD, stripping and caps." },
+      ],
+      wellhead: { a_section: "11\" Fast-Lock", b_section: "11\" 10M", top: "TA Cap", packoff_slips: "7-5/8\" / 5-1/2\"" },
+      cement_program: [
+        { casing: "Surface", type: "Primary", weight: 8.5, pressure: "1500 psi" },
+        { casing: "Intermediate", type: "Two Stage", weight: 15.6, volume_bbl: 99.29, sacks: 453, excess_pct: 50, top_md: 6199 },
+        { casing: "Production", type: "Single Stage", weight: 13.2, volume_bbl: 307.84, sacks: 1217, excess_pct: 25, top_md: 9321 },
+      ],
+      fit_data: [{ section: "Intermediate", fit_emw: 12, surface_psi: 246.86, fluid_wt: 8.4 }, { section: "Production", fit_emw: 12, surface_psi: 1094.15, fluid_wt: 9.8 }],
+      directional: { notes: "Setting ICP in 2nd BS Sand, on depth acceptable. Full String W441.", marker_joints: { kop: 9921, half_lateral: 18711 }, curve_dls: "8 deg/100 build" },
+      anti_collision: [
+        { ref_well: "511H (Same Pad)", ref_md: 1797, sf: 2.055, ctc: 25.98, ete: 13.34, section: "INT", sf_req: 0.8 },
+        { ref_well: "124H (High Producer)", ref_md: 7600, sf: 3.12, ctc: 168.32, ete: 114.38, section: "INT", sf_req: 2.0 },
+        { ref_well: "154H (High Producer)", ref_md: 9800, sf: 3.822, ctc: 261.78, ete: 193.28, section: "INT", sf_req: 2.0 },
+        { ref_well: "731H (High Producer)", ref_md: 26377, sf: 1.362, ctc: 182.94, ete: 48.58, section: "LAT", sf_req: 1.2 },
+      ],
+      notes: "Surfaces set by spudder.",
+    },
+  ],
+  confidence: { rig_name: 0.99, wells: 0.98, casing_program: 0.96, formation_tops: 0.97, bha: 0.94, directional: 0.93, anti_collision: 0.95 },
+};

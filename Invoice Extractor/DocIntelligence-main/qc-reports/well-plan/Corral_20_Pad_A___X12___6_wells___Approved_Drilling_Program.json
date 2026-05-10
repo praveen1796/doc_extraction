@@ -1,0 +1,1711 @@
+{
+  "request_id": "20260410151606_11dd95ba",
+  "document_type": "well_plan",
+  "status": "Success",
+  "metadata": {
+    "source_file": "Corral 20 Pad A _ X12 _ 6 wells _ Approved Drilling Program.pdf",
+    "file_size_bytes": 31671549,
+    "page_count": 136,
+    "extraction_method": "hybrid",
+    "model_used": "azure-openai-gpt",
+    "reasoning_effort": "medium",
+    "dual_pass_triggered": false,
+    "extracted_at": "2026-04-10T15:24:48.5588485Z",
+    "processing_time_ms": 521635,
+    "total_tokens_used": 79084,
+    "pages_sent_to_model": 10
+  },
+  "data": {
+    "document_type": "Batch Drilling Order / Delaware Basin Supplement",
+    "language": "en",
+    "document_format": "batch_drilling_program",
+    "rig_name": "Nabors X12",
+    "operator": "XTO Energy",
+    "pad_name": "Corral 20 Fed pad A",
+    "location": "New Mexico, Eddy County, Jal (Delaware Basin)",
+    "report_status": "Approved",
+    "report_date": "2025-07-24",
+    "depth_unit": "ft",
+    "approvals": [
+      {
+        "name": "James METCALF",
+        "action": "Completed",
+        "datetime": "15:45, Jul 19, 2025"
+      },
+      {
+        "name": "Kyle SPACEK",
+        "action": "Reviewed",
+        "datetime": "14:25, Jul 21, 2025"
+      },
+      {
+        "name": "NATHAN LUPOLD",
+        "action": "Approved",
+        "datetime": "13:41, Jul 24, 2025"
+      }
+    ],
+    "wells": [
+      {
+        "well_name": "Corral 20-32 Fed State Com 101H",
+        "well_type": "horizontal",
+        "api_number": "30-015-56311",
+        "afe_number": "DD.2024.09678",
+        "operator_well_id": "2274471001",
+        "permit_id": null,
+        "total_depth_md": 25628.45,
+        "total_depth_tvd": 10146.99,
+        "lateral_length": "3-Mile / 3ST SH",
+        "target_formation": "WC A",
+        "design": "Plan 1",
+        "surface_coordinates": "32°07′19.5735″N, 104°00′48.4296″W",
+        "coordinate_system": "NAD27 New Mexico State Plane, Eastern Zone, US Feet",
+        "ground_level": 2959,
+        "rkb": 32,
+        "skid_order": null,
+        "casing_program": [
+          {
+            "section_name": "Surface",
+            "hole_size": 12.25,
+            "casing_od": 9.625,
+            "casing_id": 8.835,
+            "drift": 8.75,
+            "grade": "J55",
+            "weight_per_length": 40,
+            "connection": "BTC",
+            "start_md": 2,
+            "end_md": 538,
+            "cement_type": null,
+            "cement_details": null
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 8.75,
+            "casing_od": 7.625,
+            "casing_id": 6.875,
+            "drift": 6.75,
+            "grade": "P110-ICY / L80-IC",
+            "weight_per_length": 29.7,
+            "connection": "Wedge 511",
+            "start_md": 2,
+            "end_md": 9331.1,
+            "cement_type": "Two Stage",
+            "cement_details": "Lead: Squeeze 14.8 lbm/gal | 182.34 bbl | 706.05 sack | 100% excess | 1.45 ft3/sack | Top MD/TVD: 32/32 ft; Tail: Primary 15.6 lbm/gal | 108.66 bbl | 496.02 sack | 50% excess | 1.23 ft3/sack | Top MD/TVD: 5360/5355.9 ft"
+          },
+          {
+            "section_name": "Production",
+            "hole_size": 6.75,
+            "casing_od": 5.5,
+            "casing_id": 4.778,
+            "drift": 4.653,
+            "grade": "P-110 ICY",
+            "weight_per_length": 20,
+            "connection": "Wedge 441",
+            "start_md": 2,
+            "end_md": 25628.45,
+            "cement_type": "Single Stage",
+            "cement_details": "Tail: Tail 13.2 lbm/gal | 312.29 bbl | 1234.78 sack | 25% excess | 1.42 ft3/sack | Top MD/TVD: 8831.1/8827 ft"
+          }
+        ],
+        "formation_tops": [
+          {
+            "formation_name": "SALADO",
+            "md": 548,
+            "tvd": 548
+          },
+          {
+            "formation_name": "BASE SALT",
+            "md": 2676.1,
+            "tvd": 2672
+          },
+          {
+            "formation_name": "DELAWARE",
+            "md": 2866.1,
+            "tvd": 2862
+          },
+          {
+            "formation_name": "CHERRY CANYON",
+            "md": 3748.1,
+            "tvd": 3744
+          },
+          {
+            "formation_name": "BRUSHY CANYON",
+            "md": 5359.1,
+            "tvd": 5355
+          },
+          {
+            "formation_name": "Basal Brushy Canyon",
+            "md": 6344.1,
+            "tvd": 6340
+          },
+          {
+            "formation_name": "BONE SPRING CARBONATE",
+            "md": 6598.1,
+            "tvd": 6594
+          },
+          {
+            "formation_name": "AVALON SHALE UPPER",
+            "md": 6760.1,
+            "tvd": 6756
+          },
+          {
+            "formation_name": "AVALON SHALE LOWER",
+            "md": 7189.1,
+            "tvd": 7185
+          },
+          {
+            "formation_name": "1ST BONE SPRING CARBONATE",
+            "md": 7359.1,
+            "tvd": 7355
+          },
+          {
+            "formation_name": "1ST BONE SPRING SAND",
+            "md": 7555.1,
+            "tvd": 7551
+          },
+          {
+            "formation_name": "2ND BONE SPRING CARBONATE",
+            "md": 7964.1,
+            "tvd": 7960
+          },
+          {
+            "formation_name": "2ND BONE SPRING SAND",
+            "md": 8377.1,
+            "tvd": 8373
+          },
+          {
+            "formation_name": "3RD BONE SPRING CARBONATE",
+            "md": 8840.1,
+            "tvd": 8836
+          },
+          {
+            "formation_name": "Harkey Sand",
+            "md": 8959.1,
+            "tvd": 8955
+          },
+          {
+            "formation_name": "3RD BONE SPRING SHALE",
+            "md": 8992.1,
+            "tvd": 8988
+          },
+          {
+            "formation_name": "3RD BONE SPRING SAND",
+            "md": 9430.1,
+            "tvd": 9426
+          },
+          {
+            "formation_name": "WOLFCAMP",
+            "md": 9829.81,
+            "tvd": 9806
+          },
+          {
+            "formation_name": "WOLFCAMP X",
+            "md": 9855.93,
+            "tvd": 9828
+          },
+          {
+            "formation_name": "WOLFCAMP Y",
+            "md": 9951.83,
+            "tvd": 9904
+          },
+          {
+            "formation_name": "WOLFCAMP A",
+            "md": 10007.04,
+            "tvd": 9944
+          },
+          {
+            "formation_name": "KOP",
+            "md": 9431.1,
+            "tvd": 9427
+          }
+        ],
+        "drilling_sections": [
+          {
+            "section_name": "Surface",
+            "hole_size": 12.25,
+            "depth_from": 32,
+            "depth_to": 538,
+            "interval": "",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "",
+            "primary_bit": "",
+            "backup_bit": "",
+            "comments": "Drilling run 1"
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 8.75,
+            "depth_from": 538,
+            "depth_to": 9331.1,
+            "interval": "",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "",
+            "primary_bit": "",
+            "backup_bit": "",
+            "comments": "Drilling run 1"
+          },
+          {
+            "section_name": "Curve",
+            "hole_size": 6.75,
+            "depth_from": 9331.1,
+            "depth_to": 10566.9,
+            "interval": "",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "RSS",
+            "primary_bit": "Reed TKC63-AD12 (TFA 0.37) / Reed TKF63-AD4 (TFA 0.37)",
+            "backup_bit": "HDBS HD64MKS (Machete) (TFA 0.37) / Baker P406VTH (Crycut) (TFA 0.37)",
+            "comments": "Planned on 8°/100' DLS build (from well specific notes)."
+          },
+          {
+            "section_name": "Lateral",
+            "hole_size": 6.75,
+            "depth_from": 10566.9,
+            "depth_to": 25628.45,
+            "interval": "WC A",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "SLB Orbit G2 RSS",
+            "primary_bit": "Reed TKF63-AD4 (TFA 0.37)",
+            "backup_bit": "Baker P406VTH (Crycut) (TFA 0.37)",
+            "comments": "Utilize AutoDAS in lateral for parameter control."
+          }
+        ],
+        "drilling_fluids": [
+          {
+            "section": "Intermediate",
+            "fluid_type": "Direct Emulsion Water Based Mud",
+            "design_mw": 8.2,
+            "min_mw": 8.0,
+            "max_mw": 8.6,
+            "min_fit": 10.5,
+            "mudloggers": "Yes",
+            "comments": "FIT listed: 11 lbm/gal; Notes: DO w/ BDE (~8.2 ppg)."
+          },
+          {
+            "section": "Production",
+            "fluid_type": "Oil Based Mud",
+            "design_mw": 11.1,
+            "min_mw": 10.8,
+            "max_mw": 11.5,
+            "min_fit": 12.6,
+            "mudloggers": "Yes",
+            "comments": "FIT listed: 13 lbm/gal; Monitor OWR; utilize MPD prior to MW for BG/connection gas."
+          }
+        ],
+        "risks_and_hazards": [
+          {
+            "section": "Intermediate",
+            "risk": "Intermediate losses - salt",
+            "comments": "Risk of losses in Salt due to Rustler and Salado outcropping to West; cross flows during INT1 bradenhead observed."
+          },
+          {
+            "section": "Surface/Intermediate",
+            "risk": "Water flow / shallow air pockets",
+            "comments": "Shallow air pockets encountered in the area."
+          },
+          {
+            "section": "Production",
+            "risk": "Waterflows / Gas",
+            "comments": "Monitor OWR during trips; BG and connection gas may be observed; utilize MPD/stripping/caps to manage pressure."
+          }
+        ],
+        "notes": "Delaware Basin - Well Specific Notes indicate curve planned at 8 deg/100 build; full string of W441 on production string; Minimum ICP setting depth = 50' into 3rd BS Carb (TOP @ 8836' TVD)."
+      },
+      {
+        "well_name": "Corral 20-32 Fed State Com 103H",
+        "well_type": "horizontal",
+        "api_number": "30-015-56312",
+        "afe_number": "DD.2024.09652",
+        "operator_well_id": "2274421001",
+        "permit_id": null,
+        "total_depth_md": 24149.47,
+        "total_depth_tvd": 8546,
+        "lateral_length": "3-Mile / 3ST SH",
+        "target_formation": "2nd BS SS",
+        "design": "Plan 1",
+        "surface_coordinates": "32°07′19.5687″N, 104°00′48.0807″W",
+        "coordinate_system": "NAD27 New Mexico State Plane, Eastern Zone, US Feet",
+        "ground_level": 2959,
+        "rkb": 32,
+        "skid_order": null,
+        "casing_program": [
+          {
+            "section_name": "Surface",
+            "hole_size": 12.25,
+            "casing_od": 9.625,
+            "casing_id": 8.835,
+            "drift": 8.75,
+            "grade": "J55",
+            "weight_per_length": 40,
+            "connection": "BTC",
+            "start_md": 2,
+            "end_md": 538,
+            "cement_type": null,
+            "cement_details": null
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 8.75,
+            "casing_od": 7.625,
+            "casing_id": 6.875,
+            "drift": 6.75,
+            "grade": "P110-ICY / L80-IC",
+            "weight_per_length": 29.7,
+            "connection": "Wedge 511",
+            "start_md": 2,
+            "end_md": 7763.35,
+            "cement_type": "Two Stage",
+            "cement_details": "Lead: Squeeze 14.8 lbm/gal | 182.68 bbl | 707.36 sack | 100% excess | 1.45 ft3/sack | Top MD/TVD: 32/32 ft; Tail: Primary 15.6 lbm/gal | 87.76 bbl | 400.61 sack | 100% excess | 1.23 ft3/sack | Top MD/TVD: 5369/5355.45 ft"
+          },
+          {
+            "section_name": "Production",
+            "hole_size": 6.75,
+            "casing_od": 5.5,
+            "casing_id": 4.778,
+            "drift": 4.653,
+            "grade": "P-110 ICY",
+            "weight_per_length": 20,
+            "connection": "Wedge 441",
+            "start_md": 2,
+            "end_md": 24149.47,
+            "cement_type": "Single Stage",
+            "cement_details": "Tail: Tail 13.2 lbm/gal | 313.94 bbl | 1241.3 sack | 25% excess | 1.42 ft3/sack | Top MD/TVD: 7263.35/7249.8 ft"
+          }
+        ],
+        "formation_tops": [
+          {
+            "formation_name": "SALADO",
+            "md": 548,
+            "tvd": 548
+          },
+          {
+            "formation_name": "BASE SALT",
+            "md": 2684.91,
+            "tvd": 2672
+          },
+          {
+            "formation_name": "DELAWARE",
+            "md": 2875.51,
+            "tvd": 2862
+          },
+          {
+            "formation_name": "CHERRY CANYON",
+            "md": 3757.55,
+            "tvd": 3744
+          },
+          {
+            "formation_name": "BRUSHY CANYON",
+            "md": 5368.55,
+            "tvd": 5355
+          },
+          {
+            "formation_name": "Basal Brushy Canyon",
+            "md": 6353.55,
+            "tvd": 6340
+          },
+          {
+            "formation_name": "BONE SPRING CARBONATE",
+            "md": 6607.55,
+            "tvd": 6594
+          },
+          {
+            "formation_name": "AVALON SHALE UPPER",
+            "md": 6769.55,
+            "tvd": 6756
+          },
+          {
+            "formation_name": "AVALON SHALE LOWER",
+            "md": 7198.55,
+            "tvd": 7185
+          },
+          {
+            "formation_name": "1ST BONE SPRING CARBONATE",
+            "md": 7368.55,
+            "tvd": 7355
+          },
+          {
+            "formation_name": "1ST BONE SPRING SAND",
+            "md": 7564.55,
+            "tvd": 7551
+          },
+          {
+            "formation_name": "2ND BONE SPRING CARBONATE",
+            "md": 7974.27,
+            "tvd": 7960
+          },
+          {
+            "formation_name": "2ND BONE SPRING SAND",
+            "md": 8459.94,
+            "tvd": 8373
+          },
+          {
+            "formation_name": "KOP",
+            "md": 7843.35,
+            "tvd": 7829.8
+          }
+        ],
+        "drilling_sections": [
+          {
+            "section_name": "Surface",
+            "hole_size": 12.25,
+            "depth_from": 32,
+            "depth_to": 538,
+            "interval": "",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "",
+            "primary_bit": "",
+            "backup_bit": "",
+            "comments": "Drilling run 1"
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 8.75,
+            "depth_from": 538,
+            "depth_to": 7763.35,
+            "interval": "",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "",
+            "primary_bit": "Reed TKF66-CT2 (TFA 1.18)",
+            "backup_bit": "Ulterra XP616 (Maverick) (TFA 1.18)",
+            "comments": ""
+          },
+          {
+            "section_name": "Curve",
+            "hole_size": 6.75,
+            "depth_from": 7763.35,
+            "depth_to": 8968.35,
+            "interval": "",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "RSS",
+            "primary_bit": "Reed TKC63-AD12 (TFA 0.37) / Reed TKF63-AD4 (TFA 0.37)",
+            "backup_bit": "HDBS HD64MKS (Machete) (TFA 0.37) / Baker P406VTH (Crycut) (TFA 0.37)",
+            "comments": "Planned on 8°/100' DLS build (from well specific notes)."
+          },
+          {
+            "section_name": "Lateral",
+            "hole_size": 6.75,
+            "depth_from": 8968.35,
+            "depth_to": 24149.47,
+            "interval": "2nd BS Sand",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "SLB Orbit G2 RSS",
+            "primary_bit": "Reed TKF63-AD4 (TFA 0.37)",
+            "backup_bit": "Baker P406VTH (Crycut) (TFA 0.37)",
+            "comments": "Utilize AutoDAS in lateral for parameter control."
+          }
+        ],
+        "drilling_fluids": [
+          {
+            "section": "Intermediate",
+            "fluid_type": "Direct Emulsion Water Based Mud",
+            "design_mw": 8.2,
+            "min_mw": 8.0,
+            "max_mw": 8.6,
+            "min_fit": 10.5,
+            "mudloggers": "Yes",
+            "comments": "FIT listed: 11 lbm/gal"
+          },
+          {
+            "section": "Production",
+            "fluid_type": "Oil Based Mud",
+            "design_mw": 9.5,
+            "min_mw": 9.3,
+            "max_mw": 10.0,
+            "min_fit": 11,
+            "mudloggers": "Yes",
+            "comments": "FIT listed: 11.5 lbm/gal"
+          }
+        ],
+        "risks_and_hazards": [
+          {
+            "section": "Intermediate",
+            "risk": "Intermediate losses - salt",
+            "comments": "Risk of losses in Salt due to Rustler and Salado outcropping to West; cross flows during INT1 bradenhead observed."
+          },
+          {
+            "section": "Surface/Intermediate",
+            "risk": "Water flow / shallow air pockets",
+            "comments": "Shallow air pockets encountered in the area."
+          }
+        ],
+        "notes": "Minimum ICP setting depth = 100' into 1st BS Carb (TOP @ 7355' TVD) (from well specific notes)."
+      },
+      {
+        "well_name": "Corral 20-32 Fed State Com 102H",
+        "well_type": "horizontal",
+        "api_number": "30-015-56314",
+        "afe_number": "DD.2024.09680",
+        "operator_well_id": "2274491001",
+        "permit_id": null,
+        "total_depth_md": 26293.01,
+        "total_depth_tvd": 10788,
+        "lateral_length": "3-Mile / 3ST SH",
+        "target_formation": "WC DE",
+        "design": "Plan 1",
+        "surface_coordinates": "32°07′19.5648″N, 104°00′47.7319″W",
+        "coordinate_system": "NAD27 New Mexico State Plane, Eastern Zone, US Feet",
+        "ground_level": 2959,
+        "rkb": 32,
+        "skid_order": null,
+        "casing_program": [
+          {
+            "section_name": "Surface",
+            "hole_size": 12.25,
+            "casing_od": 9.625,
+            "casing_id": 8.835,
+            "drift": 8.75,
+            "grade": "J55",
+            "weight_per_length": 40,
+            "connection": "BTC",
+            "start_md": 2,
+            "end_md": 538,
+            "cement_type": null,
+            "cement_details": null
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 8.75,
+            "casing_od": 7.625,
+            "casing_id": 6.875,
+            "drift": 6.75,
+            "grade": "P110-ICY / L80-IC",
+            "weight_per_length": 29.7,
+            "connection": "Wedge 511",
+            "start_md": 2,
+            "end_md": 10002.94,
+            "cement_type": "Two Stage",
+            "cement_details": "Lead: Squeeze 14.8 lbm/gal | 182.59 bbl | 707.03 sack | 100% excess | 1.45 ft3/sack | Top MD/TVD: 32/32 ft; Tail: Primary 15.6 lbm/gal | 126.51 bbl | 577.48 sack | 50% excess | 1.23 ft3/sack | Top MD/TVD: 5367/5355.86 ft"
+          },
+          {
+            "section_name": "Production",
+            "hole_size": 6.75,
+            "casing_od": 5.5,
+            "casing_id": 4.778,
+            "drift": 4.653,
+            "grade": "P-110 ICY",
+            "weight_per_length": 20,
+            "connection": "Wedge 441",
+            "start_md": 2,
+            "end_md": 26293.01,
+            "cement_type": "Single Stage",
+            "cement_details": "Tail: Tail 14.5 lbm/gal | 312.16 bbl | 1390.97 sack | 25% excess | 1.26 ft3/sack | Top MD/TVD: 9502.94/9491.8 ft"
+          }
+        ],
+        "formation_tops": [
+          {
+            "formation_name": "SALADO",
+            "md": 548,
+            "tvd": 548
+          },
+          {
+            "formation_name": "BASE SALT",
+            "md": 2683.05,
+            "tvd": 2672
+          },
+          {
+            "formation_name": "DELAWARE",
+            "md": 2873.14,
+            "tvd": 2862
+          },
+          {
+            "formation_name": "CHERRY CANYON",
+            "md": 3755.14,
+            "tvd": 3744
+          },
+          {
+            "formation_name": "BRUSHY CANYON",
+            "md": 5366.14,
+            "tvd": 5355
+          },
+          {
+            "formation_name": "Basal Brushy Canyon",
+            "md": 6351.14,
+            "tvd": 6340
+          },
+          {
+            "formation_name": "BONE SPRING CARBONATE",
+            "md": 6605.14,
+            "tvd": 6594
+          },
+          {
+            "formation_name": "AVALON SHALE UPPER",
+            "md": 6767.14,
+            "tvd": 6756
+          },
+          {
+            "formation_name": "AVALON SHALE LOWER",
+            "md": 7196.14,
+            "tvd": 7185
+          },
+          {
+            "formation_name": "1ST BONE SPRING CARBONATE",
+            "md": 7366.14,
+            "tvd": 7355
+          },
+          {
+            "formation_name": "1ST BONE SPRING SAND",
+            "md": 7562.14,
+            "tvd": 7551
+          },
+          {
+            "formation_name": "2ND BONE SPRING CARBONATE",
+            "md": 7971.14,
+            "tvd": 7960
+          },
+          {
+            "formation_name": "2ND BONE SPRING SAND",
+            "md": 8384.14,
+            "tvd": 8373
+          },
+          {
+            "formation_name": "3RD BONE SPRING CARBONATE",
+            "md": 8847.14,
+            "tvd": 8836
+          },
+          {
+            "formation_name": "Harkey Sand",
+            "md": 8966.14,
+            "tvd": 8955
+          },
+          {
+            "formation_name": "3RD BONE SPRING SHALE",
+            "md": 8999.14,
+            "tvd": 8988
+          },
+          {
+            "formation_name": "3RD BONE SPRING SAND",
+            "md": 9437.14,
+            "tvd": 9426
+          },
+          {
+            "formation_name": "WOLFCAMP",
+            "md": 9817.14,
+            "tvd": 9806
+          },
+          {
+            "formation_name": "WOLFCAMP X",
+            "md": 9839.14,
+            "tvd": 9828
+          },
+          {
+            "formation_name": "WOLFCAMP Y",
+            "md": 9915.14,
+            "tvd": 9904
+          },
+          {
+            "formation_name": "WOLFCAMP A",
+            "md": 9955.14,
+            "tvd": 9944
+          },
+          {
+            "formation_name": "WOLFCAMP B",
+            "md": 10263.03,
+            "tvd": 10250
+          },
+          {
+            "formation_name": "WOLFCAMP C",
+            "md": 10503.97,
+            "tvd": 10469
+          },
+          {
+            "formation_name": "WOLFCAMP D",
+            "md": 10824.92,
+            "tvd": 10688
+          },
+          {
+            "formation_name": "KOP",
+            "md": 10082.94,
+            "tvd": 10071.8
+          }
+        ],
+        "drilling_sections": [
+          {
+            "section_name": "Surface",
+            "hole_size": 12.25,
+            "depth_from": 32,
+            "depth_to": 538,
+            "interval": "",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "",
+            "primary_bit": "",
+            "backup_bit": "",
+            "comments": "Drilling run 1"
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 8.75,
+            "depth_from": 538,
+            "depth_to": 10002.94,
+            "interval": "",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "",
+            "primary_bit": "Reed TKF66-CT2 (TFA 1.18)",
+            "backup_bit": "Ulterra XP616 (Maverick) (TFA 1.18)",
+            "comments": ""
+          },
+          {
+            "section_name": "Curve",
+            "hole_size": 6.75,
+            "depth_from": 10002.94,
+            "depth_to": 11207.94,
+            "interval": "",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "RSS",
+            "primary_bit": "Reed TKC63-AD12 (TFA 0.37) / Reed TKF63-AD4 (TFA 0.37)",
+            "backup_bit": "HDBS HD64MKS (Machete) (TFA 0.37) / Baker P406VTH (Crycut) (TFA 0.37)",
+            "comments": "Planned on 8°/100' DLS build (from well specific notes)."
+          },
+          {
+            "section_name": "Lateral",
+            "hole_size": 6.75,
+            "depth_from": 11207.94,
+            "depth_to": 26293.01,
+            "interval": "WC DE",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "SLB Orbit G2 RSS",
+            "primary_bit": "Reed TKF63-AD4 (TFA 0.37)",
+            "backup_bit": "Baker P406VTH (Crycut) (TFA 0.37)",
+            "comments": "WPS Target 300k, Min 275k, HTHP fluid loss <8, target 4-6; 3 ppb shaletex (from well specific notes)."
+          }
+        ],
+        "drilling_fluids": [
+          {
+            "section": "Intermediate",
+            "fluid_type": "Direct Emulsion Water Based Mud",
+            "design_mw": 8.2,
+            "min_mw": 8.0,
+            "max_mw": 8.6,
+            "min_fit": 10.5,
+            "mudloggers": "Yes",
+            "comments": "FIT listed: 11 lbm/gal"
+          },
+          {
+            "section": "Production",
+            "fluid_type": "Oil Based Mud",
+            "design_mw": 13,
+            "min_mw": 12.5,
+            "max_mw": 13.5,
+            "min_fit": 14.5,
+            "mudloggers": "Yes",
+            "comments": "FIT listed: 15 lbm/gal"
+          }
+        ],
+        "risks_and_hazards": [
+          {
+            "section": "Intermediate",
+            "risk": "Intermediate losses - salt",
+            "comments": "Risk of losses in Salt due to Rustler and Salado outcropping to West; cross flows during INT1 bradenhead observed."
+          },
+          {
+            "section": "Surface/Intermediate",
+            "risk": "Water flow / shallow air pockets",
+            "comments": "Shallow air pockets encountered in the area."
+          }
+        ],
+        "notes": "Minimum ICP setting depth = 35' into WC A (TOP @ 9944' TVD) (from well specific notes)."
+      },
+      {
+        "well_name": "Corral 20-32 Fed State Com 104H",
+        "well_type": "horizontal",
+        "api_number": "30-015-56335",
+        "afe_number": "DD.2024.09676",
+        "operator_well_id": "2274451001",
+        "permit_id": null,
+        "total_depth_md": 25446.64,
+        "total_depth_tvd": 9927.99,
+        "lateral_length": "3-Mile / 3ST SH",
+        "target_formation": "WC Y",
+        "design": "Plan 1",
+        "surface_coordinates": "32°07′19.56″N, 104°00′47.3831″W",
+        "coordinate_system": "NAD27 New Mexico State Plane, Eastern Zone, US Feet",
+        "ground_level": 2958,
+        "rkb": 32,
+        "skid_order": null,
+        "casing_program": [
+          {
+            "section_name": "Surface",
+            "hole_size": 12.25,
+            "casing_od": 9.625,
+            "casing_id": 8.835,
+            "drift": 8.75,
+            "grade": "J55",
+            "weight_per_length": 40,
+            "connection": "BTC",
+            "start_md": 2,
+            "end_md": 537,
+            "cement_type": null,
+            "cement_details": null
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 8.75,
+            "casing_od": 7.625,
+            "casing_id": 6.875,
+            "drift": 6.75,
+            "grade": "P110-ICY / L80-IC",
+            "weight_per_length": 29.7,
+            "connection": "Wedge 511",
+            "start_md": 2,
+            "end_md": 9135.58,
+            "cement_type": "Two Stage",
+            "cement_details": "Lead: Squeeze 14.8 lbm/gal | 183.03 bbl | 708.7 sack | 100% excess | 1.45 ft3/sack | Top MD/TVD: 32/32 ft; Tail: Primary 15.6 lbm/gal | 102.93 bbl | 469.85 sack | 50% excess | 1.23 ft3/sack | Top MD/TVD: 5378/5354.22 ft"
+          },
+          {
+            "section_name": "Production",
+            "hole_size": 6.75,
+            "casing_od": 5.5,
+            "casing_id": 4.778,
+            "drift": 4.653,
+            "grade": "P-110 ICY",
+            "weight_per_length": 20,
+            "connection": "Wedge 441",
+            "start_md": 2,
+            "end_md": 25446.64,
+            "cement_type": "Single Stage",
+            "cement_details": "Tail: Tail 13.2 lbm/gal | 312.55 bbl | 1235.78 sack | 25% excess | 1.42 ft3/sack | Top MD/TVD: 8635.58/8611.8 ft"
+          }
+        ],
+        "formation_tops": [
+          {
+            "formation_name": "SALADO",
+            "md": 547,
+            "tvd": 547
+          },
+          {
+            "formation_name": "BASE SALT",
+            "md": 2684.75,
+            "tvd": 2671
+          },
+          {
+            "formation_name": "DELAWARE",
+            "md": 2877.5,
+            "tvd": 2861
+          },
+          {
+            "formation_name": "CHERRY CANYON",
+            "md": 3766.78,
+            "tvd": 3743
+          },
+          {
+            "formation_name": "BRUSHY CANYON",
+            "md": 5377.78,
+            "tvd": 5354
+          },
+          {
+            "formation_name": "Basal Brushy Canyon",
+            "md": 6362.78,
+            "tvd": 6339
+          },
+          {
+            "formation_name": "BONE SPRING CARBONATE",
+            "md": 6616.78,
+            "tvd": 6593
+          },
+          {
+            "formation_name": "AVALON SHALE UPPER",
+            "md": 6778.78,
+            "tvd": 6755
+          },
+          {
+            "formation_name": "AVALON SHALE LOWER",
+            "md": 7207.78,
+            "tvd": 7184
+          },
+          {
+            "formation_name": "1ST BONE SPRING CARBONATE",
+            "md": 7377.78,
+            "tvd": 7354
+          },
+          {
+            "formation_name": "1ST BONE SPRING SAND",
+            "md": 7573.78,
+            "tvd": 7550
+          },
+          {
+            "formation_name": "2ND BONE SPRING CARBONATE",
+            "md": 7982.78,
+            "tvd": 7959
+          },
+          {
+            "formation_name": "2ND BONE SPRING SAND",
+            "md": 8395.78,
+            "tvd": 8372
+          },
+          {
+            "formation_name": "3RD BONE SPRING CARBONATE",
+            "md": 8858.78,
+            "tvd": 8835
+          },
+          {
+            "formation_name": "Harkey Sand",
+            "md": 8977.78,
+            "tvd": 8954
+          },
+          {
+            "formation_name": "3RD BONE SPRING SHALE",
+            "md": 9010.78,
+            "tvd": 8987
+          },
+          {
+            "formation_name": "3RD BONE SPRING SAND",
+            "md": 9452.07,
+            "tvd": 9425
+          },
+          {
+            "formation_name": "WOLFCAMP",
+            "md": 9934.6,
+            "tvd": 9805
+          },
+          {
+            "formation_name": "WOLFCAMP X",
+            "md": 9975.62,
+            "tvd": 9827
+          },
+          {
+            "formation_name": "WOLFCAMP Y",
+            "md": 10167.03,
+            "tvd": 9902
+          },
+          {
+            "formation_name": "KOP",
+            "md": 9235.58,
+            "tvd": 9211.8
+          }
+        ],
+        "drilling_sections": [
+          {
+            "section_name": "Surface",
+            "hole_size": 12.25,
+            "depth_from": 32,
+            "depth_to": 537,
+            "interval": "",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "",
+            "primary_bit": "",
+            "backup_bit": "",
+            "comments": "Drilling run 1"
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 8.75,
+            "depth_from": 537,
+            "depth_to": 9135.58,
+            "interval": "",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "",
+            "primary_bit": "Reed TKF66-CT2 (TFA 1.18)",
+            "backup_bit": "Ulterra XP616 (Maverick) (TFA 1.18)",
+            "comments": ""
+          },
+          {
+            "section_name": "Curve",
+            "hole_size": 6.75,
+            "depth_from": 9135.58,
+            "depth_to": 10360.58,
+            "interval": "",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "RSS",
+            "primary_bit": "Reed TKC63-AD12 (TFA 0.37) / Reed TKF63-AD4 (TFA 0.37)",
+            "backup_bit": "HDBS HD64MKS (Machete) (TFA 0.37) / Baker P406VTH (Crycut) (TFA 0.37)",
+            "comments": "Planned on 8°/100' DLS build (from well specific notes)."
+          },
+          {
+            "section_name": "Lateral",
+            "hole_size": 6.75,
+            "depth_from": 10360.58,
+            "depth_to": 25446.64,
+            "interval": "WC Y",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "SLB Orbit G2 RSS",
+            "primary_bit": "Reed TKF63-AD4 (TFA 0.37)",
+            "backup_bit": "Baker P406VTH (Crycut) (TFA 0.37)",
+            "comments": "Utilize AutoDAS in lateral for parameter control."
+          }
+        ],
+        "drilling_fluids": [
+          {
+            "section": "Intermediate",
+            "fluid_type": "Direct Emulsion Water Based Mud",
+            "design_mw": 8.2,
+            "min_mw": 8.0,
+            "max_mw": 8.6,
+            "min_fit": 10.5,
+            "mudloggers": "Yes",
+            "comments": "FIT listed: 11 lbm/gal"
+          },
+          {
+            "section": "Production",
+            "fluid_type": "Oil Based Mud",
+            "design_mw": 11,
+            "min_mw": 10.8,
+            "max_mw": 11.5,
+            "min_fit": 12.5,
+            "mudloggers": "Yes",
+            "comments": "FIT listed: 13 lbm/gal"
+          }
+        ],
+        "risks_and_hazards": [
+          {
+            "section": "Intermediate",
+            "risk": "Intermediate losses - salt",
+            "comments": "Risk of losses in Salt due to Rustler and Salado outcropping to West; cross flows during INT1 bradenhead observed."
+          },
+          {
+            "section": "Surface/Intermediate",
+            "risk": "Water flow / shallow air pockets",
+            "comments": "Shallow air pockets encountered in the area."
+          }
+        ],
+        "notes": "Minimum ICP setting depth = 50' into 3rd BS Carb (TOP @ 8835' TVD) (from well specific notes)."
+      },
+      {
+        "well_name": "Corral 20-32 Fed State Com 105H",
+        "well_type": "horizontal",
+        "api_number": "30-015-56342",
+        "afe_number": "DD.2024.09675",
+        "operator_well_id": "2274441001",
+        "permit_id": null,
+        "total_depth_md": 24564.26,
+        "total_depth_tvd": 9022.99,
+        "lateral_length": "3-Mile / 3ST SH",
+        "target_formation": "3rd BS SH",
+        "design": "Plan 1",
+        "surface_coordinates": "32°07′19.5561″N, 104°00′47.0342″W",
+        "coordinate_system": "NAD27 New Mexico State Plane, Eastern Zone, US Feet",
+        "ground_level": 2957,
+        "rkb": 32,
+        "skid_order": null,
+        "casing_program": [
+          {
+            "section_name": "Surface",
+            "hole_size": 12.25,
+            "casing_od": 9.625,
+            "casing_id": 8.835,
+            "drift": 8.75,
+            "grade": "J55",
+            "weight_per_length": 40,
+            "connection": "BTC",
+            "start_md": 2,
+            "end_md": 536,
+            "cement_type": null,
+            "cement_details": null
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 8.75,
+            "casing_od": 7.625,
+            "casing_id": 6.875,
+            "drift": 6.75,
+            "grade": "P110-ICY / L80-IC",
+            "weight_per_length": 29.7,
+            "connection": "Wedge 511",
+            "start_md": 2,
+            "end_md": 8248.86,
+            "cement_type": "Two Stage",
+            "cement_details": "Lead: Squeeze 14.8 lbm/gal | 183.66 bbl | 711.16 sack | 100% excess | 1.45 ft3/sack | Top MD/TVD: 32/32 ft; Tail: Primary 15.6 lbm/gal | 104.17 bbl | 475.52 sack | 100% excess | 1.23 ft3/sack | Top MD/TVD: 5396/5353.94 ft"
+          },
+          {
+            "section_name": "Production",
+            "hole_size": 6.75,
+            "casing_od": 5.5,
+            "casing_id": 4.778,
+            "drift": 4.653,
+            "grade": "P-110 ICY",
+            "weight_per_length": 20,
+            "connection": "Wedge 441",
+            "start_md": 2,
+            "end_md": 24564.26,
+            "cement_type": "Single Stage",
+            "cement_details": "Tail: Tail 13.2 lbm/gal | 312.63 bbl | 1236.1 sack | 25% excess | 1.42 ft3/sack | Top MD/TVD: 7748.86/7706.8 ft"
+          }
+        ],
+        "formation_tops": [
+          {
+            "formation_name": "SALADO",
+            "md": 546,
+            "tvd": 546
+          },
+          {
+            "formation_name": "BASE SALT",
+            "md": 2685.99,
+            "tvd": 2670
+          },
+          {
+            "formation_name": "DELAWARE",
+            "md": 2878.93,
+            "tvd": 2860
+          },
+          {
+            "formation_name": "CHERRY CANYON",
+            "md": 3774.53,
+            "tvd": 3742
+          },
+          {
+            "formation_name": "BRUSHY CANYON",
+            "md": 5395.06,
+            "tvd": 5353
+          },
+          {
+            "formation_name": "Basal Brushy Canyon",
+            "md": 6380.06,
+            "tvd": 6338
+          },
+          {
+            "formation_name": "BONE SPRING CARBONATE",
+            "md": 6634.06,
+            "tvd": 6592
+          },
+          {
+            "formation_name": "AVALON SHALE UPPER",
+            "md": 6796.06,
+            "tvd": 6754
+          },
+          {
+            "formation_name": "AVALON SHALE LOWER",
+            "md": 7225.06,
+            "tvd": 7183
+          },
+          {
+            "formation_name": "1ST BONE SPRING CARBONATE",
+            "md": 7395.06,
+            "tvd": 7353
+          },
+          {
+            "formation_name": "1ST BONE SPRING SAND",
+            "md": 7591.06,
+            "tvd": 7549
+          },
+          {
+            "formation_name": "2ND BONE SPRING CARBONATE",
+            "md": 8002.06,
+            "tvd": 7960
+          },
+          {
+            "formation_name": "2ND BONE SPRING SAND",
+            "md": 8423.2,
+            "tvd": 8381
+          },
+          {
+            "formation_name": "2ND BS BASE B SAND",
+            "md": 8659.73,
+            "tvd": 8608
+          },
+          {
+            "formation_name": "3RD BONE SPRING CARBONATE",
+            "md": 8956.32,
+            "tvd": 8844
+          },
+          {
+            "formation_name": "Harkey Sand",
+            "md": 9178.63,
+            "tvd": 8963
+          },
+          {
+            "formation_name": "3RD BONE SPRING SHALE",
+            "md": 9284.1,
+            "tvd": 8998
+          },
+          {
+            "formation_name": "KOP",
+            "md": 8348.86,
+            "tvd": 8306.8
+          }
+        ],
+        "drilling_sections": [
+          {
+            "section_name": "Surface",
+            "hole_size": 12.25,
+            "depth_from": 32,
+            "depth_to": 536,
+            "interval": "",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "",
+            "primary_bit": "",
+            "backup_bit": "",
+            "comments": "Drilling run 1"
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 8.75,
+            "depth_from": 536,
+            "depth_to": 8248.86,
+            "interval": "",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "",
+            "primary_bit": "Reed TKF66-CT2 (TFA 1.18) OR HDBS HD64MKS (Machete) (TFA 0.37) (notes show mixed selections)",
+            "backup_bit": "Ulterra XP616 (Maverick) (TFA 1.18) OR Reed TKC63-AD12 (TFA 0.37)",
+            "comments": ""
+          },
+          {
+            "section_name": "Curve",
+            "hole_size": 6.75,
+            "depth_from": 8248.86,
+            "depth_to": 9473.86,
+            "interval": "",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "RSS",
+            "primary_bit": "Reed TKF63-AD4 (TFA 0.37)",
+            "backup_bit": "Baker P406VTH (Crycut) (TFA 0.37)",
+            "comments": "Planned on 8°/100' DLS build (from well specific notes)."
+          },
+          {
+            "section_name": "Lateral",
+            "hole_size": 6.75,
+            "depth_from": 9473.86,
+            "depth_to": 24564.26,
+            "interval": "3rd BS SH",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "SLB Orbit G2 RSS",
+            "primary_bit": "Reed TKF63-AD4 (TFA 0.37)",
+            "backup_bit": "Baker P406VTH (Crycut) (TFA 0.37)",
+            "comments": "Utilize AutoDAS in lateral for parameter control."
+          }
+        ],
+        "drilling_fluids": [
+          {
+            "section": "Intermediate",
+            "fluid_type": "Direct Emulsion Water Based Mud",
+            "design_mw": 8.2,
+            "min_mw": 8.0,
+            "max_mw": 8.6,
+            "min_fit": 10.5,
+            "mudloggers": "Yes",
+            "comments": "FIT listed: 11 lbm/gal"
+          },
+          {
+            "section": "Production",
+            "fluid_type": "Oil Based Mud",
+            "design_mw": 10.4,
+            "min_mw": 10,
+            "max_mw": 10.5,
+            "min_fit": 12,
+            "mudloggers": "Yes",
+            "comments": "FIT listed: 12.4 lbm/gal; lateral note includes strict window crossing Shocker 20 Federal Com 001H."
+          }
+        ],
+        "risks_and_hazards": [
+          {
+            "section": "Intermediate",
+            "risk": "Intermediate losses - salt",
+            "comments": "Risk of losses in Salt due to Rustler and Salado outcropping to West; cross flows during INT1 bradenhead observed."
+          },
+          {
+            "section": "Surface/Intermediate",
+            "risk": "Water flow / shallow air pockets",
+            "comments": "Shallow air pockets encountered in the area."
+          },
+          {
+            "section": "Lateral",
+            "risk": "Offset well anti-collision constraint",
+            "comments": "Shocker 20 Federal Com 001H: E-W well, must be 1.2 SF, no geosteering until offset is passed; 9A strict window."
+          }
+        ],
+        "notes": "Minimum ICP setting depth = 50' into 2rd BS Carb (TOP @ 7960 TVD) (as written in notes)."
+      },
+      {
+        "well_name": "Corral 20-32 Fed State Com 201H",
+        "well_type": "horizontal",
+        "api_number": "30-015-56344",
+        "afe_number": "DD.2024.09683",
+        "operator_well_id": "2274501001",
+        "permit_id": null,
+        "total_depth_md": 26323.26,
+        "total_depth_tvd": 10795.99,
+        "lateral_length": "3-Mile / 3ST SH",
+        "target_formation": "WC DE",
+        "design": "Plan 1",
+        "surface_coordinates": "32°07′19.5513″N, 104°00′46.6854″W",
+        "coordinate_system": "NAD27 New Mexico State Plane, Eastern Zone, US Feet",
+        "ground_level": 2956,
+        "rkb": 32,
+        "skid_order": null,
+        "casing_program": [
+          {
+            "section_name": "Surface",
+            "hole_size": 12.25,
+            "casing_od": 9.625,
+            "casing_id": 8.835,
+            "drift": 8.75,
+            "grade": "J55",
+            "weight_per_length": 40,
+            "connection": "BTC",
+            "start_md": 2,
+            "end_md": 538,
+            "cement_type": null,
+            "cement_details": null
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 8.75,
+            "casing_od": 7.625,
+            "casing_id": 6.875,
+            "drift": 6.75,
+            "grade": "P110-ICY / L80-IC",
+            "weight_per_length": 29.7,
+            "connection": "Wedge 511",
+            "start_md": 2,
+            "end_md": 10053.26,
+            "cement_type": "Two Stage",
+            "cement_details": "Lead: Squeeze 14.8 lbm/gal | 184.11 bbl | 712.89 sack | 100% excess | 1.45 ft3/sack | Top MD/TVD: 32/32 ft; Tail: Primary 15.6 lbm/gal | 126.73 bbl | 578.5 sack | 50% excess | 1.23 ft3/sack | Top MD/TVD: 5409/5355.54 ft"
+          },
+          {
+            "section_name": "Production",
+            "hole_size": 6.75,
+            "casing_od": 5.5,
+            "casing_id": 4.778,
+            "drift": 4.653,
+            "grade": "P-110 ICY",
+            "weight_per_length": 20,
+            "connection": "Wedge 441",
+            "start_md": 2,
+            "end_md": 26323.26,
+            "cement_type": "Single Stage",
+            "cement_details": "Tail: Tail 14.5 lbm/gal | 311.78 bbl | 1389.31 sack | 25% excess | 1.26 ft3/sack | Top MD/TVD: 9553.26/9499.8 ft"
+          }
+        ],
+        "formation_tops": [
+          {
+            "formation_name": "SALADO",
+            "md": 548,
+            "tvd": 548
+          },
+          {
+            "formation_name": "BASE SALT",
+            "md": 2689.57,
+            "tvd": 2672
+          },
+          {
+            "formation_name": "DELAWARE",
+            "md": 2882.5,
+            "tvd": 2862
+          },
+          {
+            "formation_name": "CHERRY CANYON",
+            "md": 3778.11,
+            "tvd": 3744
+          },
+          {
+            "formation_name": "BRUSHY CANYON",
+            "md": 5408.46,
+            "tvd": 5355
+          },
+          {
+            "formation_name": "Basal Brushy Canyon",
+            "md": 6393.46,
+            "tvd": 6340
+          },
+          {
+            "formation_name": "BONE SPRING CARBONATE",
+            "md": 6647.46,
+            "tvd": 6594
+          },
+          {
+            "formation_name": "AVALON SHALE UPPER",
+            "md": 6809.46,
+            "tvd": 6756
+          },
+          {
+            "formation_name": "AVALON SHALE LOWER",
+            "md": 7238.46,
+            "tvd": 7185
+          },
+          {
+            "formation_name": "1ST BONE SPRING CARBONATE",
+            "md": 7408.46,
+            "tvd": 7355
+          },
+          {
+            "formation_name": "1ST BONE SPRING SAND",
+            "md": 7604.46,
+            "tvd": 7551
+          },
+          {
+            "formation_name": "2ND BONE SPRING CARBONATE",
+            "md": 8013.46,
+            "tvd": 7960
+          },
+          {
+            "formation_name": "2ND BONE SPRING SAND",
+            "md": 8426.46,
+            "tvd": 8373
+          },
+          {
+            "formation_name": "3RD BONE SPRING CARBONATE",
+            "md": 8889.46,
+            "tvd": 8836
+          },
+          {
+            "formation_name": "Harkey Sand",
+            "md": 9008.46,
+            "tvd": 8955
+          },
+          {
+            "formation_name": "3RD BONE SPRING SHALE",
+            "md": 9041.46,
+            "tvd": 8988
+          },
+          {
+            "formation_name": "3RD BONE SPRING SAND",
+            "md": 9479.46,
+            "tvd": 9426
+          },
+          {
+            "formation_name": "WOLFCAMP",
+            "md": 9859.46,
+            "tvd": 9806
+          },
+          {
+            "formation_name": "WOLFCAMP X",
+            "md": 9881.46,
+            "tvd": 9828
+          },
+          {
+            "formation_name": "WOLFCAMP Y",
+            "md": 9957.46,
+            "tvd": 9904
+          },
+          {
+            "formation_name": "WOLFCAMP A",
+            "md": 10006.46,
+            "tvd": 9953
+          },
+          {
+            "formation_name": "WOLFCAMP B",
+            "md": 10310.25,
+            "tvd": 10255
+          },
+          {
+            "formation_name": "WOLFCAMP C",
+            "md": 10554.29,
+            "tvd": 10477
+          },
+          {
+            "formation_name": "WOLFCAMP D",
+            "md": 10875.25,
+            "tvd": 10696
+          },
+          {
+            "formation_name": "KOP",
+            "md": 10133.26,
+            "tvd": 10079.8
+          }
+        ],
+        "drilling_sections": [
+          {
+            "section_name": "Surface",
+            "hole_size": 12.25,
+            "depth_from": 32,
+            "depth_to": 538,
+            "interval": "",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "",
+            "primary_bit": "",
+            "backup_bit": "",
+            "comments": "Drilling run 1"
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 8.75,
+            "depth_from": 538,
+            "depth_to": 10053.26,
+            "interval": "",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "",
+            "primary_bit": "Reed TKF66-CT2 (TFA 1.18)",
+            "backup_bit": "Ulterra XP616 (Maverick) (TFA 1.18)",
+            "comments": ""
+          },
+          {
+            "section_name": "Curve",
+            "hole_size": 6.75,
+            "depth_from": 10053.26,
+            "depth_to": 11258.26,
+            "interval": "",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "RSS",
+            "primary_bit": "Reed TKC63-AD12 (TFA 0.37) / Reed TKF63-AD4 (TFA 0.37)",
+            "backup_bit": "HDBS HD64MKS (Machete) (TFA 0.37) / Baker P406VTH (Crycut) (TFA 0.37)",
+            "comments": "Planned on 8°/100' DLS build (from well specific notes)."
+          },
+          {
+            "section_name": "Lateral",
+            "hole_size": 6.75,
+            "depth_from": 11258.26,
+            "depth_to": 26323.26,
+            "interval": "WC DE",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "SLB Orbit G2 RSS",
+            "primary_bit": "Reed TKF63-AD4 (TFA 0.37)",
+            "backup_bit": "Baker P406VTH (Crycut) (TFA 0.37)",
+            "comments": "WPS Target 300k, Min 275k, HTHP fluid loss <8, target 4-6; 3 ppb shaletex (from well specific notes)."
+          }
+        ],
+        "drilling_fluids": [
+          {
+            "section": "Intermediate",
+            "fluid_type": "Direct Emulsion Water Based Mud",
+            "design_mw": 8.2,
+            "min_mw": 8.0,
+            "max_mw": 8.6,
+            "min_fit": 10.5,
+            "mudloggers": "Yes",
+            "comments": "FIT listed: 11 lbm/gal"
+          },
+          {
+            "section": "Production",
+            "fluid_type": "Oil Based Mud",
+            "design_mw": 13,
+            "min_mw": 12.5,
+            "max_mw": 13.5,
+            "min_fit": 14.5,
+            "mudloggers": "Yes",
+            "comments": "FIT listed: 15 lbm/gal"
+          }
+        ],
+        "risks_and_hazards": [
+          {
+            "section": "Intermediate",
+            "risk": "Intermediate losses - salt",
+            "comments": "Risk of losses in Salt due to Rustler and Salado outcropping to West; cross flows during INT1 bradenhead observed."
+          },
+          {
+            "section": "Surface/Intermediate",
+            "risk": "Water flow / shallow air pockets",
+            "comments": "Shallow air pockets encountered in the area."
+          }
+        ],
+        "notes": "Minimum ICP setting depth = 35' into WC A (TOP @ 9953' TVD) (from well specific notes)."
+      }
+    ],
+    "confidence": {
+      "rig_name": 0.98,
+      "wells": 0.85,
+      "casing_program": 0.9,
+      "formation_tops": 0.88
+    }
+  },
+  "validation": {
+    "is_valid": true,
+    "confidence_score": 1.0,
+    "warnings": [],
+    "errors": [],
+    "warning_count": 0,
+    "error_count": 0,
+    "messages": []
+  },
+  "field_confidences": {
+    "rig_name": {
+      "score": 0.98,
+      "source_pass": "primary",
+      "tier": "high"
+    },
+    "wells": {
+      "score": 0.85,
+      "source_pass": "primary",
+      "tier": "high"
+    },
+    "casing_program": {
+      "score": 0.9,
+      "source_pass": "primary",
+      "tier": "high"
+    },
+    "formation_tops": {
+      "score": 0.88,
+      "source_pass": "primary",
+      "tier": "high"
+    }
+  }
+}

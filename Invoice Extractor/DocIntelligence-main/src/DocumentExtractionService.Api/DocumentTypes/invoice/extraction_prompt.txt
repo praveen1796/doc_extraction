@@ -1,0 +1,319 @@
+Extract all invoice data from the attached document images.
+
+FILE: {{FILE_NAME}} | PAGES: {{PAGE_COUNT}} | SCANNED: {{IS_SCANNED}} | METHOD: {{EXTRACTION_METHOD}}
+
+💡 FILENAME HINT: The filename often contains the invoice number, vendor, or date.
+   Use this to VERIFY your extraction (not as the primary source).
+
+══════════════════════════════════════════════════════════
+STEP 1 — LOOK AT THE IMAGES FIRST. Find these 4 fields:
+══════════════════════════════════════════════════════════
+
+Scan the page images visually. Find:
+
+1. VENDOR NAME → Top of page: logo, letterhead, company name. NOT the Bill-To.
+   Also check: footer, "Remit To:", payment stub "VENDOR:" at BOTTOM of page.
+2. INVOICE NUMBER → Label "Invoice No.", "Invoice No:", "Invoice #", or table column header.
+   Also check: payment stub "INVOICE:" at bottom, standalone number near title, "N°".
+3. INVOICE DATE → Label "Invoice Date" → normalize to YYYY-MM-DD.
+   Also check: payment stub "INVOICE DATE:" at bottom. NOT "Doc Date" (service date).
+4. TOTAL AMOUNT → "Total", "Total USD", "Amount Due", "Grand Total" at bottom.
+   Also check: "VALOR A PAGAR:", "TOTAL PAID:" in payment stub.
+
+⚠️ SCAN BOTH TOP AND BOTTOM OF EVERY PAGE. Government documents and tax statements
+   often have critical data ONLY in a payment stub at the very bottom of the page.
+
+⚠️ FINDING invoice_date (two common layouts):
+  PATTERN A: Table columns |Invoice Date|Due Date|Invoice No.| → all in SAME ROW below headers.
+  PATTERN B: Due Date and Invoice Number in a TOP SUMMARY row, but Invoice Date is a SEPARATE
+             label-value pair in a different section (common on Oracle, EY invoices).
+  → If invoice_date is NOT next to due_date, search the ENTIRE page for "Invoice Date" label.
+
+══════════════════════════════════════════════════════════
+STEP 2 — CLASSIFY THE DOCUMENT
+══════════════════════════════════════════════════════════
+
+Scan all pages. What type is each page?
+The extracted text uses "[PAGE N of M]" markers to separate pages.
+- INVOICE page → Extract from this. Has "INVOICE" header, amounts, Bill To.
+- "Commercial Invoice" / "Shipment No." → shipping doc (cross-ref data, not a separate invoice)
+- "PACKING LIST" → packing slip (extract packing_slip_number, ship quantities)
+- "ACKNOWLEDGEMENT" / "ORDER ACKNOWLEDGEMENT" → PO confirmation (extract po_lines)
+- "PURCHASE ORDER – ACKNOWLEDGEMENT REQUIRED" → Nabors-issued PO page.
+  May have Nabors logo/header. This is NOT the vendor — the vendor is the supplier.
+  EXTRACT: po_number, po_date, buyer_name, po_lines, freight_terms, incoterms.
+  Populate purchase_order_reference from this page.
+- "Proof of Delivery" → delivery confirmation (tracking, received_by → notes)
+- "THIS DOCUMENT IS NOT AN INVOICE" → skip for invoice extraction, but extract PO data
+- TIMESHEET → Set document_type="Timesheet". Vendor from footer/logo.
+- Purchase Order, Sales Order, T&C, Bank Receipts,
+  Certificado de Aportes, Comprobante, Remisión → IGNORE for extraction.
+- Oracle GL / Tax Journal → Set appropriate document_type.
+
+⚠️ DUPLICATE PAGE DETECTION:
+  Some PDFs contain the same page scanned twice (e.g., two copies of the invoice,
+  or the same packing list on pages 3 and 4). If two pages have IDENTICAL content
+  (same invoice number, same line items, same totals), extract ONLY ONCE.
+  Clues: identical headers, identical line items, identical totals on consecutive pages.
+  Do NOT create duplicate line_items from duplicate pages.
+
+If multiple invoices from DIFFERENT vendors exist, extract the FIRST.
+
+══════════════════════════════════════════════════════════
+STEP 3 — EXTRACT ALL FIELDS
+══════════════════════════════════════════════════════════
+
+FROM THE INVOICE PAGE:
+- vendor_name: Company logo/header/letterhead at top (NEVER the buyer)
+  Also check: "Remit To:", "Please make payments to:", footer text,
+  "VENDOR:" in Nabors payment stub, tax authority name in header
+- vendor_address: Near the logo/letterhead, or from footer
+- vendor_tax_id: "Federal Tax ID:", "Tax ID:", "NIT:", "RUC:"
+- vendor_phone: "Phone No.", "Tel:", "Phone:"
+- vendor_email: Email address near vendor info or in footer
+- invoice_number: "Invoice No.", "Invoice #", "Invoice Number", "Número",
+  "INVOICE:" (payment stub), "N°", "FACTURA ELECTRONICA DE VENTA N°".
+  Also check for standalone number near title.
+- invoice_date: "Invoice Date", "Date :", "Fecha", "INVOICE DATE:",
+  "FECHA Y HORA DE GENERACION" (strip time) → YYYY-MM-DD
+  ⚠️ "Doc Date" is the SERVICE date, NOT the invoice date. Use "Invoice Date".
+  Space-separated dates: "03 02 2026" → "2026-02-03" (DD MM YYYY)
+  (Oracle: may be separate from Due Date — search entire page)
+- due_date: "Due Date", "Payment Due", "Net Due", "Fecha Vencimiento" → YYYY-MM-DD
+- po_number: "PO #", "Cust PO", "Customer PO", "Customer Reference", "CUSTOMER ORDER NO."
+  ⚠️ Prefer Nabors PO (short, ~8 digits) over supplier "Orden de Compra" (long internal #)
+  ⚠️ "PEDIDO" is the supplier's internal order number, NOT the PO number
+  ⚠️ Strip "PO"/"P0" prefix if vendor added it: "PO40069833" → "40069883"
+- account_number: "Customer No.", "Account No", "Acct #"
+- payment_terms: "Terms", "Payment Terms", "Cond. De Pago"
+- bill_to_name / bill_to_address: "Bill To", "Sold To", "Facturado a:"
+- ship_to_name / ship_to_address: "Ship To", "Despachado a:"
+- subtotal: "Subtotal", "Sub-Total". If not labeled: total_amount minus tax_amount.
+- tax_amount: "Tax", "Sales Tax", "IVA", "TOTAL IVA", "Total Tax"
+- total_amount: "Total", "Total USD", "Amount Due", "TOTAL A PAGAR:", "TOTAL PAID:", "Grand Total"
+- currency: "USD" if $ amounts, "COP" if Colombian pesos
+- remit_to: "Remit To", "Make Checks Payable To", "Please make payments to:",
+  "Wire Payments To:" (include bank details)
+- contract_number: "Contract ID", "Contract No", "Engagement No."
+- rig_number: "Rig No", "Rig Number", "RIG NABORS M47" → "M47"
+- job_number: "Job No", "Job Number" (if visible)
+- notes: Billing period, Agreement ID, End User, wire/ACH instructions,
+  "Orden de Compra" (if different from po_number), Nabors payment stub "DESCRIPTION:",
+  GL Coding, Pay Org, Vendor #, Requestor, S/N No, Work Order ID
+- so_confirmation_number: Vendor's Sales Order / SO Confirmation number.
+  Labels: "Sales Order No:", "Sales Order:", "SO Confirmation:", "Order Confirmation",
+  "S.O. #", "Confirmation Number". This is the vendor's internal order reference
+  confirming they accepted the PO — NOT the invoice number, NOT the PO number.
+  CPC: "Sales Order: 0002180-0000". Canrig: "Sales Order No: M150-214714".
+  Cameron/SLB: "Sales Order: ..."
+
+LINE ITEMS — extract each row with PO/fulfillment cross-references:
+CORE FIELDS:
+- description, quantity, unit_price, amount, part_number
+- If item has Qty but no Rate/Amount → bundled item, set null (not 0)
+- If "Tax" column has "Y"/"N" → taxable flag, NOT a unit
+
+PO CROSS-REFERENCE FIELDS (populate when visible on the invoice):
+- po_line_number: "Item" or "Line No." column (e.g., Canrig "1", CPC "001")
+- po_quantity: "Quantity Ordered" / "Order" column (the PO qty, may differ from billed)
+- ship_quantity: "Quantity Shipped" / "Ship" column
+- sales_order_number: Vendor's SO# PER LINE (if shown per-line; otherwise leave empty,
+  use so_confirmation_number at header level instead)
+- packing_slip_number: Packing list # (from attached packing list page)
+- delivery_number: "Delivery Number" (Cameron/SLB), "Shipment No." header
+- ship_date: "Ship Date" → normalize to YYYY-MM-DD
+- tracking_number: Carrier tracking # (UPS "1Z...", FedEx, etc.)
+
+VENDOR-SPECIFIC LINE ITEM PATTERNS:
+
+CANRIG line items (MODERN format — "Canrig Drilling Technology Ltd."):
+  Columns: Line No. | Qty Ordered | Qty Shipped | Qty B/O | Units | Description/Part ID | Net Unit Price | Net Extended Price
+  → line_number from "Line No.", po_quantity from "Qty Ordered", ship_quantity from "Qty Shipped"
+  → Part ID / Work Order ID below description = part_number
+  → sales_order_number from header "Sales Order No:"
+
+CANRIG line items (OLDER format — may show "CANRIG" or "Canrig" logo):
+  Columns: Item | Description | Quantity | UOM | Unit Price | Extended Price
+  OR: Item No | Description | Qty | UOM | Price | Amount
+  → Simpler layout: NO "Qty Ordered" / "Qty Shipped" split columns.
+  → po_quantity/ship_quantity may NOT be present — leave null if not shown.
+  → "Item" or "Item No" = po_line_number. Part # may be inline in description.
+  → "Invoice No:" (with colon) vs modern "Invoice No :" (space before colon) — both valid.
+  → May use "Order No:" instead of "Sales Order No:" — extract as so_confirmation_number.
+  → "Rig #:" instead of "Rig No:" — same field, extract to rig_number.
+
+CPC (Consolidated Pressure Control) line items:
+  Columns: Item | T | Quantity Order | Quantity BO | Quantity Ship | Part Number/Revision | Description | Unit Price | Amount
+  → po_line_number from "Item" (e.g., 001), po_quantity from "Order", ship_quantity from "Ship"
+  → sales_order_number from header "Sales Order:", tracking_number from "Tracking Number"
+  → packing_slip_number: from attached PACKING LIST page "PACKING LIST" number
+
+CAMERON/SLB line items:
+  → delivery_number from "Delivery Number:", sales_order_number from "Sales Order:"
+  → "Customer Reference:" = po_number (header level)
+
+AWS CONSOLIDATED BILLING — special handling:
+  AWS invoices list services in "Detail for Consolidated Bill" or "Detail for Linked Account".
+  Each AWS service IS a line item. Extract ONLY services with amount > 0:
+    line 1: "AmazonCloudWatch" → description="Amazon CloudWatch", amount=70.12, tax=4.33
+    line 2: "Amazon Relational Database Service" → description="Amazon RDS", amount=1322.30, tax=81.87
+    line 3: "Amazon Elastic Compute Cloud" → description="Amazon EC2", amount=1273.41, tax=78.84
+    ... etc.
+  For each AWS service: amount = Charges + Tax for that service,
+    unit_price = Charges (pre-tax), tax = "Estimated US sales tax to be collected"
+  SKIP services with $0.00 total. SKIP linked account detail pages (pages 7+).
+  quantity = 1, unit = "MO" (monthly service)
+
+EY / PROFESSIONAL SERVICES:
+  Single line: "Professional Services" or "Fee" → description, amount
+  → contract_number from "Engagement No.", account_number from "Client No."
+
+ORACLE CLOUD:
+  → contract_number from "Contract ID", notes should include "Agreement: ..."
+  → "Tax" column "Y" means taxable flag, not a dollar amount — set tax = null
+
+══════════════════════════════════════════════════════════
+STEP 4 — PURCHASE ORDER REFERENCE (attached PO pages)
+══════════════════════════════════════════════════════════
+
+Some PDFs include PO pages, Acknowledgements, Packing Slips, or Proof of Delivery
+AFTER the invoice pages. Extract these into "purchase_order_reference":
+
+WHEN TO POPULATE: Only if the PDF contains actual PO/Acknowledgement/Packing Slip pages
+  (e.g., CPC page 3 "PACKING LIST", page 4 "ACKNOWLEDGEMENT")
+  If the PDF only has the invoice → set purchase_order_reference to null
+
+PAGE TYPES THAT TRIGGER purchase_order_reference:
+  - "ACKNOWLEDGEMENT" / "ORDER ACKNOWLEDGEMENT" (CPC-style confirmation)
+  - "PURCHASE ORDER – ACKNOWLEDGEMENT REQUIRED" — Nabors-issued PO page.
+    Identified by: Nabors logo/header + "Purchase Order" title + "ACKNOWLEDGEMENT REQUIRED"
+    banner. The VENDOR on this page is the BUYER (Nabors) — do NOT overwrite vendor_name.
+    Extract: po_number, po_date, buyer_name (Nabors buyer), freight_terms, incoterms,
+    final_destination (Ship To on PO), po_lines with part_number, qty, price, account_code.
+  - "PACKING LIST" — extract packing_slip_number + ship quantities
+  - Nabors iProcurement PO pages (may have "Nabors Industries" header but show supplier items)
+
+WHAT TO EXTRACT:
+- po_number, po_date (Order Date), po_total (Total Order Amount)
+- buyer_name (Salesman/Sales Rep if buyer not shown)
+- freight_terms ("Freight: Billed"), incoterms ("FOB: EX WORKS")
+- shipping_method ("Shipped Via: BEST WAY")
+- final_destination (Ship To address from the PO page)
+
+PO LINES from attached pages:
+  Extract each line from the Acknowledgement/PO page:
+  - line_number, part_number, description, quantity, unit, unit_price, amount
+  - promised_date ("Promised" date, "Need-By Date"), account_code (if visible)
+
+PO LINE MATCHING (when both invoice lines and PO lines exist):
+  After extracting both, attempt to correlate by part_number:
+  - If invoice line has part_number "10000091" AND po_line has part_number "10000091",
+    copy the PO line's line_number → invoice line's po_line_number (if not already set).
+  - This enables downstream 3-way match: Invoice Line ↔ PO Line ↔ Receipt.
+  - Only match when part_numbers are IDENTICAL (exact string match, case-insensitive).
+  - If no part_number match found, leave po_line_number as-is (may already be set from
+    the invoice's own "Item"/"Line No." column).
+
+══════════════════════════════════════════════════════════
+STEP 5 — DATE NORMALIZATION
+══════════════════════════════════════════════════════════
+
+ALL dates MUST be YYYY-MM-DD. Convert:
+- "10/15/25" → "2025-10-15"    "01/15/26" → "2026-01-15"
+- "24-NOV-2025" → "2025-11-24"  "24-DEC-2025" → "2025-12-24"
+- "AUG 04 2020" → "2020-08-04"  "06/16/23" → "2023-06-16"
+- "January 1 , 2026" → "2026-01-01" (remove extra spaces)
+- "02-20-26" → "2026-02-20" (MM-DD-YY with hyphens)
+- "03 02 2026" → "2026-02-03" (DD MM YYYY space-separated — Colombian)
+- "31 01 2026" → "2026-01-31" (DD MM YYYY space-separated)
+- "03 02 2026 08:18:26 AM" → "2026-02-03" (strip time portion)
+- "9/9/2022" → "2022-09-09" (single-digit month/day)
+
+══════════════════════════════════════════════════════════
+STEP 6 — SELF-CHECK BEFORE OUTPUT
+══════════════════════════════════════════════════════════
+
+Before returning JSON, verify:
+□ vendor_name NOT empty (logo? header? footer? Remit To? Wire Payments To?
+  Government entity? VENDOR: in payment stub at page bottom?)
+□ invoice_number NOT empty (Invoice No? #? Número? INVOICE: in payment stub?
+  Standalone number near title?)
+□ invoice_date is YYYY-MM-DD (not "10/15/25", not "24-NOV-2025")
+□ total_amount NOT null (if any total is visible)
+□ If invoice_date empty:
+  - Pattern A: Check same row as due_date (Data Foundry, Magid tables)
+  - Pattern B: Search for separate "Invoice Date" label (Oracle, EY)
+  - Check Nabors payment stub: "INVOICE DATE:" at bottom of page
+  - Check filename for date hints
+□ account_number is NOT a bank account from Wire Payments / Remit To section
+□ rig_number is an actual rig (M47, LR222, B10, X31), NOT "NABORS LUX 2" (entity name)
+□ line_items: For AWS, did you extract each service as a line? For Canrig/CPC, did you
+  populate po_quantity, ship_quantity, sales_order_number?
+□ purchase_order_reference: If PDF has PO/Acknowledgement/Packing Slip pages, did you
+  extract po_lines? If invoice-only PDF, is this null?
+□ so_confirmation_number: Did you capture the vendor's SO/Confirmation # from the header?
+  (Not the same as invoice_number or po_number)
+□ Duplicate pages: Did you check for identical pages and avoid double-counting line items?
+
+Return a single JSON object with this structure:
+{
+  "document_type": "",
+  "language": "",
+  "vendor_name": "",
+  "vendor_address": "",
+  "vendor_tax_id": "",
+  "vendor_phone": "",
+  "vendor_email": "",
+  "invoice_number": "",
+  "invoice_date": "",
+  "due_date": "",
+  "po_number": "",
+  "payment_terms": "",
+  "bill_to_name": "",
+  "bill_to_address": "",
+  "ship_to_name": "",
+  "ship_to_address": "",
+  "currency": "",
+  "subtotal": null,
+  "tax_amount": null,
+  "tax_rate": "",
+  "discount": null,
+  "total_amount": null,
+  "line_items": [
+    {
+      "line_number": 1,
+      "description": "",
+      "quantity": null,
+      "unit": "",
+      "unit_price": null,
+      "amount": null,
+      "part_number": "",
+      "tax": null,
+      "po_line_number": null,
+      "po_quantity": null,
+      "ship_quantity": null,
+      "received_quantity": null,
+      "sales_order_number": "",
+      "packing_slip_number": "",
+      "delivery_number": "",
+      "ship_date": "",
+      "tracking_number": ""
+    }
+  ],
+  "purchase_order_reference": null,
+  "rig_number": "",
+  "job_number": "",
+  "well_name": "",
+  "afe_number": "",
+  "contract_number": "",
+  "account_number": "",
+  "remit_to": "",
+  "notes": "",
+  "so_confirmation_number": "",
+  "confidence": {
+    "vendor_name": 0.0,
+    "invoice_number": 0.0,
+    "invoice_date": 0.0,
+    "total_amount": 0.0
+  }
+}

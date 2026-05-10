@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PurchaseOrder",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "document_type", "po_number", "po_date", "need_by_date",
+    "buyer_name", "buyer_address", "vendor_name", "vendor_address",
+    "ship_to_name", "ship_to_address", "bill_to_name", "bill_to_address",
+    "payment_terms", "currency", "subtotal", "tax_amount", "total_amount",
+    "rig_number", "job_number", "afe_number", "contract_number",
+    "requisition_number", "requester_name", "approver_name", "notes",
+    "line_items", "confidence"
+  ],
+  "properties": {
+    "document_type": { "type": "string" },
+    "po_number": { "type": "string" },
+    "po_date": { "type": "string", "description": "YYYY-MM-DD" },
+    "need_by_date": { "type": "string", "description": "YYYY-MM-DD" },
+    "buyer_name": { "type": "string" },
+    "buyer_address": { "type": "string" },
+    "vendor_name": { "type": "string" },
+    "vendor_address": { "type": "string" },
+    "ship_to_name": { "type": "string" },
+    "ship_to_address": { "type": "string" },
+    "bill_to_name": { "type": "string" },
+    "bill_to_address": { "type": "string" },
+    "payment_terms": { "type": "string" },
+    "currency": { "type": "string" },
+    "subtotal": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+    "tax_amount": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+    "total_amount": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+    "rig_number": { "type": "string" },
+    "job_number": { "type": "string" },
+    "afe_number": { "type": "string" },
+    "contract_number": { "type": "string" },
+    "requisition_number": { "type": "string" },
+    "requester_name": { "type": "string" },
+    "approver_name": { "type": "string" },
+    "notes": { "type": "string" },
+    "line_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "line_number", "part_number", "description",
+          "quantity", "unit", "unit_price", "amount",
+          "account_code", "need_by_date", "promised_date"
+        ],
+        "properties": {
+          "line_number": { "anyOf": [{ "type": "integer" }, { "type": "null" }] },
+          "part_number": { "type": "string" },
+          "description": { "type": "string" },
+          "quantity": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+          "unit": { "type": "string" },
+          "unit_price": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+          "amount": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+          "account_code": { "type": "string" },
+          "need_by_date": { "type": "string" },
+          "promised_date": { "type": "string" }
+        }
+      }
+    },
+    "confidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["po_number", "po_date", "vendor_name", "total_amount"],
+      "properties": {
+        "po_number": { "type": "number" },
+        "po_date": { "type": "number" },
+        "vendor_name": { "type": "number" },
+        "total_amount": { "type": "number" }
+      }
+    }
+  }
+}

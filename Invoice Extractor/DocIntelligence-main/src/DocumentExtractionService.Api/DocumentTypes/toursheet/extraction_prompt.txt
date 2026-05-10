@@ -1,0 +1,148 @@
+Extract all drilling tour sheet data from the attached document images.
+
+FILE: {{FILE_NAME}} | PAGES: {{PAGE_COUNT}} | SCANNED: {{IS_SCANNED}} | METHOD: {{EXTRACTION_METHOD}}
+
+══════════════════════════════════════════════════════════
+STEP 1 — IDENTIFY KEY HEADER FIELDS
+══════════════════════════════════════════════════════════
+
+Scan the document. Locate:
+1. RIG NUMBER → Header area: "Rig:", "Rig No:", "Rig #" (e.g., M47, LR222, B10)
+2. TOUR DATE → "Date:", "Tour Date:" → YYYY-MM-DD
+3. TOUR TYPE → "Day Tour", "Night Tour", "12hr Day", "12hr Night"
+4. DEPTH START / DEPTH END → "Depth In:", "Depth Out:", "Depth From:", "Depth To:"
+
+══════════════════════════════════════════════════════════
+STEP 2 — EXTRACT ALL FIELDS
+══════════════════════════════════════════════════════════
+
+Header fields:
+- rig_number, well_name, well_number, field, location
+- operator_name (oil company / customer)
+- tour_date (YYYY-MM-DD), tour_type ("Day"/"Night"/"12hr Day"/"12hr Night")
+- tour_start_time (HH:MM), tour_end_time (HH:MM)
+- driller_name, tool_pusher_name, rig_manager_name
+- depth_unit ("ft" or "m")
+- depth_start, depth_end (numeric, in depth_unit)
+- footage_drilled (depth_end - depth_start, numeric)
+- afe_number, well_phase ("Drilling"/"Cementing"/"Completion"/"Workover")
+
+Drilling parameters (averages or ranges for the tour):
+- avg_wob (weight on bit, klbs)
+- avg_rpm, avg_rop
+- avg_pump_pressure_psi
+- avg_flow_rate_gpm
+- max_torque (ft-lbs or kN-m)
+- hookload_on_bottom, hookload_rotating
+
+Mud properties (recorded at end of tour or each test):
+- mud_type ("WBM"/"OBM"/"SBM")
+- mud_weight_in (ppg or kg/m³)
+- mud_weight_out
+- plastic_viscosity (PV)
+- yield_point (YP)
+- fluid_loss
+- ph_value
+- chlorides
+- solids_percent
+- oil_water_ratio (for OBM)
+
+Bit information:
+- bit_number, bit_size (inches)
+- bit_type ("PDC"/"Tri-cone"/"Hybrid")
+- bit_iadc_code
+- bit_manufacturer
+- bit_serial_number
+- depth_in (bit in at start), depth_out (bit out at end, if pulled)
+- hours_on_bit
+- revolutions (if EDR data)
+- dull_grade_in, dull_grade_out (e.g., "1-2-WT-A-X-I-WT-TD")
+
+Time breakdown (hours per activity for the tour):
+Each activity: { "activity": "", "hours": 0.0, "npt": false }
+Common activities: Drilling, Reaming, Washing, Circulating, Connections,
+  Tripping In, Tripping Out, Survey, BHA/BOP Check, Cementing,
+  NPT-Stuck Pipe, NPT-Equipment, NPT-Well Control, NPT-Weather, Wait
+
+NPT events (Non-Productive Time):
+Each event: { "code": "", "description": "", "hours": 0.0, "depth": null }
+
+BHA components (from bottom to top):
+Each component: { "position": 1, "type": "PDC Bit", "od": 8.5, "length": 0.67, "description": "" }
+
+Comments/narrative: "Comments:", "Remarks:", "Summary:" → free text
+
+══════════════════════════════════════════════════════════
+STEP 3 — SELF-CHECK BEFORE OUTPUT
+══════════════════════════════════════════════════════════
+
+□ rig_number is NOT empty (actual rig identifier)
+□ tour_date is YYYY-MM-DD
+□ depth_start and depth_end are numeric
+□ tour_type is "Day" or "Night" (or similar)
+
+Return a single JSON object:
+{
+  "document_type": "Tour Sheet",
+  "rig_number": "",
+  "well_name": "",
+  "well_number": "",
+  "field": "",
+  "location": "",
+  "operator_name": "",
+  "tour_date": "",
+  "tour_type": "",
+  "tour_start_time": "",
+  "tour_end_time": "",
+  "driller_name": "",
+  "tool_pusher_name": "",
+  "rig_manager_name": "",
+  "depth_unit": "ft",
+  "depth_start": null,
+  "depth_end": null,
+  "footage_drilled": null,
+  "afe_number": "",
+  "well_phase": "",
+  "drilling_parameters": {
+    "avg_wob": null,
+    "avg_rpm": null,
+    "avg_rop": null,
+    "avg_pump_pressure_psi": null,
+    "avg_flow_rate_gpm": null,
+    "max_torque": null
+  },
+  "mud_properties": {
+    "mud_type": "",
+    "mud_weight_in": null,
+    "mud_weight_out": null,
+    "plastic_viscosity": null,
+    "yield_point": null,
+    "fluid_loss": null,
+    "ph_value": null,
+    "chlorides": null,
+    "solids_percent": null,
+    "oil_water_ratio": null
+  },
+  "bit_info": {
+    "bit_number": null,
+    "bit_size": null,
+    "bit_type": "",
+    "bit_iadc_code": "",
+    "bit_manufacturer": "",
+    "depth_in": null,
+    "depth_out": null,
+    "hours_on_bit": null,
+    "dull_grade_in": "",
+    "dull_grade_out": ""
+  },
+  "time_breakdown": [],
+  "npt_events": [],
+  "bha": [],
+  "comments": "",
+  "confidence": {
+    "rig_number": 0.0,
+    "tour_date": 0.0,
+    "depth_end": 0.0,
+    "tour_type": 0.0
+  }
+}

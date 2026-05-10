@@ -1,0 +1,764 @@
+{
+  "request_id": "20260410150604_a63da818",
+  "document_type": "well_plan",
+  "status": "Success",
+  "metadata": {
+    "source_file": "Programa de Perforación PAD PPar 269.pdf",
+    "file_size_bytes": 5252249,
+    "page_count": 58,
+    "extraction_method": "hybrid",
+    "model_used": "azure-openai-gpt",
+    "reasoning_effort": "medium",
+    "dual_pass_triggered": false,
+    "extracted_at": "2026-04-10T15:10:23.7186387Z",
+    "processing_time_ms": 259084,
+    "total_tokens_used": 41103,
+    "pages_sent_to_model": 10
+  },
+  "data": {
+    "document_type": "Programa de Perforación",
+    "language": "es",
+    "document_format": "batch_drilling_program",
+    "rig_name": "RIG (no especificado)",
+    "operator": "Tecpetrol",
+    "pad_name": "PAD PPar 269",
+    "location": "Área Puesto Parada / Área Punta Senillosa (Cuenca Neuquina, Argentina)",
+    "report_status": "",
+    "report_date": "2024-05-19",
+    "depth_unit": "m",
+    "approvals": [],
+    "wells": [
+      {
+        "well_name": "TPT.Nq.PPar-269(h)",
+        "well_type": "horizontal",
+        "api_number": null,
+        "afe_number": null,
+        "operator_well_id": null,
+        "permit_id": null,
+        "total_depth_md": 5905.54,
+        "total_depth_tvd": 2392.9,
+        "lateral_length": "3500 m (objetivo)",
+        "target_formation": "Fm Vaca Muerta",
+        "design": "3 casing (9-5/8\", 7\", 5\") + MPD",
+        "surface_coordinates": "",
+        "coordinate_system": "Posgar 94 / Geográficas (según plano de ubicaciones definitivas)",
+        "ground_level": 506.2,
+        "rkb": null,
+        "skid_order": null,
+        "casing_program": [
+          {
+            "section_name": "Surface",
+            "hole_size": 12.25,
+            "casing_od": 9.625,
+            "casing_id": null,
+            "drift": null,
+            "grade": "K55",
+            "weight_per_length": 36,
+            "connection": "BTC",
+            "start_md": 0,
+            "end_md": 430,
+            "cement_type": null,
+            "cement_details": "Cementación offline; top job con 3% CaCl2; CBL offline planificado"
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 8.5,
+            "casing_od": 7,
+            "casing_id": null,
+            "drift": null,
+            "grade": "K55",
+            "weight_per_length": 23,
+            "connection": "LTC",
+            "start_md": 0,
+            "end_md": 1119,
+            "cement_type": null,
+            "cement_details": "Cementación offline probable por pérdidas; colchón 30 bbl; CBL offline planificado"
+          },
+          {
+            "section_name": "Production",
+            "hole_size": 6.125,
+            "casing_od": 5,
+            "casing_id": null,
+            "drift": null,
+            "grade": "P110 W625",
+            "weight_per_length": 21.4,
+            "connection": "",
+            "start_md": 0,
+            "end_md": 5905.54,
+            "cement_type": null,
+            "cement_details": "Cementación online/offline; bullheading mandatorio; presión máx bullheading 3300 psi"
+          }
+        ],
+        "formation_tops": [
+          {
+            "formation_name": "Fm Rayoso",
+            "md": 918,
+            "tvd": 918
+          },
+          {
+            "formation_name": "Fm Centenario",
+            "md": 974,
+            "tvd": 974
+          },
+          {
+            "formation_name": "Fm Quintuco",
+            "md": 1837.48,
+            "tvd": 1797
+          },
+          {
+            "formation_name": "Fm Vaca Muerta",
+            "md": 2149.2,
+            "tvd": 2101
+          }
+        ],
+        "drilling_sections": [
+          {
+            "section_name": "Surface",
+            "hole_size": 12.25,
+            "depth_from": 0,
+            "depth_to": 470,
+            "interval": "Gr. Neuquén",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "800 - 900 gpm (capacidad bombas); operación menciona circular 500 gpm para ciclo",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "DHM + MWD",
+            "primary_bit": "PDC 12-1/4\" D606TX (Boq 6x15/32\", 1.035 in2)",
+            "backup_bit": "",
+            "comments": "WBM 1040-1080 gr/lt. Objetivo: asentar zapato en Gr Neuquén y aislar acuíferos. CBL offline."
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 8.5,
+            "depth_from": 470,
+            "depth_to": 940,
+            "interval": "Rayoso (zona pérdidas/admisión total ~590 m)",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "600 gpm (hasta zona admisión); 400 gpm (zona con admisión total)",
+            "rop": "Limitar a 50 m/hr máximo en primeros tiros",
+            "diffp_max": null,
+            "bha_type": "MWD + DCs (rigidez) + Jar",
+            "primary_bit": "PDC 8-1/2\" D505TX (Boq 5x13/32\")",
+            "backup_bit": "",
+            "comments": "Se perfora hasta ~1120 m TVD (zapato 7\" variable por pozo); últimos 150 m con WBM para estabilidad. Maniobra de calibre últimos 300 m."
+          },
+          {
+            "section_name": "Production",
+            "hole_size": 6.125,
+            "depth_from": 1120,
+            "depth_to": 5905.54,
+            "interval": "Centenario / Quintuco / curva y lateral en Fm Vaca Muerta",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "MPD + DHM / RSS",
+            "primary_bit": "PDC 6-1/8\" SDi513 (Boq 5x13/32\", 0.648 in2) / RSS BHA con PDC 6-1/8\" DD405TS (Boq 5x9/32\", 0.311 in2)",
+            "backup_bit": "",
+            "comments": "OBM: 1180 gr/lt (Centenario), 1200 (Quintuco), 1250 (VM). FIT eq. 1650 gr/lt. Target ECD/ESD VM: 1320-1360 gr/lt (fondo/LP 1360). Límites MPD: estático 2000 psi, dinámico 1500 psi."
+          }
+        ],
+        "drilling_fluids": [
+          {
+            "section": "Surface",
+            "fluid_type": "WBM",
+            "design_mw": null,
+            "min_mw": 1040,
+            "max_mw": 1080,
+            "min_fit": null,
+            "mudloggers": null,
+            "comments": "Densidad en gr/lt."
+          },
+          {
+            "section": "Intermediate",
+            "fluid_type": "WBM + fluido de sacrificio (agua) en zona de admisión total",
+            "design_mw": null,
+            "min_mw": 1030,
+            "max_mw": 1080,
+            "min_fit": null,
+            "mudloggers": null,
+            "comments": "Bache 3 m3 por tiro (limpieza/lubricidad/inhibición). Consumo estimado ~500 m3 agua por sección."
+          },
+          {
+            "section": "Production",
+            "fluid_type": "OBM + MPD",
+            "design_mw": null,
+            "min_mw": 1180,
+            "max_mw": 1250,
+            "min_fit": 1650,
+            "mudloggers": null,
+            "comments": "Kill Mud requerido: 120 m3 @ 1400 gr/lt. Densidades por formación: 1180/1200/1250 gr/lt."
+          }
+        ],
+        "risks_and_hazards": [
+          {
+            "section": "Directional",
+            "risk": "Alto riesgo de colisión con pozo ADC.a-41 (sin registros de desviación)",
+            "comments": "Solapamiento elipse de incertidumbre con PPar-269(h) y PPar-270(h) a partir de ~2200 m TMD."
+          },
+          {
+            "section": "Intermediate",
+            "risk": "Admisión total / pérdidas totales",
+            "comments": "Zona estimada a partir de ~590 m. Estrategia: fluido de sacrificio, baches por tiro."
+          },
+          {
+            "section": "Production",
+            "risk": "Influjos / gas en fosa (según antecedentes offset)",
+            "comments": "Control con MPD, mantener ECD/ESD objetivo y límites de presión."
+          }
+        ],
+        "notes": "El documento incluye programa operativo detallado, BHA/bit para guía, intermedia y producción, y lineamientos de MPD. No se observó identificación explícita de rig en las páginas provistas."
+      },
+      {
+        "well_name": "TPT.Nq.PPar-270(h)",
+        "well_type": "horizontal",
+        "api_number": null,
+        "afe_number": null,
+        "operator_well_id": null,
+        "permit_id": null,
+        "total_depth_md": 5879.74,
+        "total_depth_tvd": 2414.9,
+        "lateral_length": "3500 m (objetivo)",
+        "target_formation": "Fm Vaca Muerta",
+        "design": "3 casing (9-5/8\", 7\", 5\") + MPD",
+        "surface_coordinates": "",
+        "coordinate_system": "Posgar 94 / Geográficas (según plano de ubicaciones definitivas)",
+        "ground_level": 506.2,
+        "rkb": null,
+        "skid_order": null,
+        "casing_program": [
+          {
+            "section_name": "Surface",
+            "hole_size": 12.25,
+            "casing_od": 9.625,
+            "casing_id": null,
+            "drift": null,
+            "grade": "K55",
+            "weight_per_length": 36,
+            "connection": "BTC",
+            "start_md": 0,
+            "end_md": 430,
+            "cement_type": null,
+            "cement_details": "Cementación offline; top job con 3% CaCl2; CBL offline planificado"
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 8.5,
+            "casing_od": 7,
+            "casing_id": null,
+            "drift": null,
+            "grade": "K55",
+            "weight_per_length": 23,
+            "connection": "LTC",
+            "start_md": 0,
+            "end_md": 970,
+            "cement_type": null,
+            "cement_details": "Cementación offline probable por pérdidas; CBL offline planificado"
+          },
+          {
+            "section_name": "Production",
+            "hole_size": 6.125,
+            "casing_od": 5,
+            "casing_id": null,
+            "drift": null,
+            "grade": "P110 W625",
+            "weight_per_length": 21.4,
+            "connection": "",
+            "start_md": 0,
+            "end_md": 5879.74,
+            "cement_type": null,
+            "cement_details": "Cementación online/offline; bullheading mandatorio; presión máx bullheading 3300 psi"
+          }
+        ],
+        "formation_tops": [
+          {
+            "formation_name": "Fm Rayoso",
+            "md": 916,
+            "tvd": 916
+          },
+          {
+            "formation_name": "Fm Centenario",
+            "md": 972,
+            "tvd": 972
+          },
+          {
+            "formation_name": "Fm Quintuco",
+            "md": 1795,
+            "tvd": 1795
+          },
+          {
+            "formation_name": "Fm Vaca Muerta",
+            "md": 2099.31,
+            "tvd": 2099
+          }
+        ],
+        "drilling_sections": [
+          {
+            "section_name": "Surface",
+            "hole_size": 12.25,
+            "depth_from": 0,
+            "depth_to": 470,
+            "interval": "Gr. Neuquén",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "800 - 900 gpm (capacidad bombas); operación menciona circular 500 gpm para ciclo",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "DHM + MWD",
+            "primary_bit": "PDC 12-1/4\" D606TX",
+            "backup_bit": "",
+            "comments": "WBM 1040-1080 gr/lt."
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 8.5,
+            "depth_from": 470,
+            "depth_to": 940,
+            "interval": "Rayoso (zona pérdidas/admisión total ~590 m)",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "600 gpm (hasta zona admisión); 400 gpm (zona con admisión total)",
+            "rop": "Limitar a 50 m/hr máximo en primeros tiros",
+            "diffp_max": null,
+            "bha_type": "MWD + DCs (rigidez) + Jar",
+            "primary_bit": "PDC 8-1/2\" D505TX",
+            "backup_bit": "",
+            "comments": "Zapato 7\" planificado (tabla): PPar-270(h) -> 1123 m TVD (+ cámara 5 m)."
+          },
+          {
+            "section_name": "Production",
+            "hole_size": 6.125,
+            "depth_from": 1120,
+            "depth_to": 5879.74,
+            "interval": "Centenario / Quintuco / curva y lateral en Fm Vaca Muerta",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "MPD + DHM / RSS",
+            "primary_bit": "PDC 6-1/8\" SDi513 / DD405TS (según BHA)",
+            "backup_bit": "",
+            "comments": "OBM densidades por formación (1180/1200/1250 gr/lt). FIT eq. 1650 gr/lt."
+          }
+        ],
+        "drilling_fluids": [
+          {
+            "section": "Surface",
+            "fluid_type": "WBM",
+            "design_mw": null,
+            "min_mw": 1040,
+            "max_mw": 1080,
+            "min_fit": null,
+            "mudloggers": null,
+            "comments": ""
+          },
+          {
+            "section": "Intermediate",
+            "fluid_type": "WBM + fluido de sacrificio (agua)",
+            "design_mw": null,
+            "min_mw": 1030,
+            "max_mw": 1080,
+            "min_fit": null,
+            "mudloggers": null,
+            "comments": "Bache 3 m3 por tiro."
+          },
+          {
+            "section": "Production",
+            "fluid_type": "OBM + MPD",
+            "design_mw": null,
+            "min_mw": 1180,
+            "max_mw": 1250,
+            "min_fit": 1650,
+            "mudloggers": null,
+            "comments": "Kill Mud: 120 m3 @ 1400 gr/lt."
+          }
+        ],
+        "risks_and_hazards": [
+          {
+            "section": "Directional",
+            "risk": "Alto riesgo de colisión con pozo ADC.a-41 (sin registros de desviación)",
+            "comments": "Solapamiento elipse de incertidumbre con PPar-269(h) y PPar-270(h) a partir de ~2200 m TMD."
+          }
+        ],
+        "notes": ""
+      },
+      {
+        "well_name": "TPT.Nq.PPar-271(h)",
+        "well_type": "horizontal",
+        "api_number": null,
+        "afe_number": null,
+        "operator_well_id": null,
+        "permit_id": null,
+        "total_depth_md": 5859.46,
+        "total_depth_tvd": 2389.3,
+        "lateral_length": "3500 m (objetivo)",
+        "target_formation": "Fm Vaca Muerta",
+        "design": "3 casing (9-5/8\", 7\", 5\") + MPD; LZ2 según prognosis",
+        "surface_coordinates": "",
+        "coordinate_system": "Posgar 94 / Geográficas (según plano de ubicaciones definitivas)",
+        "ground_level": 506.2,
+        "rkb": null,
+        "skid_order": null,
+        "casing_program": [
+          {
+            "section_name": "Surface",
+            "hole_size": 12.25,
+            "casing_od": 9.625,
+            "casing_id": null,
+            "drift": null,
+            "grade": "K55",
+            "weight_per_length": 36,
+            "connection": "BTC",
+            "start_md": 0,
+            "end_md": 430,
+            "cement_type": null,
+            "cement_details": "Cementación offline; top job con 3% CaCl2; CBL offline planificado"
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 8.5,
+            "casing_od": 7,
+            "casing_id": null,
+            "drift": null,
+            "grade": "K55",
+            "weight_per_length": 23,
+            "connection": "LTC",
+            "start_md": 0,
+            "end_md": 970,
+            "cement_type": null,
+            "cement_details": "Cementación offline probable por pérdidas; CBL offline planificado"
+          },
+          {
+            "section_name": "Production",
+            "hole_size": 6.125,
+            "casing_od": 5,
+            "casing_id": null,
+            "drift": null,
+            "grade": "P110 W625",
+            "weight_per_length": 21.4,
+            "connection": "",
+            "start_md": 0,
+            "end_md": 5859.46,
+            "cement_type": null,
+            "cement_details": "Cementación online/offline; bullheading mandatorio; presión máx bullheading 3300 psi"
+          }
+        ],
+        "formation_tops": [
+          {
+            "formation_name": "Fm Rayoso",
+            "md": 902,
+            "tvd": 902
+          },
+          {
+            "formation_name": "Fm Centenario",
+            "md": 967,
+            "tvd": 967
+          },
+          {
+            "formation_name": "Fm Quintuco",
+            "md": 1870.22,
+            "tvd": 1867
+          },
+          {
+            "formation_name": "Fm Vaca Muerta",
+            "md": 2021.66,
+            "tvd": 2018
+          }
+        ],
+        "drilling_sections": [
+          {
+            "section_name": "Surface",
+            "hole_size": 12.25,
+            "depth_from": 0,
+            "depth_to": 470,
+            "interval": "Gr. Neuquén",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "",
+            "primary_bit": "PDC 12-1/4\" D606TX (programa del pad)",
+            "backup_bit": "",
+            "comments": ""
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 8.5,
+            "depth_from": 470,
+            "depth_to": 940,
+            "interval": "Rayoso (zona pérdidas/admisión total ~590 m)",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "600 gpm (hasta zona admisión); 400 gpm (zona con admisión total)",
+            "rop": "Limitar a 50 m/hr máximo en primeros tiros",
+            "diffp_max": null,
+            "bha_type": "",
+            "primary_bit": "PDC 8-1/2\" D505TX (programa del pad)",
+            "backup_bit": "",
+            "comments": "Zapato 7\" planificado (tabla): PPar-271(h) -> 1130 m TVD (+ cámara 5 m)."
+          },
+          {
+            "section_name": "Production",
+            "hole_size": 6.125,
+            "depth_from": 1120,
+            "depth_to": 5859.46,
+            "interval": "Centenario / Quintuco / curva y lateral en Fm Vaca Muerta",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "",
+            "primary_bit": "PDC 6-1/8\" SDi513 / DD405TS (según BHA del pad)",
+            "backup_bit": "",
+            "comments": ""
+          }
+        ],
+        "drilling_fluids": [
+          {
+            "section": "Surface",
+            "fluid_type": "WBM",
+            "design_mw": null,
+            "min_mw": 1040,
+            "max_mw": 1080,
+            "min_fit": null,
+            "mudloggers": null,
+            "comments": ""
+          },
+          {
+            "section": "Intermediate",
+            "fluid_type": "WBM + fluido de sacrificio (agua)",
+            "design_mw": null,
+            "min_mw": 1030,
+            "max_mw": 1080,
+            "min_fit": null,
+            "mudloggers": null,
+            "comments": ""
+          },
+          {
+            "section": "Production",
+            "fluid_type": "OBM + MPD",
+            "design_mw": null,
+            "min_mw": 1180,
+            "max_mw": 1250,
+            "min_fit": 1650,
+            "mudloggers": null,
+            "comments": ""
+          }
+        ],
+        "risks_and_hazards": [],
+        "notes": "En imagen/prognosis aparece: TPT.Nq.PPar-271(h) - Prognosis Post PPar-268(h); LZ2. TVDSS_LZ reportado -1732."
+      },
+      {
+        "well_name": "TPT.Nq.PPar-272(h)",
+        "well_type": "horizontal",
+        "api_number": null,
+        "afe_number": null,
+        "operator_well_id": null,
+        "permit_id": null,
+        "total_depth_md": 5927.19,
+        "total_depth_tvd": 2429.9,
+        "lateral_length": "3500 m (objetivo)",
+        "target_formation": "Fm Vaca Muerta",
+        "design": "3 casing (9-5/8\", 7\", 5\") + MPD; LZ0 según prognosis",
+        "surface_coordinates": "PPar-272(h): Y 2542202.30, X 5699138.50; Lat S 38° 51' 34.659\"; Long O 68° 30' 53.345\"; Cota 506.90 msnm",
+        "coordinate_system": "Posgar 94 / Geográficas",
+        "ground_level": 506.9,
+        "rkb": null,
+        "skid_order": null,
+        "casing_program": [
+          {
+            "section_name": "Surface",
+            "hole_size": 12.25,
+            "casing_od": 9.625,
+            "casing_id": null,
+            "drift": null,
+            "grade": "K55",
+            "weight_per_length": 36,
+            "connection": "BTC",
+            "start_md": 0,
+            "end_md": 430,
+            "cement_type": null,
+            "cement_details": "Cementación offline; top job con 3% CaCl2; CBL offline planificado"
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 8.5,
+            "casing_od": 7,
+            "casing_id": null,
+            "drift": null,
+            "grade": "K55",
+            "weight_per_length": 23,
+            "connection": "LTC",
+            "start_md": 0,
+            "end_md": 970,
+            "cement_type": null,
+            "cement_details": "Cementación offline probable por pérdidas; CBL offline planificado"
+          },
+          {
+            "section_name": "Production",
+            "hole_size": 6.125,
+            "casing_od": 5,
+            "casing_id": null,
+            "drift": null,
+            "grade": "P110 W625",
+            "weight_per_length": 21.4,
+            "connection": "",
+            "start_md": 0,
+            "end_md": 5927.19,
+            "cement_type": null,
+            "cement_details": "Cementación online/offline; bullheading mandatorio; presión máx bullheading 3300 psi"
+          }
+        ],
+        "formation_tops": [
+          {
+            "formation_name": "Fm Rayoso",
+            "md": 902,
+            "tvd": 902
+          },
+          {
+            "formation_name": "Fm Centenario",
+            "md": 967,
+            "tvd": 967
+          },
+          {
+            "formation_name": "Fm Quintuco",
+            "md": 1895.35,
+            "tvd": 1867
+          },
+          {
+            "formation_name": "Fm Vaca Muerta",
+            "md": 2047.47,
+            "tvd": 2018
+          }
+        ],
+        "drilling_sections": [
+          {
+            "section_name": "Surface",
+            "hole_size": 12.25,
+            "depth_from": 0,
+            "depth_to": 470,
+            "interval": "Gr. Neuquén",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "",
+            "primary_bit": "PDC 12-1/4\" D606TX (programa del pad)",
+            "backup_bit": "",
+            "comments": ""
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 8.5,
+            "depth_from": 470,
+            "depth_to": 940,
+            "interval": "Rayoso (zona pérdidas/admisión total ~590 m)",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "600 gpm (hasta zona admisión); 400 gpm (zona con admisión total)",
+            "rop": "Limitar a 50 m/hr máximo en primeros tiros",
+            "diffp_max": null,
+            "bha_type": "",
+            "primary_bit": "PDC 8-1/2\" D505TX (programa del pad)",
+            "backup_bit": "",
+            "comments": "Zapato 7\" planificado (tabla): PPar-272(h) -> 1132 m TVD (+ cámara 5 m)."
+          },
+          {
+            "section_name": "Production",
+            "hole_size": 6.125,
+            "depth_from": 1120,
+            "depth_to": 5927.19,
+            "interval": "Centenario / Quintuco / curva y lateral en Fm Vaca Muerta",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "",
+            "primary_bit": "PDC 6-1/8\" SDi513 / DD405TS (según BHA del pad)",
+            "backup_bit": "",
+            "comments": ""
+          }
+        ],
+        "drilling_fluids": [
+          {
+            "section": "Surface",
+            "fluid_type": "WBM",
+            "design_mw": null,
+            "min_mw": 1040,
+            "max_mw": 1080,
+            "min_fit": null,
+            "mudloggers": null,
+            "comments": ""
+          },
+          {
+            "section": "Intermediate",
+            "fluid_type": "WBM + fluido de sacrificio (agua)",
+            "design_mw": null,
+            "min_mw": 1030,
+            "max_mw": 1080,
+            "min_fit": null,
+            "mudloggers": null,
+            "comments": ""
+          },
+          {
+            "section": "Production",
+            "fluid_type": "OBM + MPD",
+            "design_mw": null,
+            "min_mw": 1180,
+            "max_mw": 1250,
+            "min_fit": 1650,
+            "mudloggers": null,
+            "comments": ""
+          }
+        ],
+        "risks_and_hazards": [],
+        "notes": "En imagen/prognosis aparece LZ0. TVDSS_LZ reportado -1773."
+      }
+    ],
+    "confidence": {
+      "rig_name": 0.05,
+      "wells": 0.75,
+      "casing_program": 0.65,
+      "formation_tops": 0.7
+    }
+  },
+  "validation": {
+    "is_valid": true,
+    "confidence_score": 1.0,
+    "warnings": [],
+    "errors": [],
+    "warning_count": 0,
+    "error_count": 0,
+    "messages": []
+  },
+  "field_confidences": {
+    "rig_name": {
+      "score": 0.05,
+      "source_pass": "primary",
+      "tier": "low"
+    },
+    "wells": {
+      "score": 0.75,
+      "source_pass": "primary",
+      "tier": "medium"
+    },
+    "casing_program": {
+      "score": 0.65,
+      "source_pass": "primary",
+      "tier": "medium"
+    },
+    "formation_tops": {
+      "score": 0.7,
+      "source_pass": "primary",
+      "tier": "medium"
+    }
+  }
+}

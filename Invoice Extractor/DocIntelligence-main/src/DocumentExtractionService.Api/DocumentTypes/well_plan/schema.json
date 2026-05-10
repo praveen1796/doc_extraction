@@ -1,0 +1,489 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WellPlanExtractionOutput",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "approvals",
+    "confidence",
+    "depth_unit",
+    "document_format",
+    "document_type",
+    "language",
+    "location",
+    "operator",
+    "pad_name",
+    "report_date",
+    "report_status",
+    "rig_name",
+    "wells"
+  ],
+  "properties": {
+    "document_type": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "document_format": {
+      "type": "string"
+    },
+    "rig_name": {
+      "type": "string"
+    },
+    "operator": {
+      "type": "string"
+    },
+    "pad_name": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "report_status": {
+      "type": "string"
+    },
+    "report_date": {
+      "type": "string"
+    },
+    "depth_unit": {
+      "type": "string"
+    },
+    "approvals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "action",
+          "datetime"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "datetime": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "wells": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "afe_number",
+          "api_number",
+          "casing_program",
+          "coordinate_system",
+          "design",
+          "drilling_fluids",
+          "drilling_sections",
+          "formation_tops",
+          "ground_level",
+          "lateral_length",
+          "notes",
+          "operator_well_id",
+          "permit_id",
+          "risks_and_hazards",
+          "rkb",
+          "skid_order",
+          "surface_coordinates",
+          "target_formation",
+          "total_depth_md",
+          "total_depth_tvd",
+          "well_name",
+          "well_type"
+        ],
+        "properties": {
+          "well_name": {
+            "type": "string"
+          },
+          "well_type": {
+            "type": "string"
+          },
+          "api_number": {
+            "anyOf": [
+              { "type": "string" },
+              { "type": "null" }
+            ]
+          },
+          "afe_number": {
+            "anyOf": [
+              { "type": "string" },
+              { "type": "null" }
+            ]
+          },
+          "operator_well_id": {
+            "anyOf": [
+              { "type": "string" },
+              { "type": "null" }
+            ]
+          },
+          "permit_id": {
+            "anyOf": [
+              { "type": "string" },
+              { "type": "null" }
+            ]
+          },
+          "total_depth_md": {
+            "anyOf": [
+              { "type": "number" },
+              { "type": "null" }
+            ]
+          },
+          "total_depth_tvd": {
+            "anyOf": [
+              { "type": "number" },
+              { "type": "null" }
+            ]
+          },
+          "lateral_length": {
+            "anyOf": [
+              { "type": "string" },
+              { "type": "null" }
+            ]
+          },
+          "target_formation": {
+            "type": "string"
+          },
+          "design": {
+            "type": "string"
+          },
+          "surface_coordinates": {
+            "type": "string"
+          },
+          "coordinate_system": {
+            "type": "string"
+          },
+          "ground_level": {
+            "anyOf": [
+              { "type": "number" },
+              { "type": "null" }
+            ]
+          },
+          "rkb": {
+            "anyOf": [
+              { "type": "number" },
+              { "type": "null" }
+            ]
+          },
+          "skid_order": {
+            "anyOf": [
+              { "type": "integer" },
+              { "type": "null" }
+            ]
+          },
+          "casing_program": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "casing_id",
+                "casing_od",
+                "cement_details",
+                "cement_type",
+                "connection",
+                "drift",
+                "end_md",
+                "grade",
+                "hole_size",
+                "section_name",
+                "start_md",
+                "weight_per_length"
+              ],
+              "properties": {
+                "section_name": {
+                  "type": "string"
+                },
+                "hole_size": {
+                  "anyOf": [
+                    { "type": "number" },
+                    { "type": "null" }
+                  ]
+                },
+                "casing_od": {
+                  "anyOf": [
+                    { "type": "number" },
+                    { "type": "null" }
+                  ]
+                },
+                "casing_id": {
+                  "anyOf": [
+                    { "type": "number" },
+                    { "type": "null" }
+                  ]
+                },
+                "drift": {
+                  "anyOf": [
+                    { "type": "number" },
+                    { "type": "null" }
+                  ]
+                },
+                "grade": {
+                  "type": "string"
+                },
+                "weight_per_length": {
+                  "anyOf": [
+                    { "type": "number" },
+                    { "type": "null" }
+                  ]
+                },
+                "connection": {
+                  "type": "string"
+                },
+                "start_md": {
+                  "anyOf": [
+                    { "type": "number" },
+                    { "type": "null" }
+                  ]
+                },
+                "end_md": {
+                  "anyOf": [
+                    { "type": "number" },
+                    { "type": "null" }
+                  ]
+                },
+                "cement_type": {
+                  "anyOf": [
+                    { "type": "string" },
+                    { "type": "null" }
+                  ]
+                },
+                "cement_details": {
+                  "anyOf": [
+                    { "type": "string" },
+                    { "type": "null" }
+                  ]
+                }
+              }
+            }
+          },
+          "formation_tops": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "formation_name",
+                "md",
+                "tvd"
+              ],
+              "properties": {
+                "formation_name": {
+                  "type": "string"
+                },
+                "md": {
+                  "anyOf": [
+                    { "type": "number" },
+                    { "type": "null" }
+                  ]
+                },
+                "tvd": {
+                  "anyOf": [
+                    { "type": "number" },
+                    { "type": "null" }
+                  ]
+                }
+              }
+            }
+          },
+          "drilling_sections": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "backup_bit",
+                "bha_type",
+                "comments",
+                "depth_from",
+                "depth_to",
+                "diffp_max",
+                "flow_rate",
+                "hole_size",
+                "interval",
+                "primary_bit",
+                "rop",
+                "rpm",
+                "section_name",
+                "wob"
+              ],
+              "properties": {
+                "section_name": {
+                  "type": "string"
+                },
+                "hole_size": {
+                  "anyOf": [
+                    { "type": "number" },
+                    { "type": "null" }
+                  ]
+                },
+                "depth_from": {
+                  "anyOf": [
+                    { "type": "number" },
+                    { "type": "null" }
+                  ]
+                },
+                "depth_to": {
+                  "anyOf": [
+                    { "type": "number" },
+                    { "type": "null" }
+                  ]
+                },
+                "interval": {
+                  "type": "string"
+                },
+                "wob": {
+                  "type": "string"
+                },
+                "rpm": {
+                  "type": "string"
+                },
+                "flow_rate": {
+                  "type": "string"
+                },
+                "rop": {
+                  "type": "string"
+                },
+                "diffp_max": {
+                  "anyOf": [
+                    { "type": "number" },
+                    { "type": "null" }
+                  ]
+                },
+                "bha_type": {
+                  "type": "string"
+                },
+                "primary_bit": {
+                  "type": "string"
+                },
+                "backup_bit": {
+                  "type": "string"
+                },
+                "comments": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "drilling_fluids": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "comments",
+                "design_mw",
+                "fluid_type",
+                "max_mw",
+                "min_fit",
+                "min_mw",
+                "mudloggers",
+                "section"
+              ],
+              "properties": {
+                "section": {
+                  "type": "string"
+                },
+                "fluid_type": {
+                  "type": "string"
+                },
+                "design_mw": {
+                  "anyOf": [
+                    { "type": "number" },
+                    { "type": "null" }
+                  ]
+                },
+                "min_mw": {
+                  "anyOf": [
+                    { "type": "number" },
+                    { "type": "null" }
+                  ]
+                },
+                "max_mw": {
+                  "anyOf": [
+                    { "type": "number" },
+                    { "type": "null" }
+                  ]
+                },
+                "min_fit": {
+                  "anyOf": [
+                    { "type": "number" },
+                    { "type": "null" }
+                  ]
+                },
+                "mudloggers": {
+                  "anyOf": [
+                    { "type": "string" },
+                    { "type": "null" }
+                  ]
+                },
+                "comments": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "risks_and_hazards": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "section",
+                "risk",
+                "comments"
+              ],
+              "properties": {
+                "section": {
+                  "type": "string"
+                },
+                "risk": {
+                  "type": "string"
+                },
+                "comments": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "confidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rig_name",
+        "wells",
+        "casing_program",
+        "formation_tops"
+      ],
+      "properties": {
+        "rig_name": {
+          "type": "number"
+        },
+        "wells": {
+          "type": "number"
+        },
+        "casing_program": {
+          "type": "number"
+        },
+        "formation_tops": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}

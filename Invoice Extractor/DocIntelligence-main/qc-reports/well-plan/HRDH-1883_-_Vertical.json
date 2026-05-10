@@ -1,0 +1,685 @@
+{
+  "request_id": "20260410151024_d98d6685",
+  "document_type": "well_plan",
+  "status": "Success",
+  "metadata": {
+    "source_file": "HRDH-1883 - Vertical.pdf",
+    "file_size_bytes": 8631863,
+    "page_count": 132,
+    "extraction_method": "hybrid",
+    "model_used": "azure-openai-gpt",
+    "reasoning_effort": "medium",
+    "dual_pass_triggered": false,
+    "extracted_at": "2026-04-10T15:14:07.2362711Z",
+    "processing_time_ms": 223068,
+    "total_tokens_used": 56585,
+    "pages_sent_to_model": 10
+  },
+  "data": {
+    "document_type": "Drilling Program",
+    "language": "en",
+    "document_format": "single_well_program",
+    "rig_name": "NBR-263S",
+    "operator": "Saudi Aramco",
+    "pad_name": "",
+    "location": "HRDH (Haradh), Saudi Arabia",
+    "report_status": "APPROVED",
+    "report_date": "2018-06",
+    "depth_unit": "ft",
+    "approvals": [
+      {
+        "name": "Otaibi, Ali Sunhat",
+        "action": "SUBMITTED (Drilling Engineer)",
+        "datetime": "2018-06-10"
+      },
+      {
+        "name": "Mata Petit, Felix Emilio",
+        "action": "APPROVED (Engineering Supervisor)",
+        "datetime": "2018-06-11"
+      },
+      {
+        "name": "Ezi, Peter Chukwuemeka",
+        "action": "APPROVED (General Supervisor)",
+        "datetime": "2018-06-11"
+      },
+      {
+        "name": "Gahtani, Saeed Mufarreh",
+        "action": "APPROVED (Superintendent)",
+        "datetime": "2018-06-13"
+      }
+    ],
+    "wells": [
+      {
+        "well_name": "HRDH-1883",
+        "well_type": "vertical",
+        "api_number": null,
+        "afe_number": null,
+        "operator_well_id": "EP_A_NUM: 85760; Charge No. 66180581883",
+        "permit_id": null,
+        "total_depth_md": 13964,
+        "total_depth_tvd": 13964,
+        "lateral_length": null,
+        "target_formation": "Sharawra Member",
+        "design": "MK-1",
+        "surface_coordinates": "UTM Zone: -39; N-2660532.13 E-312576.85",
+        "coordinate_system": "UTM (Zone -39 as stated in document)",
+        "ground_level": 950,
+        "rkb": 985,
+        "skid_order": null,
+        "casing_program": [
+          {
+            "section_name": "Conductor",
+            "hole_size": 34,
+            "casing_od": 30,
+            "casing_id": null,
+            "drift": null,
+            "grade": "X-42",
+            "weight_per_length": null,
+            "connection": "JVLW THREADED CONNECTOR",
+            "start_md": 0,
+            "end_md": 120,
+            "cement_type": "API Class G",
+            "cement_details": "Top job if required to surface. Tail: 508 sk, 118 pcf, +0.002 gps DAF-1 +2.0% BWOC CaCl2 (notes page states 2%; additive table shows CaCl2 1%). Total volume 62 bbl. BHST 100°F, TT 3:00-3:30."
+          },
+          {
+            "section_name": "Surface",
+            "hole_size": 28,
+            "casing_od": 24,
+            "casing_id": null,
+            "drift": null,
+            "grade": "X-42",
+            "weight_per_length": 176,
+            "connection": "JVLW THREADED CONNECTOR",
+            "start_md": 0,
+            "end_md": 434,
+            "cement_type": "API Class G",
+            "cement_details": "ISC cementing. Tail: 771 sk, 118 pcf, 158 bbl total volume, 100% OH excess to bottom of cellar (w/o 36\" conductor) + 10 bbl inside 30\" casing. Spacer: 100 bbl fresh water ahead."
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 22,
+            "casing_od": 18.625,
+            "casing_id": null,
+            "drift": null,
+            "grade": "K-55",
+            "weight_per_length": 115,
+            "connection": "BUTTRESS",
+            "start_md": 0,
+            "end_md": 2655,
+            "cement_type": "API Class G",
+            "cement_details": "Single stage plug. Lead: 1494 sk, 101 pcf, TOC 0 ft (OH 50% excess + CH 10% excess). Tail: 665 sk, 118 pcf, 125 bbl, from 2655 to 2571 (500 ft annular height w/ 50% OH excess + 84 ft shoe track + 5 bbl on top of plug). Spacer: 100 bbl water."
+          },
+          {
+            "section_name": "Production",
+            "hole_size": 16,
+            "casing_od": 13.375,
+            "casing_id": null,
+            "drift": null,
+            "grade": "VM-95HC",
+            "weight_per_length": 72,
+            "connection": "VAM TOP HIGH COMPRESSION",
+            "start_md": 0,
+            "end_md": 5208,
+            "cement_type": "API Class G",
+            "cement_details": "Two scenarios. Full circulation single-stage: Lead 1704 sk 101 pcf to TOC 0 ft (from top Biyadh to surface, 50% OH excess + 10% CH excess); Tail 767 sk 118 pcf to TOC 4029 ft (50% OH excess + 126 ft shoe track + 10 bbl behind plug). Loss circulation two-stage: 1st stage lead 784 sk 101 pcf (2355-4029) + 1st stage tail 767 sk 118 pcf (4029-5208); 2nd stage lead 1064 sk 101 pcf (0-2355) with DV @ ~2350 ft."
+          },
+          {
+            "section_name": "Liner",
+            "hole_size": null,
+            "casing_od": 9.625,
+            "casing_id": null,
+            "drift": null,
+            "grade": "NKAC95ST",
+            "weight_per_length": 53.5,
+            "connection": "NK3SB",
+            "start_md": 0,
+            "end_md": 10135,
+            "cement_type": null,
+            "cement_details": "Casing design shows 9-5/8\" to 10,135 ft with DV @ 4,893-4,903 ft; FBE from 8,500 ft to DV tool. Cement program details truncated in provided text; not fully extracted."
+          },
+          {
+            "section_name": "Liner",
+            "hole_size": null,
+            "casing_od": 7,
+            "casing_id": null,
+            "drift": null,
+            "grade": "",
+            "weight_per_length": null,
+            "connection": "",
+            "start_md": null,
+            "end_md": 11936,
+            "cement_type": null,
+            "cement_details": "Casing point at 11,936 ft: 7\" +/-10' into Khuff B Carbonate (from geological horizons table). Detailed 7\" string specifications not present in provided excerpt."
+          },
+          {
+            "section_name": "Liner",
+            "hole_size": null,
+            "casing_od": 4.5,
+            "casing_id": null,
+            "drift": null,
+            "grade": "",
+            "weight_per_length": null,
+            "connection": "",
+            "start_md": null,
+            "end_md": null,
+            "cement_type": null,
+            "cement_details": "Objective statement: complete with 4-1/2\" cemented liner. Detailed liner program not present in provided excerpt."
+          }
+        ],
+        "formation_tops": [
+          {
+            "formation_name": "RUS FORMATION",
+            "md": 390,
+            "tvd": 390
+          },
+          {
+            "formation_name": "UMM ER RADHUMA AQUIFER",
+            "md": 424,
+            "tvd": 424
+          },
+          {
+            "formation_name": "UMM ER RADHUMA FORMATION",
+            "md": 479,
+            "tvd": 479
+          },
+          {
+            "formation_name": "ARUMA FORMATION",
+            "md": 1366,
+            "tvd": 1366
+          },
+          {
+            "formation_name": "LOWER ARUMA SHALE",
+            "md": 1795,
+            "tvd": 1795
+          },
+          {
+            "formation_name": "AHMADI MEMBER",
+            "md": 2605,
+            "tvd": 2605
+          },
+          {
+            "formation_name": "SAFANIYA MEMBER",
+            "md": 2956,
+            "tvd": 2956
+          },
+          {
+            "formation_name": "SHU'AIBA FORMATION",
+            "md": 3817,
+            "tvd": 3817
+          },
+          {
+            "formation_name": "BIYADH FORMATION",
+            "md": 4029,
+            "tvd": 4029
+          },
+          {
+            "formation_name": "MID-THAMAMA LIMESTONE",
+            "md": 5158,
+            "tvd": 5158
+          },
+          {
+            "formation_name": "SULAIY FORMATION",
+            "md": 5746,
+            "tvd": 5746
+          },
+          {
+            "formation_name": "HITH FORMATION",
+            "md": 6361,
+            "tvd": 6361
+          },
+          {
+            "formation_name": "ARAB-A RESERVOIR",
+            "md": 6792,
+            "tvd": 6792
+          },
+          {
+            "formation_name": "ARAB-B RESERVOIR",
+            "md": 6916,
+            "tvd": 6916
+          },
+          {
+            "formation_name": "ARAB-C RESERVOIR",
+            "md": 7049,
+            "tvd": 7049
+          },
+          {
+            "formation_name": "ARAB-D ZONE 2A",
+            "md": 7317,
+            "tvd": 7317
+          },
+          {
+            "formation_name": "BASE ARAB-D RESERVOIR",
+            "md": 7560,
+            "tvd": 7560
+          },
+          {
+            "formation_name": "UPPER HANIFA RESERVOIR",
+            "md": 7920,
+            "tvd": 7920
+          },
+          {
+            "formation_name": "HADRIYA RESERVOIR",
+            "md": 8263,
+            "tvd": 8263
+          },
+          {
+            "formation_name": "BASE HADRIYA RESERVOIR",
+            "md": 8501,
+            "tvd": 8501
+          },
+          {
+            "formation_name": "DHRUMA FORMATION",
+            "md": 8703,
+            "tvd": 8703
+          },
+          {
+            "formation_name": "LOWER FADHILI RESERVOIR",
+            "md": 8761,
+            "tvd": 8761
+          },
+          {
+            "formation_name": "BASE LOWER FADHILI RESERVOIR",
+            "md": 8838,
+            "tvd": 8838
+          },
+          {
+            "formation_name": "HANIFA FORMATION",
+            "md": 9325,
+            "tvd": 9325
+          },
+          {
+            "formation_name": "MARRAT FORMATION",
+            "md": 9437,
+            "tvd": 9437
+          },
+          {
+            "formation_name": "MINJUR FORMATION",
+            "md": 9563,
+            "tvd": 9563
+          },
+          {
+            "formation_name": "JILH FORMATION",
+            "md": 9750,
+            "tvd": 9750
+          },
+          {
+            "formation_name": "JILH DOLOMITE",
+            "md": 9963,
+            "tvd": 9963
+          },
+          {
+            "formation_name": "BASE JILH DOLOMITE",
+            "md": 10105,
+            "tvd": 10105
+          },
+          {
+            "formation_name": "MIDDLE JILH REFLECTOR",
+            "md": 10369,
+            "tvd": 10369
+          },
+          {
+            "formation_name": "SUDAIR FORMATION",
+            "md": 11129,
+            "tvd": 11129
+          },
+          {
+            "formation_name": "SUDAIR DOLOMITE",
+            "md": 11445,
+            "tvd": 11445
+          },
+          {
+            "formation_name": "BASE SUDAIR DOLOMITE",
+            "md": 11472,
+            "tvd": 11472
+          },
+          {
+            "formation_name": "KHUFF FORMATION",
+            "md": 11797,
+            "tvd": 11797
+          },
+          {
+            "formation_name": "KHUFF-A CARBONATE",
+            "md": 11813,
+            "tvd": 11813
+          },
+          {
+            "formation_name": "KHUFF-B CARBONATE",
+            "md": 11926,
+            "tvd": 11926
+          },
+          {
+            "formation_name": "KHUFF-B1",
+            "md": 11975,
+            "tvd": 11975
+          },
+          {
+            "formation_name": "KHUFF-C CARBONATE",
+            "md": 12418,
+            "tvd": 12418
+          },
+          {
+            "formation_name": "KHUFF-C1",
+            "md": 12437,
+            "tvd": 12437
+          },
+          {
+            "formation_name": "KHUFF-C2",
+            "md": 12461,
+            "tvd": 12461
+          },
+          {
+            "formation_name": "KHUFF-C3",
+            "md": 12474,
+            "tvd": 12474
+          },
+          {
+            "formation_name": "KHUFF-C4",
+            "md": 12493,
+            "tvd": 12493
+          },
+          {
+            "formation_name": "KHUFF-C5",
+            "md": 12511,
+            "tvd": 12511
+          },
+          {
+            "formation_name": "KHUFF-C6",
+            "md": 12523,
+            "tvd": 12523
+          },
+          {
+            "formation_name": "KHUFF-C7",
+            "md": 12542,
+            "tvd": 12542
+          },
+          {
+            "formation_name": "KHUFF-C8",
+            "md": 12564,
+            "tvd": 12564
+          },
+          {
+            "formation_name": "KHUFF-C9",
+            "md": 12586,
+            "tvd": 12586
+          },
+          {
+            "formation_name": "KHUFF-C10",
+            "md": 12597,
+            "tvd": 12597
+          },
+          {
+            "formation_name": "KHUFF-C11",
+            "md": 12635,
+            "tvd": 12635
+          },
+          {
+            "formation_name": "KHUFF-C12",
+            "md": 12668,
+            "tvd": 12668
+          },
+          {
+            "formation_name": "KHUFF D ANHYDRITE",
+            "md": 12683,
+            "tvd": 12683
+          },
+          {
+            "formation_name": "BASE KHUFF D CARB (SEIS)",
+            "md": 13202,
+            "tvd": 13202
+          },
+          {
+            "formation_name": "UNAYZAH \"A\" RESERVOIR",
+            "md": 13266,
+            "tvd": 13266
+          },
+          {
+            "formation_name": "UNAYZAH \"B\" RESERVOIR",
+            "md": 13587,
+            "tvd": 13587
+          },
+          {
+            "formation_name": "UNAYZAH \"C\" RESERVOIR",
+            "md": 13598,
+            "tvd": 13598
+          },
+          {
+            "formation_name": "SHARAWRA MEMBER",
+            "md": 13814,
+            "tvd": 13814
+          },
+          {
+            "formation_name": "TD FOR MB",
+            "md": 13964,
+            "tvd": 13964
+          }
+        ],
+        "drilling_sections": [
+          {
+            "section_name": "Conductor",
+            "hole_size": 34,
+            "depth_from": 0,
+            "depth_to": 120,
+            "interval": "Lower UER Gray Marker Mud",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "Rotary BHA",
+            "primary_bit": "34\" VAREL L3A (IADC 111) (only if required)",
+            "backup_bit": "",
+            "comments": "28\"x34\" section only if required; set 30\" FBE conductor."
+          },
+          {
+            "section_name": "Surface",
+            "hole_size": 28,
+            "depth_from": 0,
+            "depth_to": 442,
+            "interval": "Surface to 24\" CP / UER water level",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "Rotary BHA",
+            "primary_bit": "28\" VAREL L113 (IADC 113)",
+            "backup_bit": "28\" SECURITY XN3C (IADC 131)",
+            "comments": "Drill to ~434 ft (+/-10 ft into UER water)."
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 22,
+            "depth_from": 442,
+            "depth_to": 2655,
+            "interval": "UER/Rus to Ahmadi Member",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "Rotary BHA",
+            "primary_bit": "22\" SMITH GS12VEJ3 (IADC 435)",
+            "backup_bit": "22\" HUGHES TOOL CO. VGAC310H (IADC 435)",
+            "comments": "Set 18-5/8\" casing at 2655 ft (+/-50' into Ahmadi)."
+          },
+          {
+            "section_name": "Production",
+            "hole_size": 16,
+            "depth_from": 2655,
+            "depth_to": 5208,
+            "interval": "Ahmadi to Mid-Thamama Limestone",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "Rotary drilling BHA",
+            "primary_bit": "16\" REED TH43A (IADC 435)",
+            "backup_bit": "16\" SECURITY EBXT12S (IADC 435)",
+            "comments": "Set 13-3/8\" casing at 5208 ft (+/-50' into Mid Thamama)."
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 12,
+            "depth_from": 5208,
+            "depth_to": 10135,
+            "interval": "Mid-Thamama to Base Jilh Dolomite",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "",
+            "primary_bit": "12\" SECURITY FMH3863Z (M423)",
+            "backup_bit": "12\" SMITH MSZ716C (M423); 12\" HUGHES GTX-G3 (IADC 135) clean-out if required",
+            "comments": "Set 9-5/8\" casing at 10135 ft (+/-30' below Base Jilh Dolomite)."
+          },
+          {
+            "section_name": "Intermediate",
+            "hole_size": 8.375,
+            "depth_from": 10135,
+            "depth_to": 11936,
+            "interval": "Below 9-5/8\" CP to 7\" CP",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "",
+            "primary_bit": "8-3/8\" SECURITY FMH3655ZZ (M443)",
+            "backup_bit": "8-3/8\" ULTERRA U616M (M423)",
+            "comments": "7\" casing point at 11936 ft (+/-10' into Khuff B Carbonate)."
+          },
+          {
+            "section_name": "Production",
+            "hole_size": 5.875,
+            "depth_from": 11936,
+            "depth_to": 13964,
+            "interval": "Khuff/Pre-Khuff to TD in Sharawra",
+            "wob": "",
+            "rpm": "",
+            "flow_rate": "",
+            "rop": "",
+            "diffp_max": null,
+            "bha_type": "",
+            "primary_bit": "5-7/8\" VAREL VRP611P (M333)",
+            "backup_bit": "5-7/8\" SMITH MR613 (M333); REED DSR713M (M432) second backup",
+            "comments": "TD 13964 ft; planned 150 ft into Sharawra."
+          }
+        ],
+        "drilling_fluids": [
+          {
+            "section": "34\" hole",
+            "fluid_type": "Spud mud (WBM)",
+            "design_mw": 64,
+            "min_mw": 64,
+            "max_mw": 65,
+            "min_fit": null,
+            "mudloggers": null,
+            "comments": "Pre-hydrated bentonite w/ caustic (no lime). Funnel viscosity 60-120 sec/qt."
+          },
+          {
+            "section": "28\" hole",
+            "fluid_type": "Spud mud (WBM)",
+            "design_mw": 65,
+            "min_mw": 64,
+            "max_mw": 65,
+            "min_fit": null,
+            "mudloggers": null,
+            "comments": "Switch to inhibited water (lime 0.25 lb/bbl) if returns lost; gel sweeps as needed."
+          },
+          {
+            "section": "22\" hole",
+            "fluid_type": "Spud mud (WBM) / inhibited PHPA contingency",
+            "design_mw": 64,
+            "min_mw": 63,
+            "max_mw": 75,
+            "min_fit": null,
+            "mudloggers": null,
+            "comments": "Program calls for 65 pcf spud mud; PHPA inhibited formulation described for total losses/hole instability."
+          },
+          {
+            "section": "16\" hole",
+            "fluid_type": "High bentonite mud (WBM) + mud cap contingency",
+            "design_mw": 67,
+            "min_mw": 67,
+            "max_mw": 69,
+            "min_fit": null,
+            "mudloggers": null,
+            "comments": "High bentonite system to protect aquifers; mud cap 75-80 pcf described for total loss scenarios."
+          },
+          {
+            "section": "12\" hole",
+            "fluid_type": "NaCl polymer mud (WBM)",
+            "design_mw": 67,
+            "min_mw": 65,
+            "max_mw": 93,
+            "min_fit": null,
+            "mudloggers": null,
+            "comments": "Start 67 pcf; increase gradually to ~93 pcf before Arab reservoirs; properties provided for 65-67 pcf and 93 pcf systems."
+          }
+        ],
+        "risks_and_hazards": [
+          {
+            "section": "General",
+            "risk": "H2S",
+            "comments": "Potential H2S in Hith/Arab reservoirs; all gas considered sour until proven otherwise."
+          },
+          {
+            "section": "12\" hole",
+            "risk": "Losses / tight hole / flow",
+            "comments": "Probable losses in Arab-D, Hanifa, Lower Fadhili; possible flow in Hith, Manifa, Arab-C, Fadhili, Jilh."
+          },
+          {
+            "section": "16\" hole",
+            "risk": "Loss circulation / sloughing / flow",
+            "comments": "Possible losses in Wasia/Shu'aiba; possible sloughing shale from Mid-Thamama/Biyadh; possible flow from Wasia."
+          },
+          {
+            "section": "28\" & 22\" holes",
+            "risk": "Tight hole / loss circulation",
+            "comments": "Potential tight hole/sloughing above Rus and UER; losses possible."
+          }
+        ],
+        "notes": "Program objective: drill HRDH-1883 vertical (MK-1) to 150 ft into Sharawra; may sidetrack based on logs and complete as Khuff or Pre-Khuff producer. Target days: 57.33. Surface DF elevation: 985 ft; Ground level elevation: 950 ft. Target reservoirs listed on cover: KHUFF C RSVR (H2S 0.4%, GOR 5515) and UNAYZAH B/C UNDIFFERENTIATED (H2S 0, GOR 10763)."
+      }
+    ],
+    "confidence": {
+      "rig_name": 0.98,
+      "wells": 0.95,
+      "casing_program": 0.75,
+      "formation_tops": 0.9
+    }
+  },
+  "validation": {
+    "is_valid": true,
+    "confidence_score": 1.0,
+    "warnings": [],
+    "errors": [],
+    "warning_count": 0,
+    "error_count": 0,
+    "messages": []
+  },
+  "field_confidences": {
+    "rig_name": {
+      "score": 0.98,
+      "source_pass": "primary",
+      "tier": "high"
+    },
+    "wells": {
+      "score": 0.95,
+      "source_pass": "primary",
+      "tier": "high"
+    },
+    "casing_program": {
+      "score": 0.75,
+      "source_pass": "primary",
+      "tier": "medium"
+    },
+    "formation_tops": {
+      "score": 0.9,
+      "source_pass": "primary",
+      "tier": "high"
+    }
+  }
+}

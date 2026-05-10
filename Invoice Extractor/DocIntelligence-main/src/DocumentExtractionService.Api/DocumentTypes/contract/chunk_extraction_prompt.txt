@@ -1,0 +1,113 @@
+Extract all rates, fees, prices, and commercial terms from THESE PAGES of the contract.
+
+FILE: {{FILE_NAME}} | TOTAL PAGES: {{PAGE_COUNT}} | METHOD: {{EXTRACTION_METHOD}}
+
+══════════════════════════════════════════════════════════════
+  THIS IS A CONTINUATION EXTRACTION
+══════════════════════════════════════════════════════════════
+
+The contract header (title, parties, dates, rig designation) was already
+extracted from earlier pages. You are looking at a LATER SECTION of the
+same document — typically exhibits, schedules, technology package pricing,
+managed pressure drilling pricing tables, OR (for master/service orders)
+**fee schedules, insurance & indemnity limits, liquidated damages, milestones,
+performance incentives, per-event charges, and liability caps** that may
+not be labeled "Exhibit".
+
+**SERVICE / MASTER ORDERS:** Many Chevron-style documents use "Article",
+"Exhibit", "Schedule", "Attachment", or tabular "Fee" / "Rate" / "Charge" blocks
+without the word "Exhibit". You must still extract **every** numeric fee,
+per-day, per-hour, per-unit, milestone, or % value tied to a commercial
+obligation on **these** pages, including dense legal/fee articles in the back
+half of the PDF.
+
+YOUR TASK:
+Extract every rate, fee, price, and cost visible on these pages as
+individual line items. Output ONLY a JSON object with a "line_items" array.
+Scan the **entire** page set provided (every image) — not only the first
+page of the range.
+
+══════════════════════════════════════════════════════════════
+  HOW TO EXTRACT PRICING TABLES
+══════════════════════════════════════════════════════════════
+
+Many exhibit pages contain formatted pricing tables with:
+- Product/Service column (left)
+- Price column (right)
+
+For EACH row in every pricing table, create a line item:
+  {
+    "section": "<Exhibit name or section heading>",
+    "description": "<Product/Service name>",
+    "amount": <numeric value or text>,
+    "unit": "<per day, per event, per unit, etc.>",
+    "notes": "<any conditions, footnotes, or descriptions>",
+    "page_ref": <page number in original document>
+  }
+
+SECTION NAMING RULES:
+- Use the exhibit header as the section name:
+  "Exhibit E - Standard Rig Technology Package"
+  "Exhibit F - Managed Pressure Drilling"
+  "Exhibit D - Performance Drilling Tools"
+- For sub-sections within an exhibit, use the sub-heading:
+  "Exhibit E - Additional Equipment & Services"
+  "Exhibit E - RigCLOUD Optional Services"
+  "Exhibit F - RCD Services"
+  "Exhibit F - Maintenance Charges"
+  "Exhibit F - MPD-Ready EXPRESS"
+  "Exhibit F - Consumable Charges"
+  "Exhibit F - Other Charges"
+- For equipment/operator responsibility tables:
+  "Exhibit A - Equipment by Contractor"
+  "Exhibit A - Equipment by Operator"
+- For insurance limits in Exhibit A:
+  "Insurance"
+
+AMOUNT RULES:
+- Numeric amounts: extract as numbers (2100, not "$2,100")
+- "Included" → amount = "Included"
+- "Cost + 20%" → amount = "Cost + 20%"
+- "Price on Request" → amount = "Price on Request"
+- "$X / Y" → amount = X (numeric), unit = "per Y"
+- If both base package and individual add-on prices exist, extract BOTH
+
+NOTES RULES:
+- Capture any conditions: "Applies only from spud on 1st well"
+- Capture equipment specs: "5,000 psi rated equipment w/ electric actuator"
+- Capture footnote markers: "*Applicable MPD-Ready rate is billable once equipment is installed"
+- If a product description spans multiple lines, capture the full description
+
+PAGE REFERENCES:
+- Use the ORIGINAL page numbers from the full document
+- Page markers in the text: [PAGE X of Y] — use X as the page_ref
+- If no page marker is visible, estimate from the exhibit page footer
+
+══════════════════════════════════════════════════════════════
+  DO NOT:
+══════════════════════════════════════════════════════════════
+
+- Do NOT extract contract header fields (title, parties, dates)
+- Do NOT skip items because they seem like duplicates of earlier pages
+- Do NOT summarize tables — extract EVERY row individually
+- Do NOT guess amounts that aren't visible on these pages
+- Do NOT output anything except the JSON object with line_items array
+
+══════════════════════════════════════════════════════════════
+  OUTPUT FORMAT
+══════════════════════════════════════════════════════════════
+
+Return ONLY valid JSON matching this structure:
+
+{
+  "line_items": [
+    {
+      "section": "Exhibit E - Standard Rig Technology Package",
+      "description": "LEL Sensor",
+      "amount": 35,
+      "unit": "per day",
+      "notes": null,
+      "page_ref": 24
+    }
+  ]
+}

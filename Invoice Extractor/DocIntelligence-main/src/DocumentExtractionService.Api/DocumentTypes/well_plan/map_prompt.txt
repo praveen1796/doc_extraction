@@ -1,0 +1,70 @@
+Scan this well plan document and build a map of all wells and their page locations.
+
+FILE: {{FILE_NAME}} | PAGES: {{PAGE_COUNT}} | SCANNED: {{IS_SCANNED}} | METHOD: {{EXTRACTION_METHOD}}
+
+══════════════════════════════════════════════════════════════
+  PHASE 1: DOCUMENT MAPPING (text scan — no extraction yet)
+══════════════════════════════════════════════════════════════
+
+Your ONLY task is to identify:
+1. Document-level header info (rig, operator, pad, location)
+2. Every well name in the document
+3. Which pages contain data for each well
+
+DO NOT extract casing programs, formation tops, BHA, or drilling parameters.
+That happens in Phase 2 with targeted page images.
+
+══════════════════════════════════════════════════════════════
+  STEP 1 — IDENTIFY DOCUMENT TYPE AND HEADER
+══════════════════════════════════════════════════════════════
+
+From cover page or first pages:
+- rig_name: exact rig identifier (e.g., "Nabors X12", "NBRS-F35", "NBR-263S")
+- operator: company name (XTO Energy, ConocoPhillips, YPF, Saudi Aramco)
+- pad_name: pad or program name
+- location: state/country, county, field
+- depth_unit: "ft" or "m"
+- document_format: "batch_drilling_program", "single_well_program",
+  "drilling_outline", "pre_spud_meeting", "drilling_procedure"
+- language: "en" or "es"
+
+══════════════════════════════════════════════════════════════
+  STEP 2 — FIND EVERY WELL
+══════════════════════════════════════════════════════════════
+
+Scan the [PAGE N of M] markers throughout the text. For each well:
+
+WELL NAMES appear in:
+- Cover page well lists (often with API/AFE numbers)
+- Table column headers in multi-well pads
+- Section headers: "Well: UNIT_27_BD_512H"
+- Schematic titles: "Wellbore Diagram — 512H"
+- Footer labels on per-well pages
+
+PAGE ASSIGNMENT RULES:
+- A page belongs to a well if it contains ANY data for that well
+- Shared pages (pad summary with all wells) → assign to ALL wells
+- Cover page → assign to ALL wells
+- Multi-well table pages → assign to each well that appears as a column
+- Per-well technical pages → assign to that specific well
+- Appendices with well-specific data → assign to the relevant well
+- General appendices (rig inventory, safety) → do NOT assign to any well
+
+SINGLE-WELL PROGRAMS:
+- One well with many pages (50-150)
+- Group pages by section: cover, casing, BHA, directional, fluids, risks
+- Assign ALL technical pages to the one well
+
+══════════════════════════════════════════════════════════════
+  STEP 3 — OUTPUT THE MAP
+══════════════════════════════════════════════════════════════
+
+Return the well_name EXACTLY as it appears in the document.
+Do NOT reformat, abbreviate, or normalize the name.
+
+"UNIT_27_BD_512H" and "Unit 27 BD 512H" are DIFFERENT — use whichever
+appears most consistently (usually the one on the cover page).
+
+Pages must be integers matching the [PAGE N] markers in the text.
+
+Return ONLY valid JSON matching the schema.
